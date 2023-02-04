@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
     // hollow rectangle
+
     for(int i=0;i<3;i++){
        
             if(i==0||i==2)
@@ -16,6 +17,5 @@ int main(){
                 cout<<"* ";
             }
             cout<<endl;
-        
     }
 }
