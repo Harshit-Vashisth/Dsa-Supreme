@@ -9,3 +9,25 @@ int main(){
     else
     cout<<"Pakistan wins";
 }
+
+// multiple conditions
+// if(){
+
+// }
+// else if(){
+
+// }
+// else
+
+
+// nested if else
+// if(){
+//     if(){
+//         if(){
+
+//         }
+//         else{
+
+//         }
+//     }
+// }
