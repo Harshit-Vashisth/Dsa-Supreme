@@ -33,15 +33,4 @@ int main(){
         c=k-((2*i)+1);
         cout<<endl;
     }
-    // }
-    // k2--;
-    //    for(int i =0;i<n;i++){
-    //     //star1
-    //     for(int j=0;j<n-i-1;j++){
-    //         cout<<k2;
-    //     }
-    //     k2--;
-    //     cout<<endl;
-    // }
-    
 }
