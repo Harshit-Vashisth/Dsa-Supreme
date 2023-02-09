@@ -1,16 +1,19 @@
 #include <iostream>
 using namespace std;
-char grade(int n){
-    if(n>=90&&n<=100)
-    return 'A';
-    else if( n>60 && n<90)
-    return 'B';
+void grade(int n){
+    int c=0;
+    for(int i=2;i<n;i++)
+    if(n%i==0)
+    c=1;
+    if(c!=0)
+    cout<<"Not prime";
     else
-    return 'C';
+    cout<<"Prime";
 }
+
 int main(){
     int a;
     cin>>a;
-    cout<<grade(a);
+    grade(a);
     return 0;
 }
