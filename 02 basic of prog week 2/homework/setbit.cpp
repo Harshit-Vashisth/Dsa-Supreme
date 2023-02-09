@@ -1,14 +1,33 @@
 #include <iostream>
 using namespace std;
-int sum(int n){
+void reverse(int n){
     int s=0;
-    for(int i=2;i<=n;i+=2)
-    s+=i;
-    return s;
+    while(n){
+        int a=n%10;
+        s=s*10+a;
+        n=n/10;
+    }
+    cout<<s;
+}
+void  change(int n,int count){
+ int s=0,c=0;
+    while(n){
+        if(c==count){
+        s=s*10+!n;
+        continue;
+        }
+        c++;
+        int a=n%10;
+        s=s*10+a;
+        n=n/10;
+        
+    }
+    reverse(s);
+    
 }
 int main(){
-    int a;
-    cin>>a;
-    cout<<sum(a);
+    int a, c;
+    cin>>a>>c;
+   change(a,c);
     return 0;
 }

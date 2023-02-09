@@ -1,14 +1,11 @@
 #include <iostream>
 using namespace std;
-int sum(int n){
-    int s=0;
-    for(int i=2;i<=n;i+=2)
-    s+=i;
-    return s;
+int temp(int n){
+    return (n*9/5)+32;
 }
 int main(){
     int a;
     cin>>a;
-    cout<<sum(a);
+    cout<<temp(a);
     return 0;
 }
