@@ -4,7 +4,7 @@ void check(int n){
     if(n%2==0)
     cout<<"Even";
     else
-    cout<<"ODD";
+    cout<<"Odd";
 }
 int main(){
     int a;
