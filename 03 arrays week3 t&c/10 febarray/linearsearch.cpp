@@ -16,7 +16,10 @@ int main(){
     for(int i=0;i<5;i++)
     cout<<arr[i]<<" ";
 cout<<endl;
-cout<<search(arr,5);
+if(search(arr,5))
+cout<<"YES";
+else
+cout<<"nope";
 cout<<endl;
 
 }
