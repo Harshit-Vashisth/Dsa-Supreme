@@ -10,8 +10,12 @@ int main(){
     for(int i=0;i<5;i++)
     cout<<arr[i]*2<<" ";
     
+
+    //int arr[10]={1,2,3,4}
     //agar array bda h aur values khali h toh remain space me 0 aajate h 
-    
+
+
+
     cout<<endl;
 
 } 
