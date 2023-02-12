@@ -5,6 +5,9 @@ int main(){
     for(int i=0;i<5;i++)
     cout<<arr[i]<<" ";
     cout<<endl;
-    cout<<arr<<" they are same"<<&arr;
+    cout<<arr<<" they are same"<<&arr;  // they are related to pointers
+
+    char a[106];
+    bool arr[234];
     return 0;
 } 
