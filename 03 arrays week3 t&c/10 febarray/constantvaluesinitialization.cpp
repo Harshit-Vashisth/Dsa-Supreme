@@ -11,7 +11,7 @@ int main(){
 
    //use of memset
    int ar[10];
-    memset(ar,2,10);
+    //memset(ar,2,10);
 
     cout<<endl;
 
