@@ -1,12 +1,14 @@
 #include<iostream>
 #include<limits.h>
 using namespace std;
-int smin(int arr[]){
-    int mini=INT_MAX;
-    for(int i=0;i<5;i++)
-    if(arr[i]<mini)
-    mini=arr[i];
-return mini; 
+void rev(int arr[]){
+    
+    int s=0,e=4;
+    while(s<=e){
+       swap(arr[s],arr[e]);
+        s++;
+        e--;
+    }
 }
 int main(){
 
@@ -18,6 +20,8 @@ int main(){
     for(int i=0;i<5;i++)
     cout<<arr[i]<<" ";
 cout<<endl;
-cout<<smin(arr);
+rev(arr);
 
+for(int i=0;i<5;i++)
+    cout<<arr[i]<<" ";
 }
