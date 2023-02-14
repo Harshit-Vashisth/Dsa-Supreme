@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 #include<limits>
 #include<vector>
-
 using namespace std;
 vector<int> sorting(vector<int> arr){
     int s=0,e=arr.size()-1,i=0;
@@ -34,7 +33,6 @@ cin>>n;
     cin>>a[i];
    
     a=sorting(a);
-cout<<endl;
+    cout<<endl;
 print(a);
-
 }
