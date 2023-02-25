@@ -17,7 +17,7 @@ int main(){
         for(int j=0;j<3;j++)
         cin>>arr[i][j];
     }
-    cout<<"\n\n";
+    cout<<"\n\n the transpose is ";
     transpose(arr);
      for(int i=0;i<3;i++){
         for(int j=0;j<3;j++)
