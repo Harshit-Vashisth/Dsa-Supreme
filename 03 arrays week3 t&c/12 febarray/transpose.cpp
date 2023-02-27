@@ -17,11 +17,11 @@ int main(){
         for(int j=0;j<3;j++)
         cin>>arr[i][j];
     }
-    cout<<"\n\n the transpose is ";
+    cout<<"\n\n the transpose is \n";
     transpose(arr);
      for(int i=0;i<3;i++){
         for(int j=0;j<3;j++)
-        cout<<arr[i][j];
+        cout<<arr[i][j]<<" ";
         cout<<endl;
     }
 }
