@@ -1,18 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool find(vector<int> arr,int s,int e,int tar){
-    int mid=0;
-    while(s<e){
+int find(vector<int> arr,int s,int e,int tar){
+    int mid=0,ans=-1;
+    while(s<=e){
         mid=s+(e-s)/2;
         if(arr[mid]==tar)
-        return true;
+        {ans=mid;
+        e=mid-1;
+        }
         else if(arr[mid]<tar)
         s=mid+1;
-        else
-        e=mid;
+        else if(tar>arr[mid])
+        e=mid-1;
     }
-    return false;
+    return ans;
 }
 int main(){
     int n;

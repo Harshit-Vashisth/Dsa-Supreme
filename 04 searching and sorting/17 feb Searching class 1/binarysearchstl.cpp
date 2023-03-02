@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     int n;
-    cin>>n;
+    cin>>n; 
     vector<int> v;
     int k,t;
     cout<<"Enter the value";
