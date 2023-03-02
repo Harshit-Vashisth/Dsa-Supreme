@@ -14,5 +14,9 @@ int main(){
     cout<<"enter the target value";
     cin>>t;
     cout<<binary_search(v.begin(),v.end(),5);
+
+    //FOR ARRAY
+    int arr[]={1,2,3,4,5,7};
+    cout<<binary_search(arr,arr+6,6);
     return 0;
 }
