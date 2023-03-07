@@ -15,17 +15,16 @@ int solve(int div,int d)//dividend and divisor
     }
      return ans;
 }
-double precison(int div,double val,int prec){
+double precison(int div,double val,int prec,double d){
     double step=0.1;
-    double ans;
     for(int i=0;i<prec;i++){
-        for(double j=val;j*val<=div;j+=step){
-            ans=j;
+        for(double j=val;j*d<=div;j+=step){
+            val=j;
         }
         step=step/10;
     }
-    return ans;
-}
+    return val;
+    }
 int main(){
     int div,d,prec;
     cout<<"Enter the dividend"<<endl;
@@ -37,5 +36,5 @@ int main(){
     double val=(double)n;
     cout<<"Enter the precison to be achieved"<<endl;
     cin>>prec;
-    cout<<"With precison"<<precison(div,val,prec);
+    cout<<"With precison - "<<precison(div,val,prec,(double)d);
 }
