@@ -13,7 +13,10 @@ int solve(int div,int d)//dividend and divisor
         else 
         e=mid-1;
     }
+    if((div<0&&d<0)||(div>0&&d>0))
      return ans;
+     else
+     return ans*-1;
 }
 int main(){
     int div,d;
