@@ -26,5 +26,5 @@ int main(){
     cout<<"Enter the target";
     cin>>tar;
     int ind=lastocc(v,n,tar);
-    cout<<"The last occ is "<<ind;
+    cout<<"The last occ is "<<ind<<endl;
 }
