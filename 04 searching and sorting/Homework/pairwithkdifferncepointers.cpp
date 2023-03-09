@@ -1,26 +1,25 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int search(vector<int>& nums,int t,int s){
-    int e=nums.size()-1;
-    while(s<=e){
-        int mid=s+(e-s)/2;
-        if(nums[mid]==t)
-        return mid;
-        else if(t>nums[mid])
-        s=mid+1;
-        else
-        e=mid-1;
-    }
-    return -1;
-}
+class Solution {
+public:
     int findPairs(vector<int>& nums, int k) {
         sort(nums.begin(),nums.end());
-        int i=0;
         set<pair<int,int>> ans;
-        for(int i=0;i<nums.size();i++){
-            if(search(nums,nums[i]+k,i+1)!=-1)
-            ans.insert({nums[i],(nums[i]+k)});
+        int i=0,j=1;
+        while(j<nums.size()){
+            int diff=nums[j]-nums[i];
+            if(diff==k)
+            {
+                ans.insert({nums[i],nums[j]});
+                i++;j++;
+            }
+            else if(diff>k)
+            i++;
+            else
+            j++;
+            if(i==j)
+            j++;
         }
         return ans.size();
     }
+};
