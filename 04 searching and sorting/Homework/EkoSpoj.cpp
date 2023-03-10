@@ -7,7 +7,7 @@ bool possible(vector<long long int> arr,long long int k,long long int mid){
         if(arr[i]>mid)
         sum+=arr[i]-mid;
     }
-    return sum>=mid;
+    return sum>=k;
 }
 long long int ekospoj(vector<long long int> arr,long long int k){
     long long int s=0,e,ans=-1,mid;
