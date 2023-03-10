@@ -9,7 +9,7 @@ bool possible(vector< int> arr,int k, int mid){
    while(true){
     if(time+j*r<=mid){
         curr++;
-        time+=j*R;
+        time+=j*r;
         j++;
     }
     else break;
@@ -35,15 +35,16 @@ bool possible(vector< int> arr,int k, int mid){
     return ans;
 }
 int main(){
-    vector<int> arr;
-   int n,m;
-    cout<<"Enter the values"<<endl;
-    cin>>n>>m;
-    while(n--){
-        h;
-        cin>>h;
-        arr.push_back(h);
+    int Test;cin>>Test;
+    while(Test--){
+        int np,nc;
+        cin>>np>>nc;
+        vector<int> arr;
+        while(nc--){
+            int r;cin>>r;
+            arr.push_back(r);
+        }
+         cout<<mintime(arr,np);
     }
-    cout<<mintime(arr,m);
     return 0;
     }
