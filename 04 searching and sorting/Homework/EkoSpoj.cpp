@@ -1,26 +1,40 @@
 #include<bits/stdc++.h>
+#include<algorithm>
 using namespace std; 
-bool possible(vector<int>& arr,int k,int mid){
-    int c=1, sum=0;
-    for(int i=0;i<arr.size();i++){
-        
+bool possible(vector<long long int> arr,long long int k,long long int mid){
+    long long int sum=0;
+    for(long long int i=0;i<arr.size();i++){
+        if(arr[i]>mid)
+        sum+=arr[i]-mid;
     }
+    return sum>=mid;
 }
-int spoj(vector<int>& arr,int n,int k){
-    int s=0,e=accumulate(arr.begin(),arr.end(),0),ans=-1,mid;
+long long int ekospoj(vector<long long int> arr,long long int k){
+    long long int s=0,e,ans=-1,mid;
+    e=*max_element(arr.begin(),arr.end());
     while(s<=e){
         mid=s+(e-s)/2;
+        cout<<s<<" "<<e<<" "<<mid<<endl;
         if(possible(arr,k,mid))
         {
             ans=mid;
-            e=mid-1;
+            s=mid+1;
         }
         else
-        s=mid+1;
+        e=mid-1;
     }
+    return ans;
 }
 int main(){
-    vector<int> arr={20,15,10,17};
-    int n=4,m=7;
-    cout<<spoj(arr,n,m);
+    vector<long long int> arr;
+    long long int n,m;
+    cout<<"Enter the values"<<endl;
+    cin>>n>>m;
+    while(n--){
+        long long int h;
+        cin>>h;
+        arr.push_back(h);
+    }
+    cout<<ekospoj(arr,m);
+    return 0;
     }
