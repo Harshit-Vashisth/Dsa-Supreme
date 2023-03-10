@@ -2,12 +2,22 @@
 #include<algorithm>
 using namespace std; 
 bool possible(vector< int> arr,int k, int mid){
-    long long int sum=0;
-    for(long long int i=0;i<arr.size();i++){
-        if(arr[i]>mid)
-        sum+=arr[i]-mid;
+    int curr=0,r,time,j;
+    for(int i=0;i<arr.size();i++){
+    time=0;
+   r=arr[i],j=1;  //r=rank   j =1r 2r 3r 1 2 3 is the j 
+   while(true){
+    if(time+j*r<=mid){
+        curr++;
+        time+=j*R;
+        j++;
     }
-    return sum>=k;
+    else break;
+   }
+    if(curr>=k)
+    return true;
+    }
+   return false;
 }
  int mintime(vector<int> arr, int n){
      int s=0,e,ans=-1,mid,h=*max_element(arr.begin(),arr.end());
