@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include<algorithm>
 using namespace std; 
-bool possible(vector<long long int> arr,long long int k,long long int mid){
+bool possible(vector< int> arr,int k, int mid){
     long long int sum=0;
     for(long long int i=0;i<arr.size();i++){
         if(arr[i]>mid)
@@ -9,32 +9,31 @@ bool possible(vector<long long int> arr,long long int k,long long int mid){
     }
     return sum>=k;
 }
-long long int ekospoj(vector<long long int> arr,long long int k){
-    long long int s=0,e,ans=-1,mid;
-    e=*max_element(arr.begin(),arr.end());
+ int mintime(vector<int> arr, int n){
+     int s=0,e,ans=-1,mid,h=*max_element(arr.begin(),arr.end());
+    e=h*(n*(n+1)/2);
     while(s<=e){
         mid=s+(e-s)/2;
-        cout<<s<<" "<<e<<" "<<mid<<endl;
-        if(possible(arr,k,mid))
+        if(possible(arr,n,mid))
         {
             ans=mid;
-            s=mid+1;
+            e=mid-1;
         }
         else
-        e=mid-1;
+        s=mid+1;
     }
     return ans;
 }
 int main(){
-    vector<long long int> arr;
-    long long int n,m;
+    vector<int> arr;
+   int n,m;
     cout<<"Enter the values"<<endl;
     cin>>n>>m;
     while(n--){
-        long long int h;
+        h;
         cin>>h;
         arr.push_back(h);
     }
-    cout<<ekospoj(arr,m);
+    cout<<mintime(arr,m);
     return 0;
     }

@@ -9,12 +9,11 @@ bool possible(vector<long long int> arr,long long int k,long long int mid){
     }
     return sum>=k;
 }
-long long int ekospoj(vector<long long int> arr,long long int k){
+long long int maxSawBladeHeight(vector<long long int> arr,long long int k){
     long long int s=0,e,ans=-1,mid;
     e=*max_element(arr.begin(),arr.end());
     while(s<=e){
         mid=s+(e-s)/2;
-        cout<<s<<" "<<e<<" "<<mid<<endl;
         if(possible(arr,k,mid))
         {
             ans=mid;
@@ -35,6 +34,6 @@ int main(){
         cin>>h;
         arr.push_back(h);
     }
-    cout<<ekospoj(arr,m);
+    cout<<maxSawBladeHeight(arr,m);
     return 0;
     }
