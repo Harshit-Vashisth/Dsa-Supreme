@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-void printcount(int n){
-    if(n==0)
-    return ;
-    cout<<n<<"  ";//reverse count
-    printcount(n-1);
-    cout<<n<<"  "; //Normal couting
+int fibonacci(int n){
+    if(n==1)
+    return 0;
+    if(n==2)
+    return 1;
+    return (fibonacci(n-1)+fibonacci(n-2));
 }
 int main(){
     int n;
     cout<<"Enter the value of n"<<endl;
     cin>>n;
-    printcount(n);
+    cout<<"The ith fibonacci term is "<<fibonacci(n);
     return 0;
 }
