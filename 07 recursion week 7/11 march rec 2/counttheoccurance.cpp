@@ -1,20 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool occurance(string s,int i,char key,int n){
+int occurance(string s,int i,char key,int& c,int n){
     if(i>=n)
-    return false;
+    return c;
     if(s[i]==key)
-    return true;
-    return occurance(s,i+1,key,n);
+    c++;
+    return occurance(s,i+1,key,c,n);
 }
 int main(){
     char key;
     cout<<"Enter the String "<<endl;
     string s;
     cin>>s;
-    
+    int c=0;
     cout<<"Enter the key"<<endl;
     cin>>key;
-   cout<<"is char there :- "<<occurance(s,0,key,s.size());
+   cout<<"count of key is :- "<<occurance(s,0,key,c,s.size());
    
 }
