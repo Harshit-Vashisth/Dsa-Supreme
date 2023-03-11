@@ -35,7 +35,10 @@ bool possible(vector< int> arr,int k, int mid){
     return ans;
 }
 int main(){
+    // int n=0647;            why hw
+    // cout<<n;
     int Test;cin>>Test;
+
     while(Test--){
         int np,nc;
         cin>>np>>nc;
@@ -46,5 +49,6 @@ int main(){
         }
          cout<<mintime(arr,np);
     }
+    
     return 0;
     }
