@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int maxelement(vector<int> v,int i,int maxi,int n){
+int maxelement(vector<int> v,int i,int& maxi,int n){
     if(i>=n)
     return maxi;
     maxi=max(maxi,v[i]);
