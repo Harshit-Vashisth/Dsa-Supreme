@@ -9,7 +9,7 @@ void print(vector<int> v,int i,int n){
 }
 int main(){
     int n;
-    cout<<"Enter the number to be printed "<<endl;
+    cout<<"Enter the number of elements "<<endl;
     cin>>n;
     vector<int> v;
     while(n--){
