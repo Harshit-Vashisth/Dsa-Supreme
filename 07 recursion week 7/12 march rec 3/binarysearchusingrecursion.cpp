@@ -17,5 +17,5 @@ int main(){
     int s=0,e=*max_element(v.begin(),v.end());
     cout<<"Enter the value of key"<<endl;
     cin>>tar;
-    cout<<"Element present at : "<<binarysearch(v,s,e,tar);
+    cout<<"Element present at :> "<<binarysearch(v,s,e,tar);
 }
