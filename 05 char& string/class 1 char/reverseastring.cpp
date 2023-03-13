@@ -1,18 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-void reverse(char name[]){
-    int n=strlen(name);
-    int i=0,j=n-1;
-    while(i<j){
-        swap(name[i],name[j]);
-        i++;j--;
-        }
+void replace(char s[]){
+    int n=strlen(s);
+    for(int i=0;i<n;i++)
+        if(s[i]==' ')
+            s[i]='@';
 }
 int main(){
     char c[100];
     cin.getline(c,30);
     cout<<c;
-    reverse(c);
+    replace(c);
     cout<<c;
 
 }
