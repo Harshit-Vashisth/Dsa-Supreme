@@ -15,7 +15,7 @@ void printseq(string& str,vector<string>& ans,string out,int i){
     
 }
 int main(){
-    cout<<"Enter the string for subseq"<<endl;
+    cout<<"Enter the string for subseq"<<endl; 
     vector<string> ans;
     string s;
     cin>>s;
