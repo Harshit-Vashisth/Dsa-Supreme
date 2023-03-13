@@ -22,7 +22,7 @@ int main(){
     int i=0;
     string out="";
     printseq(s,ans,out,i);
-    cout<<"The subsequence of given string is "<<endl;
+    cout<<"The subsequence of given string is :- "<<endl;
     for(auto i:ans)
     cout<<i<<endl;
 }
