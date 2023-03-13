@@ -8,7 +8,13 @@ int main(){
     cin>>ch[i];
     cout<<ch;
 
+    //method 2
     char name[100];
     cin>>name;
     cout<<name;
+
+    //hwo to input string with space also 
+    char c[100];
+    cin.getline(c,30);
+    cout<<c;
 }
