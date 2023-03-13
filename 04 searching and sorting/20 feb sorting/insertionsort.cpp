@@ -14,7 +14,7 @@ int main(){
          }
          arr[j+1]=val;
     }
-
+    cout<<"Sorted array ;- ";
     for(auto s:arr)
-    cout<<s<<endl;
+    cout<<s<<" ";
 }
