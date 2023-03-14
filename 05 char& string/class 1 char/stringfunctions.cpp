@@ -25,7 +25,14 @@ int main(){
 
     string s1="harshit",s2="harshit";
     //comparing two strings 
-    cout<<s1.compare(s2);
+    cout<<s1.compare(s2)<<endl;
 
-    
+    //finding
+    cout<<s1.find("rs")<<endl;
+
+    //find with npos
+    if(s1.find("sh")==std::string::npos)
+    cout<<"not found"<<endl;
+
+
 }
