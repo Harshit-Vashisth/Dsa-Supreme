@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+bool comp(string a,string b){
+    if(a.length()!=b.length())
+    return false; 
+}
 int main(){
     string s;
     cin>>s;
