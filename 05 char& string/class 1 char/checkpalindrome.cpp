@@ -16,7 +16,7 @@ bool checkpalin(char ch[])
 }
 int main(){
     char ch[100];
-    cout<<"Enter the palindrome string to be check"<<endl;
+    cout<<"Enter the string to be check"<<endl;
     cin.getline(ch,20);
     cout<<checkpalin(ch);
 
