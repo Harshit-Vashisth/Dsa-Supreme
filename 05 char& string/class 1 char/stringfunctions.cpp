@@ -31,7 +31,7 @@ int main(){
     cout<<s1.find("rs")<<endl;
 
     //find with npos
-    if(s1.find("sh")==std::string::npos)
+    if(s1.find("sww")==std::string::npos)
     cout<<"not found"<<endl;
 
 
