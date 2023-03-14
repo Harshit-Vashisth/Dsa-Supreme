@@ -9,6 +9,4 @@ int main(){
     // cout<<"Enter it again"<<endl;
     getline(cin,s);
     cout<<s<<endl;
-   
-
 }
