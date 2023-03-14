@@ -34,5 +34,11 @@ int main(){
     if(s1.find("sww")==std::string::npos)
     cout<<"not found"<<endl;
 
+    //replace the letter 
+    s1.replace(5,2,"satu");
+    cout<<s1<<endl;
 
+    string st="Hello baby";
+    st.erase(6,4);
+    cout<<st;
 }
