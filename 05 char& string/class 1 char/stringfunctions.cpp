@@ -18,4 +18,7 @@ int main(){
     s.pop_back();
     s.pop_back();
     cout<<s<<endl;
+
+    //substring function important ++
+    cout<<s.substr(1,5)<<endl;
 }
