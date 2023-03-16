@@ -15,7 +15,10 @@ int solve(int n,int x,int y,int z){
 }
 int main(){
     //you have to tell the min number of eleements required to reach target sum 
-    int n;
-    cout<<"Enter"
-    cout<<solve(v,tar);
+    int n,x,y,z;
+    cout<<"Enter the length of rod "<<endl;
+    cin>>n;
+    cout<<"Enter the possible cuts"<<endl;
+    cin>>x>>y>>z;
+    cout<<solve(n,x,y,z);
 }
