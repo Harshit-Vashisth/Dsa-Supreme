@@ -1,12 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-    int findocc(vector<char>& v,int n,vector<char>& part){
-        w
+    int findocc(string s,int n,string part){
+        int i=0;
+        while(i<s.size()-part.length()){
+            if(s.substr(i,part.length()-1)==part)
+            return i;
+        }
+        return -1;
     }
 int main(){
     int n=0;
-    vector<char> v={'d','a','a','b','c','b','a','a','b','c','b','c'};
-    vector<char> part={'a','b','c'};
+    string s="daabcbaabcbc";
+    string part="abc";
     
-    int f=findocc(v,n,part);
+    int f=findocc(s,n,part);
+    cout<<f;
 }
