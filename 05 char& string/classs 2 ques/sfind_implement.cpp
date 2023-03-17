@@ -11,7 +11,7 @@ using namespace std;
     }
 int main(){
     int n=0;
-    string s="daacbaabcbc";
+    string s="daabcbaabcbc";
     string part="abc";
     cout<<"By harshit"<<endl;
     int f=findocc(s,n,part);
