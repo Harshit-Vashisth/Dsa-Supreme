@@ -5,6 +5,7 @@ using namespace std;
         while(i<s.size()-part.length()){
             if(s.substr(i,part.length()-1)==part)
             return i;
+            i++;
         }
         return -1;
     }
@@ -12,7 +13,7 @@ int main(){
     int n=0;
     string s="daabcbaabcbc";
     string part="abc";
-    
+    cout<<"By harshit"<<endl;
     int f=findocc(s,n,part);
     cout<<f;
 }
