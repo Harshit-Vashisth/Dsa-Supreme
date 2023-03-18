@@ -43,6 +43,7 @@ int main(){
     vector<int> arr={1,4,5,9,10,6,11,3,2};
    cout<<"Running";
     mergesort(arr,0,arr.size()-1);
+    cout<<"Running";
    for(auto i:arr)
     cout<<i<<" ";
 }
