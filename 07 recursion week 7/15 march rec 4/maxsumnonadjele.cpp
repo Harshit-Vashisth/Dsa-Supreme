@@ -6,9 +6,9 @@ void solve(vector<int>& arr,int i,int sum,int& maxi){
      maxi =max(maxi,sum);
      return ;
     }
-
+//include 
     solve(arr,i+2,sum+arr[i],maxi);
-    
+    //exclude
     solve(arr,i+1,sum,maxi);
 }
 int main(){
