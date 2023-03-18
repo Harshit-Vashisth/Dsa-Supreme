@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+ 
 void solve(vector<int>& arr,int i,int sum,int& maxi){
     if(i>=arr.size()){
      maxi =max(maxi,sum);
