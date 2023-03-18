@@ -8,11 +8,11 @@ using namespace std;
         vector<int> right;
         int k=s;
         for(int i=0;i<len1;i++){
-            left[i]=arr[k];
+            left.push_back(arr[k]);
             k++;}
             k=mid+1;
             for(int i=0;i<len2;i++){
-            right[i]=arr[k];
+            right.push_back(arr[k]);
             k++;}
 
             int i=0,j=0,m=s;
@@ -41,9 +41,9 @@ using namespace std;
     }
 int main(){
     vector<int> arr={1,4,5,9,10,6,11,3,2};
-   cout<<"Running";
+   cout<<"Running"<<endl;
     mergesort(arr,0,arr.size()-1);
-    cout<<"Running";
+    
    for(auto i:arr)
     cout<<i<<" ";
 }
