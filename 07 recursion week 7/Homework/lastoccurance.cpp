@@ -16,7 +16,7 @@ int lastocc(vector<int>& arr, int target,int s,int e,int& ans){
 }
 int main(){
     vector<int> nums={2,2,2,3,3,3,3,4,5,7};
-    int t=3;
+    int tar=3;
     int ans=0;
-    cout<<"Last Occurance of an element is :- "<<lastocc(nums,t,0,nums.size(),ans);
+    cout<<"Last Occurance of an element is :- "<<lastocc(nums,tar,0,nums.size(),ans);
 }
