@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-    string addstring(string& s1,string& s2,int i,int j,int c,string& ans){
-        if(c>0&&i>0&&j>0){
+    string addstring(string& s1,string& s2,int i,int j,int& c,string& ans){
+        if(c==0&&i>0&&j>0){
             reverse(ans.begin(),ans.end());
             return ans;
         }
@@ -27,5 +27,5 @@ int main(){
     int i=s1.length()-1,j=s2.length()-1,c=0;
     string ans="";
     cout<<"String after adding -> "<<addstring(s1,s2,i,j,c,ans);
-    cout<<"hars";
+    
 }
