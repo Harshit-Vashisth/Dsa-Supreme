@@ -1,23 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
-    void premutate(vector<int>& arr,vector<vector<int>>& ans,vector<int> prem,int i){
-        if(i>=arr.size()){
-            ans.push_back(prem);
-            return ;
-        }
-        premutate(arr,ans,prem,i+1);
-        prem.push_back(arr[i]);
-        premutate(arr,ans,prem,i+1);
+    void print(vector<int>& arr,int i,int j){
+        if(j>=arr.size())
+            return;
+        else if(i>j)
+        print(arr,0,j+1);
+        else
+        {cout<<"[";
+        for(int s=i;s<j;s++)
+            cout<<arr[s]<<",";
+        cout<<arr[j]<<"]"<<",";
+        print(arr,i+1,j);}
     }
+
 int main(){
     vector<int> arr={1,2,3};
-    vector<vector<int>> ans;
-    vector<int> prem;
-    premutate(arr,ans,prem,0);
-    for(auto i:ans)
-    {
-        for(auto j:i)
-        cout<<j<<" ";
-        cout<<endl;
-    }
+    print(arr,0,0);
 }
