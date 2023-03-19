@@ -9,13 +9,16 @@ int findpivot(vector<int>& arr,int s,int e){
             count++;
     }
     int i=s,j=e;
-    piv=s+count;
+   
     swap(arr[s+count],arr[piv]);
+     piv=s+count;
     while(i<piv&&j>piv){
         while(arr[i]<=pivele)
         i++;
         while(arr[j]>pivele)
         j--;
+        if(i<piv&&j>piv)
+            swap(arr[i],arr[j]);
     }
     return piv;
 }
@@ -30,8 +33,8 @@ void quicksort(vector<int>& arr,int s,int e){
     quicksort(arr,piv+1,e);
 }
 int main(){
-    vector<int> arr={9,6,5,3,1,7,4};
-    int n=7;
+    vector<int> arr={9,6,5,1,1,2,2,3,1,7,4};
+    int n=11;
     quicksort(arr,0,n);
     for(auto i:arr)
     cout<<i<<" ";
