@@ -26,5 +26,6 @@ int main(){
     cout<<"String 2->"<<s2<<endl;
     int i=s1.length()-1,j=s2.length()-1,c=0;
     string ans="";
-    cout<<addstring(s1,s2,i,j,c,ans);
+    cout<<"String after adding -> "<<addstring(s1,s2,i,j,c,ans);
+    cout<<"hars";
 }
