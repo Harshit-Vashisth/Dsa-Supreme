@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-string remove(string s,string seq,int pos){
+void remove(string& s,string seq,int pos){
     if(pos==string::npos)
-    return s;
+    return ;
     s.erase(pos,seq.length());
     pos=s.find(seq);
     remove(s,seq,pos);
@@ -13,5 +13,7 @@ int main(){
     cin>>s;
     cout<<"Seq to remove "<<endl;
     cin>>seq;
-    remove(s,seq,s.find(seq));
+    int pos=s.find(seq);
+    remove(s,seq,pos);
+    cout<<s;
 }
