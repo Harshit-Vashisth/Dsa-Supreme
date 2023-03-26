@@ -1,14 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
+bool issafe(int i,int j,int row,int col,int m[3][3],vector<vector<bool>> vist){
+    //
+}
 void solve(int m[3][3],int row,int col,int i,int j, vector<string>& path,string out,vector<vector<bool>> vist){
     if(i==row-1&&j==col-1){
         path.push_back(out);
         return ;
+    }
     //down i+1.j
     if(issafe(i+1,j,row,col,m,vist)){
         vist[i+1][j]=true;
         solve(m,row,col,i+1,j,path,out+'D',vist)
     }
+    //left i.j-1
+    if(issafe(i,j-1,row,col,m,vist)){
+        vist[i][j-1]=true;
+        solve(m,row,col,i,j-1,path,out+'D',vist)
+    }
+    //right i.j+1
+    if(issafe(i,j+1,row,col,m,vist)){
+        vist[i][j+1]=true;
+        solve(m,row,col,i,j+1,path,out+'D',vist)
+    }
+    //up i-1.j
+    if(issafe(i-1,j,row,col,m,vist)){
+        vist[i-1][j]=true;
+        solve(m,row,col,i-1,j,path,out+'D',vist)
     }
 }
 int main(){
