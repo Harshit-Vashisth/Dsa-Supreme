@@ -5,7 +5,7 @@ unordered_map<int,bool> rowcheck;
 unordered_map<int,bool> upperd;
 unordered_map<int,bool> lowerd;
 
-bool issafe(vector<vector<int>>& board,int row,int col,int n){
+bool issafe(vector<vector<int>> &board,int row,int col,int n){
     if((rowcheck[row]==true) || (upperd[(n-1)+col-row]==true )|| (lowerd[row+col]==true))
     return false;
     return true;
@@ -18,7 +18,7 @@ void print(vector<vector<int>> board,int n){
         cout<<endl;
     }
 }
-void solve(vector<vector<int>>& board,int col,int n){
+void solve(vector<vector<int>> &board,int col,int n){
     if(col>=n){
         cout<<"print"<<endl;
         print(board,n);
@@ -45,6 +45,7 @@ void solve(vector<vector<int>>& board,int col,int n){
 int main(){
     int n;
     cin>>n;
+    int col=0;
     vector<vector<int>> board(n,vector<int>(n,0));
-    solve(board,0,n);
+    solve(board,col,n);
 }
