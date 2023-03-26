@@ -1,3 +1,5 @@
+///  Time complexity 4^n exponential .
+
 #include<bits/stdc++.h>
 using namespace std;
 bool issafe(int x,int y,int row,int col,int m[3][3],vector<vector<bool>> vist){
