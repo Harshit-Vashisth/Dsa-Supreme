@@ -2,9 +2,9 @@
 using namespace std;
 bool issafe(int x,int y,int row,int col,int m[3][3],vector<vector<bool>> vist){
     if(((x>=0 &&x<row) &&( y>=0 && y<col))&&
-    (m[x][y]==true)&&
-    (vist[x][y]==false))
-        return true;
+        (m[x][y]==true)&&
+        (vist[x][y]==false))
+             return true;
     else return false;
 }
 void solve(int m[3][3],int row,int col,int i,int j, vector<string>& path,string out,vector<vector<bool>> vist){
