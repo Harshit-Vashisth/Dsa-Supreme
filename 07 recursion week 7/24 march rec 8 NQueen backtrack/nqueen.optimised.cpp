@@ -1,28 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool issafe(vector<vector<int>> board,int row,int col,int n){
-    //left row i j-1
-    int i=row,j=col;
-    while(j>=0){
-        if(board[i][j]==1)
-        return false;
-        j--;
-    }
-     //upper left row i-1 j-1
-   i=row,j=col;
-    while(j>=0&&i>=0){
-        if(board[i][j]==1)
-        return false;
-        j--;i--;
-    }
-     //bottom left row i+1 j-1
-    i=row,j=col;
-    while(j>=0&&i<n){
-        if(board[i][j]==1)
-        return false;
-        j--;i++;
-    }
+unordered_map<int,bool> rowcheck;
+unordered_map<int,bool> upperd;
+unordered_map<int,bool> lowerd;
+
+bool issafe(vector<vector<int>>& board,int row,int col,int n){
+    if((rowcheck[row]==true) || (upperd[(n-1)+col-row]==true )|| (lowerd[row+col]==true))
+    return false;
     return true;
 }
 void print(vector<vector<int>> board,int n){
@@ -39,16 +24,27 @@ void solve(vector<vector<int>>& board,int col,int n){
         print(board,n);
     return;
     }
+    cout<<"K";
     for(int row=0;row<n;row++){
         if(issafe(board,row,col,n)){
             board[row][col]=1;
+            rowcheck[row]=true;
+            upperd[n-1+col-row]=true;
+            lowerd[row+col]=true;
+            cout<<"ee";
             solve(board,col+1,n);
+
             board[row][col]=0;
-            }
+            rowcheck[row]=false;
+            upperd[n-1+col-row]=false;
+            lowerd[row+col]=false;
+            
+            }  
     }
 }
 int main(){
-    int n=4;
+    int n;
+    cin>>n;
     vector<vector<int>> board(n,vector<int>(n,0));
     solve(board,0,n);
 }
