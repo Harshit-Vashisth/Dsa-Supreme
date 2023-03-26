@@ -7,7 +7,7 @@ bool issafe(int x,int y,int row,int col,int m[3][3],vector<vector<bool>> vist){
              return true;
     else return false;
 }
-void solve(int m[3][3],int row,int col,int i,int j, vector<string>& path,string out,vector<vector<bool>> vist){
+void solve(int m[3][3],int row,int col,int i,int j, vector<string>& path,string out,vector<vector<bool>>& vist){
     if(i==row-1&&j==col-1){
         path.push_back(out);
         return ;
@@ -47,5 +47,8 @@ int main(){
      solve(m,row,col,0,0,path,out,vist);
      if(path.size()==0){
         cout<<"No path";
-        return 0;   }
+        return 0;   
+        }
+    for(auto i: path)
+        cout<<i<<"  ";
 }
