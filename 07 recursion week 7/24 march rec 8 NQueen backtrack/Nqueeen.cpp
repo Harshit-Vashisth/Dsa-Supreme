@@ -11,14 +11,14 @@ bool issafe(vector<vector<int>> board,int row,int col,int n){
     }
      //upper left row i-1 j-1
    i=row,j=col;
-    while(j>=0){
+    while(j>=0&&i>=0){
         if(board[i][j]==1)
         return false;
         j--;i--;
     }
      //bottom left row i+1 j-1
     i=row,j=col;
-    while(j>=0){
+    while(j>=0&&i<n){
         if(board[i][j]==1)
         return false;
         j--;i++;
@@ -35,10 +35,10 @@ void print(vector<vector<int>> board,int n){
 }
 void solve(vector<vector<int>>& board,int col,int n){
     if(col>=n){
-        print(board,n);cout<<"print";
+        cout<<"print"<<endl;
+        print(board,n);
     return;
     }
-
     for(int row=0;row<n;row++){
         if(issafe(board,row,col,n)){
             board[row][col]=1;
