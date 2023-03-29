@@ -2,15 +2,15 @@
 using namespace std;
 bool issafe(int val,int board[][9],int curr_row,int curr_col){
     //row
-    for(int col=0;col<9;col++)
+    for(int col=0;col<9;col++){
         if(board[curr_row][col]==val)
         return false;
-
+    }
     //col
-for(int row=0;row<9;row++)
-        if(board[row][curr_col]==val)
-        return false;
-
+    for(int row=0;row<9;row++){
+            if(board[row][curr_col]==val)
+            return false;
+    }
     //3*3 board
     //we can use maps
     for(int i=0;i<9;i++){
