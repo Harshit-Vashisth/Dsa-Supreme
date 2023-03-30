@@ -46,6 +46,11 @@ int main(){
      vist[0][0]=true;
      vector<string> path;
      string out="";
+     if(m[0][0]==0)
+        {
+            path.push_back("-1");
+            return ;
+        }
      solve(m,row,col,0,0,path,out,vist);
      if(path.size()==0){
         cout<<"No path";
