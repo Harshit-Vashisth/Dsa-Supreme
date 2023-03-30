@@ -39,7 +39,8 @@ bool solve(int board[][9],int n){
                         board[i][j]=0;
                     }
                 }
-            }
+            }  
+            return false;
         }
     }
     return false;
