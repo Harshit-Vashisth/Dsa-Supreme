@@ -20,7 +20,7 @@ bool issafe(int val,int board[][9],int curr_row,int curr_col){
     return true;
 }
 //return true or false base on soln found or not
-bool solve(int board[][9],int n){
+bool solve(int board[9][9],int n){
     //empty cell ko fill
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -39,8 +39,8 @@ bool solve(int board[][9],int n){
                         board[i][j]=0;
                     }
                 }
-            }  
             return false;
+            }  
         }
     }
     return false;
@@ -58,7 +58,7 @@ int board[9][9]={
             {0,0,8,0,0,9,0,0,0}
 };
 int n=9;
-solve(board,n);
+solve(board,9);
 for(int i=0;i<9;i++){
     for(int j=0;j<9;j++)
     cout<<board[i][j]<<" ";
