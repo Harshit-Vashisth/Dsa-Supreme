@@ -2,5 +2,8 @@
 using namespace std;
 
 int main(){
-    string 
+    string number;
+    cout<<"Enter the number"<<endl;
+    cin>>number;
+    solve(number);
 }
