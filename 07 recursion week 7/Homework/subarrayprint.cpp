@@ -1,20 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
-    void print(vector<int>& arr,int i,int j){
-        if(j>=arr.size())
+    void print(vector<int>& arr,int start,int end){
+        if(end==arr.size())
             return;
-        else if(i>j)
-        print(arr,0,j+1);
-        else
-        {cout<<"[";
-        for(int s=i;s<j;s++)
-            cout<<arr[s]<<",";
-        cout<<arr[j]<<"]"<<",";
-        print(arr,i+1,j);}
+        for(int i=start;i<=end;i++)
+            cout<<arr[i];
+            cout<<endl;
+            print(arr,start,end+1);
     }
-    void printsub()
+    void printsub(vector<int>& arr){
+        for(int start=0;start<arr.size();start++){
+            int end=start;
+            print(arr,start,end);
+        }
+    }
 
 int main(){
-    vector<int> arr={1,2,3};
-    print(arr,0,0);
+    vector<int> arr={1,2,3,4,5};
+    printsub(arr);
 }
