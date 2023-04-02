@@ -12,6 +12,7 @@ using namespace std;
         cout<<arr[j]<<"]"<<",";
         print(arr,i+1,j);}
     }
+    void printsub()
 
 int main(){
     vector<int> arr={1,2,3};
