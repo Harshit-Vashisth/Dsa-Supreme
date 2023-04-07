@@ -40,6 +40,7 @@ int main(){
 
     //object creation 
 //static
+Animal b; //default construct its alwasys there
 Animal* r=new Animal(2,3,"harshit");  //animal type ka  dynamically
 r->type=15;   //-> arrow -> is the easist way to access  them     
  (*r).setter(3);
