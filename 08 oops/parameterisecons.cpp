@@ -40,7 +40,7 @@ int main(){
 
     //object creation 
 //static
-Animal* r=new Animal(2,3,"harshti");  //animal type ka  dynamically
+Animal* r=new Animal(2,3,"harshit");  //animal type ka  dynamically
 r->type=15;   //-> arrow -> is the easist way to access  them     
  (*r).setter(3);
  cout<<(*r).getter()<<endl;
