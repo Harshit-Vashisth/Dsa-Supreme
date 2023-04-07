@@ -15,7 +15,6 @@ class Animal{
 int main(){
     cout<<"Size of empty class is "<< sizeof(Animal) <<endl;  // epmty -> 1 byte  filled=size of input
 
-
     //object creation 
 //static
 Animal r;  //animal type ka object
