@@ -17,6 +17,13 @@ class Animal{
         weight=w;
         name=n;
     }
+    //copy const
+    Animal(Animal* obj){
+        this->age=obj->age;
+        this->weight=obj->weight;
+        this->name=obj->name;
+        cout<<"Coping done sir"<<endl;
+    }
     
     int type;
     void eat(){
@@ -47,5 +54,10 @@ r->type=15;   //-> arrow -> is the easist way to access  them
  cout<<(*r).getter()<<endl;
   cout<<r->name<<endl;
  delete r;
+
+
+ //copyinh object
+ Animal d = r;
+ Animal c(r);
 return 0;
 }    
