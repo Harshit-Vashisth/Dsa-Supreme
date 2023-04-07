@@ -6,6 +6,7 @@ class Animal{
     int age,weight;
     string name;
     public:
+    int type;
     void eat(){
         cout<<"eating"<<endl;
     }
@@ -27,8 +28,10 @@ int main(){
 
     //object creation 
 //static
-Animal r;  //animal type ka object
- r.setter(3);
- cout<<r.getter()<<endl;
+Animal* r=new Animal();  //animal type ka  dynamically
+r->type=15;   //-> arrow -> is the easist way to access  them     
+ (*r).setter(3);
+ cout<<(*r).getter()<<endl;
+ delete r;
 return 0;
 }    
