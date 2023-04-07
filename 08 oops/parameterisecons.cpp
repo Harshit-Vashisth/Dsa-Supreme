@@ -4,8 +4,9 @@ using namespace std;
 class Animal{
     private:
     int age,weight;
-    string name;
+    
     public:
+    string name;
     Animal(){
         age=0;
         weight=0;
@@ -43,6 +44,7 @@ Animal* r=new Animal(2,3,"harshti");  //animal type ka  dynamically
 r->type=15;   //-> arrow -> is the easist way to access  them     
  (*r).setter(3);
  cout<<(*r).getter()<<endl;
+  cout<<r->name<<endl;
  delete r;
 return 0;
 }    
