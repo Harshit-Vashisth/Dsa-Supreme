@@ -40,6 +40,9 @@ class Animal{
     {
         this->weight=weight;  //this is a pointer to curremt object
     }
+    ~Animal(){
+            cout<<"destructor caleed"<<endl;
+    }
     }; 
 int main(){
     cout<<"Size of empty class is "<< sizeof(Animal) <<endl;  // epmty -> 1 byte  filled=size of input
@@ -55,9 +58,13 @@ r->type=15;   //-> arrow -> is the easist way to access  them
   cout<<r->name<<endl;
  delete r;
 
-
+int a=10;
  //copyinh object
  Animal d = r;
  Animal c(r);
+
+
+//maunal descructor
+delete r;
 return 0;
 }    
