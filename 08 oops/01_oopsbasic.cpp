@@ -6,11 +6,10 @@ class Animal{
     int age;
     string name;
     void eat(){
-
-
+        cout<<"eating"<<endl;
     }
     void sleep(){
-
+        cout<<"Sleep"<<endl;
     }
 }; 
 int main(){
@@ -20,7 +19,9 @@ int main(){
     //object creation 
 //static
 Animal r;  //animal type ka object
-    cout<<"Age of ramesh is"<<r.age;
-    cout<<"Age of ramesh is"<<r.name;
+r.age=12;
+    cout<<"Age of ramesh is"<<r.age<<endl;
+    r.name="Lion";
+    cout<<"Name of ramesh is"<<r.name<<endl;
     return 0;
 }
