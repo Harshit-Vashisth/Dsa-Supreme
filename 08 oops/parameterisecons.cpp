@@ -2,12 +2,21 @@
 using namespace std;
 
 class Animal{
-
-    
     private:
     int age,weight;
     string name;
     public:
+    Animal(){
+        age=0;
+        weight=0;
+        name="";
+    }
+    Animal(int a,int w,string n){
+        age=a;
+        weight=w;
+        name=n;
+    }
+    
     int type;
     void eat(){
         cout<<"eating"<<endl;
@@ -21,7 +30,7 @@ class Animal{
     }
     void setter(int weight)
     {
-        this->weight=weight;this is a pointer to curremt object
+        this->weight=weight;  //this is a pointer to curremt object
     }
     }; 
 int main(){
@@ -30,7 +39,7 @@ int main(){
 
     //object creation 
 //static
-Animal* r=new Animal();  //animal type ka  dynamically
+Animal* r=new Animal(2,3,"harshti");  //animal type ka  dynamically
 r->type=15;   //-> arrow -> is the easist way to access  them     
  (*r).setter(3);
  cout<<(*r).getter()<<endl;
