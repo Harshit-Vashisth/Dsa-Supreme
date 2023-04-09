@@ -6,7 +6,7 @@ class para{
     int val;
     void operator+(para& o2){
         int val1=this->val;
-        int val2=o2->val;
+        int val2=o2.val;
         cout<<val1-val2;
     }
 };
