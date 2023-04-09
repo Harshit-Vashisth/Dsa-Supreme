@@ -4,7 +4,7 @@ using namespace std;
 class para{
     public:
     int val;
-    void operator+(para& o2){
+    void operator+(para& obj){
         int val1=this->val;
         int val2=obj->val;
         cout<<val1-val2;
