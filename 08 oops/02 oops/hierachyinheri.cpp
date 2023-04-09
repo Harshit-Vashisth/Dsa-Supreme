@@ -16,7 +16,7 @@ class B:public A{
         cout<<"Dancing"<<endl;
     }
 };
-class C: public B{
+class C: public A{
     public:
     int d=0;
 
@@ -24,7 +24,9 @@ class C: public B{
 int main(){
     C* o=new C();
     o->eat();
-    o->dance();
-    cout<<o->g;
     cout<<o->d;
+
+    B* o1=new B();
+    o1->eat();
+    cout<<o1->g;
 }
