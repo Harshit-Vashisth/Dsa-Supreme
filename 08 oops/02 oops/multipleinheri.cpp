@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//here we are going to perform encapsulation 
 class A{
     public:
     int age,wt;
