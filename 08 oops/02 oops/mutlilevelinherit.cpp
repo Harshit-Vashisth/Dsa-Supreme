@@ -13,7 +13,7 @@ class B:public A{
     public : 
     int g=10;
     void dance(){
-        cout<<"Dancing"
+        cout<<"Dancing"<<endl;
     }
 };
 class C: public B{
