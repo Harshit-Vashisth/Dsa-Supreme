@@ -3,7 +3,7 @@ using namespace std;
 
 class A{
     public:
-    void print()
+    virtual void print()
     {
         cout<<" Inside A"<<endl;
     }
@@ -26,6 +26,9 @@ int main(){
     A* o2=new B();  //this is called upcating
     o2->print();
 
-    A* o3=new B();  //now putting virtual
+    B* o3=new B();  //now putting virtual
     o3->print();
+
+    B* o4=(B*)new A();
+    o4->print();
 }
