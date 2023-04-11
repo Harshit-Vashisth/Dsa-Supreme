@@ -21,17 +21,29 @@ void print(Node* head){
         temp=temp->next;
     }
 }
-void insertAthead(Node* &head,int data){
-    Node* newnode=new Node();
+void insertAthead(Node* &head,Node* &tail,int val){
+    Node* newnode=new Node(val);
     if(head==NULL){
     head=newnode;
+    tail=newnode;
     return;}
 
     newnode->next=head;
     head=newnode;
 }
+void insertAttail(Node* &head,Node* &tail,int val){
+     Node* newnode=new Node(val);
+    if(head==NULL){
+    head=newnode;
+    //tail=newnode;
+    return;}
+
+    tail->next=newnode;
+    tail=newnode;
+}
 int main(){
     Node* head=new Node(30);
+    Node* tail=head;    
     Node* a=new Node(40);
     Node* b=new Node(50);
     Node* c=new Node(60);
@@ -43,6 +55,11 @@ int main(){
     c->next=d;
     d->next=e;
     print(head);
-    insertAthead(head,20);
+    insertAthead(head,tail,20);
+    cout<<endl;
     print(head);
+    insertAttail(head,tail,100);
+    cout<<endl;
+    print(head);
+
 }
