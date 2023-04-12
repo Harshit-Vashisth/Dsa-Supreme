@@ -24,26 +24,46 @@ void print(Node* head){
         temp=temp->next;
     }
 }
-
+int length(Node* head){
+    int len=1;
+    Node* temp=head;
+    while(temp!=NULL){
+        temp=temp->next;
+        len++;
+    }
+}
+void insertathead(Node* &head,Node* &tail,int val){
+    Node* newnode=new Node(val);
+    if(head==NULL){
+        head=newnode;
+        tail=newnode;
+        return;
+    }
+    newnode->next=head;
+    head->prev=newnode;
+    head=newnode;
+}
+void insertattail(Node* &head,Node* &tail,int val){
+    Node* newnode=new Node(val);
+    if(head==NULL){
+        head=newnode;
+        tail=newnode;
+        return;
+    }
+    newnode->prev=tail;
+    tail->next=newnode;
+    tail=newnode;
+}
 int main(){
-    Node* head=new Node(10);
-    Node* a=new Node(20);
-    Node* b=new Node(30);
-    Node* c=new Node(40);
-    Node* d=new Node(50);
-    
-    head->next=a;
-    a->prev=head;
+    Node* head=NULL;
+    Node* tail=NULL;
+    insertathead(head,tail,20);
+    insertathead(head,tail,20);
+    insertathead(head,tail,20);
 
-    a->next=b;
-    b->prev=a;
-
-    b->next=c;
-    c->prev=b;
-
-    c->next=d;
-    d->prev=c;
-    
+    insertattail(head,tail,50);
+    insertattail(head,tail,60);
+    insertattail(head,tail,70);
     print(head);
 }
     
