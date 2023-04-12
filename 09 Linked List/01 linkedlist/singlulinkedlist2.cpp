@@ -56,5 +56,4 @@ int main(){
     insertAttail(head,tail,100);
     cout<<endl;
     print(head);
-
 }
