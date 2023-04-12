@@ -42,60 +42,17 @@ void insertAttail(Node* &head,Node* &tail,int val){
     tail=newnode;
 }
 int main(){
-    Node
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    * head=new Node(30);
-    Node* tail=head;    
-    Node* a=new Node(40);
-    Node* b=new Node(50);
-    Node* c=new Node(60);
-    Node* d=new Node(70);
-    Node* e=new Node(80);
-    head->next=a;
-    a->next=b;
-    b->next=c;
-    c->next=d;
-    d->next=e;
-    print(head);
+    Node* head=NULL;
+    Node* tail=NULL;    
+   
+    insertAthead(head,tail,30);
     insertAthead(head,tail,20);
+    insertAthead(head,tail,10);
     cout<<endl;
     print(head);
+    insertAttail(head,tail,40);
+    insertAttail(head,tail,50);
+    insertAttail(head,tail,60);
     insertAttail(head,tail,100);
     cout<<endl;
     print(head);
