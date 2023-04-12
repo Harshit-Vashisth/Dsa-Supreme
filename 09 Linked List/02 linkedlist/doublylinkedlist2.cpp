@@ -58,9 +58,10 @@ int main(){
     Node* head=NULL;
     Node* tail=NULL;
     insertathead(head,tail,20);
-    insertathead(head,tail,20);
-    insertathead(head,tail,20);
-
+    insertathead(head,tail,30);
+    insertathead(head,tail,40);
+    print(head);
+    cout<<endl;
     insertattail(head,tail,50);
     insertattail(head,tail,60);
     insertattail(head,tail,70);
