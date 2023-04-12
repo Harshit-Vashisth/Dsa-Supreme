@@ -4,13 +4,15 @@ class Node{
     public:
     int val;
     Node* next;
-     Node* next;
+    Node* prev;
     Node(){
         val=0;
         next=NULL;
+        prev=NULL;
     }
     Node(int val){
         this->val=val;
+        prev=NULL;
         next=NULL;
     }
 };
@@ -29,12 +31,19 @@ int main(){
     Node* b=new Node(30);
     Node* c=new Node(40);
     Node* d=new Node(50);
-    Node* e=new Node(60);
+    
     head->next=a;
+    a->prev=head;
+
     a->next=b;
+    b->prev=a;
+
     b->next=c;
+    c->prev=b;
+
     c->next=d;
-    d->next=e;
+    d->prev=c;
+    
     print(head);
 }
     
