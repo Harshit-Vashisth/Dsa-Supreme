@@ -108,7 +108,7 @@ void deletenode(Node* &head,Node* &tail,int pos,int val){
             prev=prev->next;
             i++;
         }
-    Node* curr=
+    Node* curr;
     }
 }
 int main(){
