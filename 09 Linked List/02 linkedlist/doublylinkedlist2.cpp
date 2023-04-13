@@ -68,4 +68,3 @@ int main(){
     print(head);
 }
     
-    
