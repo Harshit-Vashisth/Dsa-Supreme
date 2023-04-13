@@ -90,11 +90,11 @@ void insertAtpos(Node* &head,Node* &tail,int val,int data){
     prev->next=newnode;
     newnode->next=curr;
 }
-void deletenode(Node* &head,Node* &tail,int pos){
+void deletenode(Node* &head,Node* &tail,int val){
     if(head==NULL){
         cout<<"Deletion not possible";
         return;}
-    if(pos==1)
+    if(val==head->val)
     {
         Node* temp=head;
         head=head->next;
@@ -102,13 +102,12 @@ void deletenode(Node* &head,Node* &tail,int pos){
         delete temp;
     }
     int len=length(head);
-    if(pos==len)
+    if(val==tail->val)
     {
         int i=1;
         Node* prev=head;
-        while(i<pos-1){
+        while(prev->val!=val){
             prev=prev->next;
-            i++;
         }
         prev->next=NULL;
         Node* temp=tail;
@@ -116,9 +115,11 @@ void deletenode(Node* &head,Node* &tail,int pos){
         delete temp;
         return ;
     }
+
+
     Node* prev=head;
     int i=1;
-    while(i<pos-1)
+    while(prev->val!=val)
     {
         prev=prev->next;
         i++;
