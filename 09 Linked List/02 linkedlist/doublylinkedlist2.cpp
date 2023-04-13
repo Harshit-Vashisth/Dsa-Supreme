@@ -54,8 +54,18 @@ void insertattail(Node* &head,Node* &tail,int val){
     tail->next=newnode;
     tail=newnode;
 }
-void insertatpos(Node* &head,Node* &tail,int val){
-    s
+void insertatpos(Node* &head,Node* &tail,int pos,int val){
+    Node* newnode=new Node(val);
+    if(head==NULL)
+    {
+        head=newnode;
+        tail=newnode;
+        return;
+    }
+    if(pos==1)
+    {
+        
+    }
 }
 int main(){
     Node* head=NULL;
