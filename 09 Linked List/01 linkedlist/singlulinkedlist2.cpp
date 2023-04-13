@@ -76,7 +76,7 @@ void insertAtpos(Node* &head,Node* &tail,int pos,int val){
     }
     Node* curr=prev->next;
     prev->next=newnode;
-    newnode->next=curr->next;
+    newnode->next=curr;
 }
 void deletenode(Node* &head,Node* &tail,int pos){
     if(head==NULL){
