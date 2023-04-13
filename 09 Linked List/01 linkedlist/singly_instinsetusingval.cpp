@@ -117,14 +117,14 @@ void deletenode(Node* &head,Node* &tail,int val){
     }
 
 
-    Node* prev=head;
+    Node* prev=NULL;
+    Node* curr=head;
     int i=1;
-    while(prev->val!=val)
+    while(curr->val!=val)
     {
-        prev=prev->next;
-        i++;
+        prev=curr;
+        curr=curr->next;
     }
-    Node* curr=prev->next;
     prev->next=curr->next;
     curr->next=NULL;
     delete curr;
@@ -157,13 +157,13 @@ int main(){
     insertAtpos(head,tail,60,100);
     cout<<endl;
     print(head);
-//     deletenode(head,tail,1);
-//     cout<<endl;
-//     print(head);
-//     deletenode(head,tail,4);
-//     cout<<endl;
-//     print(head);
-//     deletenode(head,tail,6);
-//     cout<<endl;
-//     print(head);
+    deletenode(head,tail,50);
+    cout<<endl;
+    print(head);
+    deletenode(head,tail,500);
+    cout<<endl;
+    print(head);
+    // deletenode(head,tail,6);
+    // cout<<endl;
+    // print(head);
  }
