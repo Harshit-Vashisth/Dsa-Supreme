@@ -31,6 +31,7 @@ int length(Node* head){
         temp=temp->next;
         len++;
     }
+    return len;
 }
 void insertathead(Node* &head,Node* &tail,int val){
     Node* newnode=new Node(val);
@@ -64,7 +65,50 @@ void insertatpos(Node* &head,Node* &tail,int pos,int val){
     }
     if(pos==1)
     {
-        
+        insertathead(head,tail,val);
+        return;
+    }
+    int len=length(head);
+    if(pos>=len)
+    {
+        insertattail(head,tail,val);
+        return;
+    }
+   int i=1;
+    Node* prev=head;
+    while(i<pos-1){
+        prev=prev->next;
+        i++;
+    }
+    Node* curr=prev->next;
+    prev->next=newnode;
+    newnode->next=curr;
+    newnode->prev=prev;
+    curr->prev=newnode;
+}
+void deletenode(Node* &head,Node* &tail,int pos,int val){
+    if(head==NULL)
+    {
+        cout<<"Deletion not possible"<<endl;
+        return;
+    }
+    if(pos==1){
+        Node* temp=head;
+        head=head->next;
+        temp->next=NULL;
+        head->prev=NULL;
+        delete temp;
+        return;
+    }
+    int len=length(head);
+    if(pos==len){
+        Node* prev=head;
+        int i=1;
+        while(i<len-1){
+            prev=prev->next;
+            i++;
+        }
+    Node* curr=
     }
 }
 int main(){
@@ -79,5 +123,10 @@ int main(){
     insertattail(head,tail,60);
     insertattail(head,tail,70);
     print(head);
+     cout<<endl;
+    insertatpos(head,tail,1,10);
+    insertatpos(head,tail,10,50);
+    insertatpos(head,tail,4,4);
+print(head);
 }
     
