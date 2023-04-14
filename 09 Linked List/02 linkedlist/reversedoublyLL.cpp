@@ -171,6 +171,7 @@ cout<<endl;
 deletenode(head,tail,len);
 print(head);
 cout<<len;
+cout<<endl;
 Node* prev=NULL;
 Node* curr=head;
 head=reverse(prev,curr);
