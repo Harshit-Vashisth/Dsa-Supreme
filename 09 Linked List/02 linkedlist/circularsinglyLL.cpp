@@ -92,9 +92,9 @@ void deletenode(Node* &head,int pos){
         return;}
     if(pos==1)
     {
-        Node* temp;
+        Node* temp=head;
         Node* tail=head;
-        while(tail->next!=head)
+        while(tail->next->next!=head)
         tail=tail->next;
         head=head->next;
         tail->next=head;
@@ -151,7 +151,7 @@ int main(){
     cout<<endl;
     print(head);
     insertAtpos(head,10,500);
-    cout<<endl;
+    cout<<"harsh"<<endl;
     print(head);
     deletenode(head,1);
     cout<<endl;
