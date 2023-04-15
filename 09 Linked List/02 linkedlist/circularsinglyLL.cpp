@@ -22,6 +22,7 @@ void print(Node* head){
     }
 }
 void insertAthead(Node* &head,int val){
+    cout<<"insita"<<endl;
     Node* newnode=new Node(val);
     if(head==NULL){
     head=newnode;
@@ -34,6 +35,7 @@ void insertAthead(Node* &head,int val){
     temp->next-newnode;
     newnode->next=head;
     head=newnode;
+    cout<<"he";
 }
 void insertAttail(Node* &head,int val){
      Node* newnode=new Node(val);
@@ -128,9 +130,11 @@ int main(){
     Node* tail=NULL;    
    
     insertAthead(head,30);
+    cout<<"1"<<endl;
     insertAthead(head,20);
+    cout<<"2"<<endl;
     insertAthead(head,10);
-    cout<<endl;
+    cout<<"3"<<endl;
     print(head);
     insertAttail(head,40);
     insertAttail(head,50);
