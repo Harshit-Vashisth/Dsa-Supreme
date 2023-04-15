@@ -16,13 +16,13 @@ class Node{
 
 void print(Node* head){
     Node* temp=head;
-    while(temp->next!=head){
+    do{
         cout<<temp->val<<" -> ";
         temp=temp->next;
-    }
+    }while(temp!=head);
 }
 void insertAthead(Node* &head,int val){
-    cout<<"insita"<<endl;
+    
     Node* newnode=new Node(val);
     if(head==NULL){
     head=newnode;
@@ -32,10 +32,9 @@ void insertAthead(Node* &head,int val){
     while(temp->next!=head){
         temp=temp->next;
     }
-    temp->next-newnode;
+    temp->next=newnode;
     newnode->next=head;
     head=newnode;
-    cout<<"he";
 }
 void insertAttail(Node* &head,int val){
      Node* newnode=new Node(val);
@@ -130,11 +129,8 @@ int main(){
     Node* tail=NULL;    
    
     insertAthead(head,30);
-    cout<<"1"<<endl;
     insertAthead(head,20);
-    cout<<"2"<<endl;
     insertAthead(head,10);
-    cout<<"3"<<endl;
     print(head);
     insertAttail(head,40);
     insertAttail(head,50);
