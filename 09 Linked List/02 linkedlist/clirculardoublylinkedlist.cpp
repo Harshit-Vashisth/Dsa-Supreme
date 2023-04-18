@@ -26,3 +26,22 @@ void print(Node* head){
     }while(temp!=head);
 }
 
+
+void insertAthead(Node* &head,int val){
+    
+    Node* newnode=new Node(val);
+    if(head==NULL){
+    head=newnode;
+    head->next=head;
+    head->prev=head;
+    return;}
+    Node* temp=head;
+    while(temp->next!=head){
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    newnode->prev=temp;
+    newnode->next=head;
+    head->prev=newnode;
+    head=newnode;
+}
