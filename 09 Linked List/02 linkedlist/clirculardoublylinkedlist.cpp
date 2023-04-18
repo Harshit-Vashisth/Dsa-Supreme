@@ -45,3 +45,11 @@ void insertAthead(Node* &head,int val){
     head->prev=newnode;
     head=newnode;
 }
+void insertAtpos(Node* &head,int pos,int val){
+    Node* newnode=new Node();
+    if(head==NULL){
+        head=newnode;
+        head->next=head;
+        head->prev=head;
+    }
+}
