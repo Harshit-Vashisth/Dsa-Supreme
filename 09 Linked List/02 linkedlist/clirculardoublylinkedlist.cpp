@@ -110,6 +110,7 @@ void deletenode(Node* &head,int pos){
         tail=tail->next;
         head=head->next;
         tail->next=head;
+        head->prev=tail;
         temp->next=NULL;
         delete temp;
     }
@@ -122,6 +123,7 @@ void deletenode(Node* &head,int pos){
         }
         Node* temp=prev->next;
         prev->next=head;
+        head->prev=prev;
         temp->next=NULL; 
         delete temp;
         return ;
@@ -135,6 +137,7 @@ void deletenode(Node* &head,int pos){
     }
     Node* curr=prev->next;
     prev->next=curr->next;
+    curr->next->prev=prev;
     curr->next=NULL;
     delete curr;
 }
@@ -165,13 +168,13 @@ int main(){
     insertAtpos(head,10,500);
     cout<<"harsh"<<endl;
     print(head);
-    // deletenode(head,1);
-    // cout<<endl;
-    // print(head);
-    // deletenode(head,4);
-    // cout<<endl;
-    // print(head);
-    // deletenode(head,6);
-    // cout<<endl;
-    // print(head);
+    deletenode(head,1);
+    cout<<endl;
+    print(head);
+    deletenode(head,4);
+    cout<<endl;
+    print(head);
+    deletenode(head,6);
+    cout<<endl;
+    print(head);
 }
