@@ -4,13 +4,16 @@ class Node{
     public:
     int val;
     Node* next;
+    Node* prev;
     Node(){
         val=0;
         next=NULL;
+        prev=NULL;
     }
     Node(int val){
         this->val=val;
         next=NULL;
+        prev=NULL;
     }
 };
 
@@ -27,13 +30,16 @@ void insertAthead(Node* &head,int val){
     if(head==NULL){
     head=newnode;
     head->next=head;
+    head->prev=head;
     return;}
     Node* temp=head;
     while(temp->next!=head){
         temp=temp->next;
     }
     temp->next=newnode;
+    newnode->prev=temp;
     newnode->next=head;
+    head->prev=newnode;
     head=newnode;
 }
 void insertAttail(Node* &head,int val){
@@ -41,13 +47,16 @@ void insertAttail(Node* &head,int val){
     if(head==NULL){
     head=newnode;
     head->next=head;
+    head->prev=head;
     return;}
     Node* tail=head;
 while(tail->next!=head){
     tail=tail->next;
 }
     tail->next=newnode;
+    newnode->prev=NULL;
     newnode->next=head;
+    head->prev=newnode;
 }
 int length(Node* head){
     Node* temp=head;
@@ -65,6 +74,7 @@ void insertAtpos(Node* &head,int pos,int val){
     if(head==NULL){
         head=newnode;
         head->next=head;
+        head->prev=head;
     return ;
     }
     if(pos==1){
@@ -84,7 +94,9 @@ void insertAtpos(Node* &head,int pos,int val){
     }
     Node* curr=prev->next;
     prev->next=newnode;
+    newnode->prev=prev;
     newnode->next=curr;
+    curr->prev=newnode;
 }
 void deletenode(Node* &head,int pos){
     if(head==NULL){
@@ -153,13 +165,13 @@ int main(){
     insertAtpos(head,10,500);
     cout<<"harsh"<<endl;
     print(head);
-    deletenode(head,1);
-    cout<<endl;
-    print(head);
-    deletenode(head,4);
-    cout<<endl;
-    print(head);
-    deletenode(head,6);
-    cout<<endl;
-    print(head);
+    // deletenode(head,1);
+    // cout<<endl;
+    // print(head);
+    // deletenode(head,4);
+    // cout<<endl;
+    // print(head);
+    // deletenode(head,6);
+    // cout<<endl;
+    // print(head);
 }
