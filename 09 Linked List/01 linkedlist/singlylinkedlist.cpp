@@ -1,57 +1,39 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
 class Node{
     public:
-    int data;
+    int val;
     Node* next;
-    
     Node(){
-        data=0;
-        this->next=NULL;
+        val=0;
+        next=NULL;
     }
-    Node(int data){
-        this->data=data;
-        this->next=NULL;
+    Node(int val){
+        this->val=val;
+        next=NULL;
     }
 };
-void insertatHead(Node* &head,Node* &tail,int val){
-    Node* newnode=new Node(val);
-    if(head==NULL){
-        head=newnode;
-        tail=newnode;
-        return;
-    }
-    newnode->next=head;
-    head=newnode;
-}
-void insertattail(Node* &head,Node* &tail,int val){
-    Node* newnode=new Node(val);
-    if(head==NULL){
-        head=newnode;
-        tail=newnode;
-        return;
-    }
-    tail->next=newnode;
-    tail=newnode;
-}
+
 void print(Node* head){
-    if(head==NULL)
-    cout<<"linkedlist is empty "<<endl;
-    while(head!=NULL)
-    {
-        cout<<head->data<<"-> ";
-        head=head->next;
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->val<<" -> ";
+        temp=temp->next;
     }
 }
+
 int main(){
-    Node* head=new Node();
-    Node* tail=new Node();
-    insertatHead(head,tail,30);
-    insertatHead(head,tail,20);
-    insertatHead(head,tail,10);
-    insertattail(head,tail,40);
-    insertattail(head,tail,50);
-    insertattail(head,tail,60);
+    Node* head=new Node(10);
+    Node* a=new Node(20);
+    Node* b=new Node(30);
+    Node* c=new Node(40);
+    Node* d=new Node(50);
+    Node* e=new Node(60);
+    head->next=a;
+    a->next=b;
+    b->next=c;
+    c->next=d;
+    d->next=e;
     print(head);
 }
+    
