@@ -30,24 +30,24 @@ void insertattail(Node* &head,Node* &tail,int val){
     Node* newnode=new Node(val);
     if(head==NULL){
         head=newnode;
-        tail=newnode;
+        //tail=newnode;
         return;
     }
     tail->next=newnode;
     tail=newnode;
 }
 void print(Node* head){
-    if(head==NULL)
-    cout<<"linkedlist is empty "<<endl;
-    while(head->next!=NULL)
+    Node* temp=head;
+   
+    while(temp->next!=NULL)
     {
-        cout<<head->data<<"-> ";
-        head=head->next;
+        cout<<temp->data<<"-> ";
+        temp=temp->next;
     }
 }
 int main(){
-    Node* head=new Node();
-    Node* tail=new Node();
+    Node* head=NULL;
+    Node* tail=NULL;
     insertatHead(head,tail,30);
     insertatHead(head,tail,20);
     insertatHead(head,tail,10);
