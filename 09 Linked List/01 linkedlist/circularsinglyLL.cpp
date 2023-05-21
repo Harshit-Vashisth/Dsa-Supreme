@@ -25,26 +25,35 @@ void insertAthead(Node* &head,Node* &tail,int val){
     Node* newnode=new Node(val);
     if(head==NULL){
     head=newnode;
-    tail=newnode;
+    head->next=head;
     return;}
-
+    Node* temp=head;
+    while(temp->next!=head)
+    {
+        temp=temp->next;
+    }
+    temp->next=newnode;
     newnode->next=head;
     head=newnode;
 }
-void insertAttail(Node* &head,Node* &tail,int val){
+void insertAttail(Node* &head,int val){
      Node* newnode=new Node(val);
     if(head==NULL){
     head=newnode;
-    //tail=newnode;
+    head->next=head;
     return;}
-
-    tail->next=newnode;
-    tail=newnode;
+    Node* temp=head;
+    while(temp->next!=head)
+    {
+        temp=temp->next;
+    }
+    temp->next=newnode;
+    newnode->next=head;
 }
 int length(Node* head){
     Node* temp=head;
     int len=0;
-    while(temp!=NULL)
+    while(temp->next!=head)
     {
         temp=temp->next;
         len++;
