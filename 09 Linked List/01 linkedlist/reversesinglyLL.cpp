@@ -117,7 +117,12 @@ void deletenode(Node* &head,Node* &tail,int pos){
     delete curr;
 }
 Node* reverse(Node* &prev,Node* &curr){
-   
+   if(curr==NULL)
+        return prev;
+    Node* next=curr->next;
+    curr->next=prev;
+    reverse(curr,next);
+
 }
 int main(){
     Node* head=NULL;
@@ -156,7 +161,9 @@ int main(){
     deletenode(head,tail,6);
     cout<<endl;
     print(head);
-    
+    Node* prev=NULL;
+    Node* curr=head;
+    head=reverse(prev,curr);
     cout<<endl;
     print(head);
 }
