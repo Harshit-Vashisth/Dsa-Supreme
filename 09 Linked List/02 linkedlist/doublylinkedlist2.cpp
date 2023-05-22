@@ -94,18 +94,16 @@ void deletenode(Node* &head,Node* &tail,int pos){
     }
     if(head->next==NULL){
         Node* temp=head;
-        head=NULL;
-        tail=NULL;
+        Node* head=NULL;
+        Node* tail=NULL;
         delete temp;
-        return;
     }
-    if(pos==1){
+    if( pos==1){
         Node* temp=head;
         head=head->next;
         temp->next=NULL;
         head->prev=NULL;
         delete temp;
-        return;
     }
     int len=length(head);
     if(pos>len){
