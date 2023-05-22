@@ -47,14 +47,6 @@ void insertathead(Node* &head,Node* &tail,int val){
 }
 void insertattail(Node* &head,Node* &tail,int val){
     Node* newnode=new Node(val);
-    if(head==NULL){
-        head=newnode;
-        tail=newnode;
-        return;
-    }
-    newnode->prev=tail;
-    tail->next=newnode;
-    tail=newnode;
 }
 void insertatpos(Node* &head,Node* &tail,int pos,int val){
     Node* newnode=new Node(val);
