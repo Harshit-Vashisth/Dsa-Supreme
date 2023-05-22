@@ -121,20 +121,18 @@ void deletenode(Node* &head,Node* &tail,int pos){
         delete temp;
         return;
     }
-    int i=1;
-    Node* left=head;
-    while(i<pos-1){
-        left=left->next;
-        i++;
-    }
-    Node* curr=left->next;
-    Node* right=curr->next;
-
-    left->next=right;
-    right->prev=left;
-    curr->next=NULL;
-    curr->prev=NULL;
-    delete curr;
+   int i =1;
+   Node* left=head;
+   while(i<pos-1){
+    left=left->next;
+    i++;
+   }
+   Node* curr=left->next;
+   Node* right=curr->next;
+   curr->next=NULL;
+   left->next=NULL;
+   curr->prev=NULL;
+   right->prev=NULL;
 }
 int main(){
     Node* head=NULL;
