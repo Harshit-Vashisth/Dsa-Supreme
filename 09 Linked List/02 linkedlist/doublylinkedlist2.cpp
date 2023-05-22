@@ -65,7 +65,25 @@ void insertatpos(Node* &head,Node* &tail,int pos,int val){
         tail=newnode;
         return;
     }
-    
+    if(pos==1){
+        insertathead(head,tail,val);
+        return;
+    }
+    int len=length(head);
+    if(pos>=len-1){
+        insertattail(head,tail,val);
+        return;
+    }
+    int i=1;
+    Node* prev=head;
+    while(i<pos-1){
+        prev=prev->next;
+    }
+    Node* curr=prev->next;
+    prev->next=newnode;
+    newnode->next=curr;
+    curr->prev=newnode;
+    newnode->prev=prev;
 }
 void deletenode(Node* &head,Node* &tail,int pos){
     if(head==NULL)
