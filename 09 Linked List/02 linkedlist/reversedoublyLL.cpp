@@ -135,14 +135,7 @@ void deletenode(Node* &head,Node* &tail,int pos){
     delete curr;
 }
 Node* reverse(Node* prev,Node* curr){
-    if(curr==NULL)
-    return prev;
-
-    Node* temp=curr->next;
-    curr->next=prev;
-    if(prev!=NULL)
-        prev->prev=curr;
-    reverse(curr,temp);
+    if(curr==)
 }
 int main(){
     Node* head=NULL;
