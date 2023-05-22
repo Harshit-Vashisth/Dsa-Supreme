@@ -104,19 +104,23 @@ void deletenode(Node* &head,Node* &tail,int pos){
         temp->next=NULL;
         head->prev=NULL;
         delete temp;
+        return;
     }
     int len=length(head);
-    if(pos>len){
-    cout<<"Enter a valid value"<<endl;
-    return;}
-    if(pos==len){
+    if(pos>len)
+    {
+        cout<<"enter a valid pos"<<endl;
+        return;
+    }
+    if(pos==len)
+    {
         Node* temp=tail;
         tail=tail->prev;
-        temp->prev=NULL;
         tail->next=NULL;
-        delete temp; 
-        return ;
-        }
+        temp->prev=NULL;
+        delete temp;
+        return;
+    }
     int i=1;
     Node* left=head;
     while(i<pos-1){
