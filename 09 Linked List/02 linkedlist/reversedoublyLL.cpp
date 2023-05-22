@@ -25,7 +25,7 @@ void print(Node* head){
     }
 }
 int length(Node* head){
-    int len=1;
+    int len=0;
     Node* temp=head;
     while(temp!=NULL){
         temp=temp->next;
@@ -135,7 +135,14 @@ void deletenode(Node* &head,Node* &tail,int pos){
     delete curr;
 }
 Node* reverse(Node* prev,Node* curr){
-    if(curr==)
+    if(curr==NULL)
+    return prev;
+
+    Node* next=curr->next;
+    curr->next=prev;
+    if(prev!=NULL)
+        prev->prev=curr;
+    reverse(curr,next);
 }
 int main(){
     Node* head=NULL;
@@ -163,7 +170,7 @@ cout<<endl;
     int len=length(head);
 deletenode(head,tail,len);
 print(head);
-cout<<len;
+cout<<endl<<length(head);
 cout<<endl;
 Node* prev=NULL;
 Node* curr=head;
