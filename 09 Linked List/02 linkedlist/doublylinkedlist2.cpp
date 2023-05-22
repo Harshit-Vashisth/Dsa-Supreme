@@ -130,9 +130,9 @@ void deletenode(Node* &head,Node* &tail,int pos){
    Node* curr=left->next;
    Node* right=curr->next;
    curr->next=NULL;
-   left->next=NULL;
+   left->next=right;
    curr->prev=NULL;
-   right->prev=NULL;
+   right->prev=left;
 }
 int main(){
     Node* head=NULL;
