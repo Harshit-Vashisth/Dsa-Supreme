@@ -70,7 +70,7 @@ void insertatpos(Node* &head,Node* &tail,int pos,int val){
         return;
     }
     int len=length(head);
-    if(pos>=len-1){
+    if(pos>len-1){
         insertattail(head,tail,val);
         return;
     }
@@ -78,7 +78,8 @@ void insertatpos(Node* &head,Node* &tail,int pos,int val){
     Node* prev=head;
     while(i<pos-1){
         prev=prev->next;
-    }
+        i++;
+            }
     Node* curr=prev->next;
     prev->next=newnode;
     newnode->next=curr;
