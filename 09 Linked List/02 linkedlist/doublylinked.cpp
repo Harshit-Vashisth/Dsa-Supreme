@@ -46,8 +46,7 @@ int main(){
         d->prev=c;
         c->prev=b;
         b->prev=a;
-        a->prev=head;
-        
+        a->prev=head; 
 
         print(head);
 
