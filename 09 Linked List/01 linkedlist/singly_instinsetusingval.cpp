@@ -52,7 +52,7 @@ int length(Node* head){
     return len;
 
 }
-void insertAtpos(Node* &head,Node* &tail,int val,int data){
+void insertAtval(Node* &head,Node* &tail,int val,int data){
     Node* newnode=new Node(data);
     if(head==NULL){
         head=newnode;
@@ -77,7 +77,7 @@ void insertAtpos(Node* &head,Node* &tail,int val,int data){
         temp=temp->next;
     }
 
-    if(pos==0||val==tail->val){
+    if(pos==0||val==tail->val){//pos 0 if the value is not there ie beyond the range
         insertAttail(head,tail,val);
         return;
     }
@@ -100,13 +100,14 @@ void deletenode(Node* &head,Node* &tail,int val){
         head=head->next;
         temp->next=NULL;
         delete temp;
+        return ;
     }
     int len=length(head);
     if(val==tail->val)
     {
         int i=1;
         Node* prev=head;
-        while(prev->val!=val){
+        while(prev->next->val!=val){
             prev=prev->next;
         }
         prev->next=NULL;
@@ -115,19 +116,17 @@ void deletenode(Node* &head,Node* &tail,int val){
         delete temp;
         return ;
     }
-
-
     Node* prev=NULL;
     Node* curr=head;
-    int i=1;
     while(curr->val!=val)
     {
         prev=curr;
         curr=curr->next;
     }
-    prev->next=curr->next;
+    prev->next=prev->next->next;
     curr->next=NULL;
     delete curr;
+    return;
 }
 int main(){
     Node* head=NULL;
@@ -141,23 +140,26 @@ int main(){
     insertAttail(head,tail,40);
     insertAttail(head,tail,50);
     insertAttail(head,tail,60);
-    insertAttail(head,tail,100);
+    insertAttail(head,tail,200);
     cout<<endl;
     print(head);
     cout<<endl;
 
     cout<<length(head)<<endl;
 
-    insertAtpos(head,tail,50,500);
+    insertAtval(head,tail,50,500);
     cout<<endl;
     print(head);
-    insertAtpos(head,tail,40,150);
+    insertAtval(head,tail,40,150);
     cout<<endl;
     print(head);
-    insertAtpos(head,tail,60,100);
+    insertAtval(head,tail,60,100);
     cout<<endl;
     print(head);
     deletenode(head,tail,50);
+    cout<<endl;
+    print(head);
+    deletenode(head,tail,100);
     cout<<endl;
     print(head);
     deletenode(head,tail,500);
