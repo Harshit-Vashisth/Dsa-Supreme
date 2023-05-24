@@ -24,12 +24,9 @@ int length(Node* head){
     }
     return i;
 }
-bool circular(Node* head){
+Node* detect(Node* head){
     if(head==NULL)
-    return false;
-    if(head->next==head)
-    return true;
-
+    return NULL;
     Node* fast=head;
     Node* slow=head;
     while(fast!=NULL){
@@ -40,9 +37,27 @@ bool circular(Node* head){
             fast=fast->next;
         }
         if(fast==slow)
-         return true;
+         return slow;
     }
-    return false;
+    return NULL;
+}
+
+Node* circular(Node* &head){
+    if(head==NULL)
+    return NULL;
+    if(head->next==head)
+    return head;
+    Node* temp=detect(head);
+    Node* slow=head;
+    Node* fast=temp;
+    Node* prev=fast;
+    while(slow!=fast){
+        prev=fast;
+        slow=slow->next;
+        fast=fast->next;
+    }
+    prev->next=NULL;
+    return head;
 }
 void print(Node* head){
     Node* temp=head;
@@ -58,11 +73,23 @@ int main(){
     Node* c=new Node(40);
     Node* d=new Node(50);
     Node* e=new Node(60);
+    Node* f=new Node(70);
+    Node* g=new Node(80);
+    Node* h=new Node(90);
+    Node* i=new Node(100);
+    Node* j=new Node(110);
     head->next=a;
     a->next=b;
     b->next=c;
     c->next=d;
     d->next=e;
-    e->next=head;
-    cout<<circular(head);
+    e->next=f;
+    f->next=g;
+    g->next=h;
+    h->next=i;
+    i->next=j;
+    j->next=e;
+    
+    head=circular(head);
+    print(head);
 }
