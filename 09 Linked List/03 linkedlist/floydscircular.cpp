@@ -89,7 +89,6 @@ int main(){
     h->next=i;
     i->next=j;
     j->next=e;
-    
     head=circular(head);
     print(head);
 }
