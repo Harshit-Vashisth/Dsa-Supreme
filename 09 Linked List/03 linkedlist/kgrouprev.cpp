@@ -45,13 +45,19 @@ Node* reverseK(Node* &head,int k){
         curr=next;
         count++;
     }
-
     //reverse ll
     if(next!=NULL)
         head->next=reverseK(next,k);
     //if me aya toh mtlb left me still linkedlist present h 
     
     return prev;
+}
+void print(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" -> ";
+        temp=temp->next;
+    }
 }
 int main(){
     Node* head=new Node(10);
@@ -60,4 +66,6 @@ int main(){
     Node* c=new Node(40);
     Node* d=new Node(50);
     Node* e=new Node(60);
+    head=reverseK(head,2);
+    print(head);
 }
