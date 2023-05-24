@@ -45,8 +45,9 @@ Node* detect(Node* head){
 Node* circular(Node* &head){
     if(head==NULL)
     return NULL;
-    if(head->next==head)
-    return head;
+    if(head->next==head){
+        head->next=NULL;
+        return head;}
     Node* temp=detect(head);
     Node* slow=head;
     Node* fast=temp;
