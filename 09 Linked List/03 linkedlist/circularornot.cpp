@@ -27,7 +27,7 @@ int length(Node* head){
 bool circular(Node* head){
     if(head==NULL)
     return false;
-    if(head->next=head)
+    if(head->next==head)
     return true;
 
     Node* fast=head;
