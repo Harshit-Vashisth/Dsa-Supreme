@@ -1,23 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Node{
+class ListNode{
     public:
-    int data;
-    Node* next;
-    Node()
+    int val;
+    ListNode* next;
+    ListNode()
     {
-        this->data=0;
+        this->val=0;
         this->next=NULL;
     }
-    Node(int data){
-        this->data=data;
+    ListNode(int data){
+        this->val=data;
         this->next=NULL;
     }
 };
-Node* middle(Node* head){
-        Node* fast=head;
-    Node* slow=head;
+
+    ListNode* middle(ListNode* &head){
+        ListNode* fast=head->next;
+        ListNode* slow=head;
         while(fast!=NULL){
             fast=fast->next;
             if(fast!=NULL){
@@ -27,10 +28,10 @@ Node* middle(Node* head){
         }
         return slow;
     }
-    Node* reverse(Node* head){
-        Node* prev=NULL;
-        Node* curr=head;
-        Node* next=curr->next;
+    ListNode* reverse(ListNode* &head){
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        ListNode* next=curr->next;
         while(curr!=NULL){
             next=curr->next;
             curr->next=prev;
@@ -39,50 +40,51 @@ Node* middle(Node* head){
         }
         return prev;
     }
-    void print(Node* head){
-    Node* temp=head;
+    void print(ListNode* head){
+    ListNode* temp=head;
     while(temp!=NULL){
-        cout<<temp->data<<" ";
+        cout<<temp->val<<" ";
         temp=temp->next;
     }
     cout<<endl;
 }
 
-    bool isPalindrome(Node* head) {
-        Node* temp=head;
-        if(temp!=NULL) 
+    bool isPalindrome(ListNode* head) {
+        ListNode* temp=head;
+        if(temp==NULL)
             return true;
         if(head->next==NULL)
             return true;
-         print(head);
+        
         //slowis pointing to the middle 
-        Node* mid=middle(head);
-         print(mid);
-        Node* temp1=head;
-        Node* temp2=reverse(mid->next);
+        ListNode* mid=middle(head);
+        ListNode* temp1=head;
+        ListNode* temp2=reverse(mid->next);
         print(temp1);
         print(temp2);
         while(temp2!=NULL){
-            if(temp1->data!=temp2->data)
+            if(temp1->val!=temp2->val)
                 return false;
             temp1=temp1->next;
             temp2=temp2->next;
         }
         return true;
     }
+
     
 int main(){
-    Node* head=new Node(10);
-    Node* a=new Node(20);
-    Node* b=new Node(30);
-    Node* c=new Node(40);
-    Node* d=new Node(50);
-    Node* e=new Node(60);
+    ListNode* head=new ListNode(10);
+    ListNode* a=new ListNode(20);
+    ListNode* b=new ListNode(30);
+    ListNode* c=new ListNode(30);
+    ListNode* d=new ListNode(20);
+    ListNode* e=new ListNode(10);
+    
     head->next=a;
     a->next=b;
     b->next=c;
     c->next=d;
     d->next=e;
-    
+    print(head);
     cout<<isPalindrome(head);
 }
