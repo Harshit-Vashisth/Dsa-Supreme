@@ -42,7 +42,7 @@ Node* middle(Node* head){
     void print(Node* head){
     Node* temp=head;
     while(temp!=NULL){
-        cout<<temp->val<<" ";
+        cout<<temp->data<<" ";
         temp=temp->next;
     }
     cout<<endl;
@@ -50,19 +50,20 @@ Node* middle(Node* head){
 
     bool isPalindrome(Node* head) {
         Node* temp=head;
-        if(temp!=NULL)
+        if(temp!=NULL) 
             return true;
         if(head->next==NULL)
             return true;
-        
+         print(head);
         //slowis pointing to the middle 
         Node* mid=middle(head);
+         print(mid);
         Node* temp1=head;
         Node* temp2=reverse(mid->next);
         print(temp1);
         print(temp2);
         while(temp2!=NULL){
-            if(temp1->val!=temp2->val)
+            if(temp1->data!=temp2->data)
                 return false;
             temp1=temp1->next;
             temp2=temp2->next;
@@ -82,6 +83,6 @@ int main(){
     b->next=c;
     c->next=d;
     d->next=e;
-    e->next=head;
-    cout<<circular(head);
+    
+    cout<<isPalindrome(head);
 }
