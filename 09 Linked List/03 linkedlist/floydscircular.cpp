@@ -77,7 +77,7 @@ int main(){
     Node* f=new Node(70);
     Node* g=new Node(80);
     Node* h=new Node(90);
-    Node* i=new Node(100);
+    Node* i=new Node(100); 
     Node* j=new Node(110);
     head->next=a;
     a->next=b;
