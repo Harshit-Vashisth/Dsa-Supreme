@@ -103,19 +103,3 @@ ListNode* reverse(ListNode* head){
             head=head->next;
         }
     }
-int main(){
-    ListNode* head1=new ListNode(1);
-    ListNode* a=new ListNode(1);
-    ListNode* b=new ListNode(2);
-   
-    head1->next=a;
-    a->next=b;
-    
-     ListNode* head2=new ListNode(9);
-    ListNode* c=new ListNode(1);
-    ListNode* d=new ListNode(2);
-    head2->next=c;
-    c->next=d;
-    ListNode* temp=addTwoNumbers(head1,head2);
-    print(temp);
-}
