@@ -16,9 +16,9 @@ class ListNode{
     }
 };
 
- ListNode* deleteDuplicates(ListNode* head) {
+ ListNode* deleteDuplicates(ListNode* &head) {
         if(head==NULL)
-            return head;
+            return NULL;
         if(head->next==NULL)
             return head;
         map<int,bool> mp;
@@ -27,6 +27,8 @@ class ListNode{
             mp[curr->val]=false;
             curr=curr->next;
         }
+        for(auto i : mp)
+            cout<<i.first<<"  "<<i.second<<endl;
         curr=head; 
         while(curr!=NULL){
             if((curr->next!=NULL)&&(mp[curr->val]==true))
@@ -44,7 +46,7 @@ class ListNode{
         return head;
     }
 
-      void print(ListNode* head){
+void print(ListNode* head){
     ListNode* temp=head;
     while(temp!=NULL){
         cout<<temp->val<<" ";
