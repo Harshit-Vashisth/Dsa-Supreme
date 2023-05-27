@@ -1,0 +1,1 @@
+mp[curr->val]==true
