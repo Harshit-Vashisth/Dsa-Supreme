@@ -27,8 +27,6 @@ class ListNode{
             mp[curr->val]=false;
             curr=curr->next;
         }
-        for(auto i : mp)
-            cout<<i.first<<"  "<<i.second<<endl;
         curr=head->next; 
         cout<<endl;
         ListNode* prev=head;
@@ -51,8 +49,6 @@ class ListNode{
                 curr=curr->next;
             }
         }
-         for(auto i : mp)
-            cout<<i.first<<"  "<<i.second<<endl;
         return head;
     }
 
