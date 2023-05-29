@@ -26,6 +26,7 @@ class ListNode{
         ans=head->val;
         return;
        }
+       
     }
 
 void print(ListNode* head){
