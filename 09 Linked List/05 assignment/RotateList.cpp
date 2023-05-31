@@ -46,5 +46,5 @@ class ListNode{
         return newhead;
         }
 int main(){
-    cout<<"hell0"<<endl;
+    cout<<"hello"<<endl;
 }
