@@ -40,5 +40,5 @@ void linkdelete(struct Node  *head, int M, int N)
         linkdelete(it,M,N);
     }
     int main(){
-        cout<<"Hejoekf";
+        cout<<"Hejoekf"<<endl;
     }
