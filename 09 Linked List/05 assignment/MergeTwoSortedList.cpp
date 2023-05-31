@@ -16,8 +16,7 @@ class ListNode{
         this->next=NULL;
     }
 };
-class Solution {
-public:
+
     ListNode* mergeTwoLists(ListNode* left, ListNode* right) {
         if(left==NULL)
             return right;
@@ -46,4 +45,6 @@ public:
         }
         return ans->next;
     }
-};
+int main(){
+    cout<<"helo";
+    }
