@@ -31,7 +31,7 @@ class Stack{
         else
             top--;
     }
-    int top(){
+    int Top(){
         if(top==-1)
             {
                 cout<<"No element in stack"<<endl;
@@ -40,7 +40,7 @@ class Stack{
             else
              return arr[top];
     }
-    bool Size(){
+    bool getlength(){
         return top+1;
     }
     bool isempty(){
@@ -50,3 +50,18 @@ class Stack{
             return false;
     }
 };
+int main(){
+    Stack st(10);
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50);
+
+    cout<<st.Top()<<endl;
+    st.pop();
+    cout<<st.Top()<<endl;
+
+    cout<<st.getlength()<<endl;
+    cout<<st.isempty();
+}
