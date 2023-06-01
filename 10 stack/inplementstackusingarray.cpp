@@ -40,7 +40,7 @@ class Stack{
             else
              return arr[top];
     }
-    bool getlength(){
+    int getlength(){
         return top+1;
     }
     bool isempty(){
