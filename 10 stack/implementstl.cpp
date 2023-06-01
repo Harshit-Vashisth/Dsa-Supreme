@@ -14,4 +14,8 @@ int main(){
     cout<<"Top element is "<<st.top()<<endl;
     cout<<"Size of stack"<<st.size()<<endl;
     cout<<"Empty or not "<<st.empty()<<endl;
+    while(!st.empty()){
+        cout<<st.top()<<" ";
+        st.pop();
+    }
 }
