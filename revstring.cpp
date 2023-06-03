@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void rev(string s){
+void rev(string &s){
     stack<char> st;
     for(int i =0;i<s.length();i++){
         st.push(s[i]);
@@ -16,6 +16,8 @@ void print(string s){
 }
 int main(){
     string s="Harshit";
+    print(s);
+    cout<<"Reversed :: ";
     rev(s);
     print(s);
 }
