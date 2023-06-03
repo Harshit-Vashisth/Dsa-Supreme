@@ -26,6 +26,7 @@ int main(){
     st.push(60);
     st.push(70);
     st.push(80);
+    st.push(90);
     int size=st.size();
     middle(st,size);
    
