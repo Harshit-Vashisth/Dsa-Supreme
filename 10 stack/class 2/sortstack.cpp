@@ -19,7 +19,7 @@ void solve(stack<int> &st,int tar){
         return;
         int target=st.top();
         st.pop();
-        reverse(st);
+        sort(st);
         solve(st,target);
     }
     void print(stack<int> st){
