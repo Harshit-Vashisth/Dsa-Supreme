@@ -27,7 +27,7 @@ using namespace std;
 int main(){
     string s="{}{}({})";
     cout<<s<<endl;
-    
+     
     if(valid(s))
     cout<<"It is valid";
     else 
