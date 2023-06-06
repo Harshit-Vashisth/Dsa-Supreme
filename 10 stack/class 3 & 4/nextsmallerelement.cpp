@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> prevsmaller(vector<int> &v){
+vector<int> nextsmaller(vector<int> &v){
     stack<int> st;
     st.push(-1);
     vector<int> ans(v.size());
@@ -29,6 +29,6 @@ int main(){
     v.push_back(1);
     print(v);
     cout<<endl;
-    vector<int> ans=prevsmaller(v);
+    vector<int> ans=nextsmaller(v);
     print(ans);
 }
