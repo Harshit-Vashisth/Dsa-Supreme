@@ -30,7 +30,7 @@ class NStack{
         return true;
     }
     int pop(int m){
-        if(top[m]==-1)
+        if(top[m-1]==-1)
             return -1;
 
         int index=top[m-1];
@@ -50,6 +50,10 @@ int main(){
     s.push(10,1);
     s.push(20,1);
     s.push(30,1);
-    s.pop(1);
-    s.pop(1);
+     s.push(40,1); 
+     s.push(40,1); 
+    cout<<s.push(50,1)<<endl;
+    cout<<s.push(50,1)<<endl;
+    cout<<s.pop(1)<<endl;
+    cout<<s.pop(1)<<endl;
 }
