@@ -78,5 +78,6 @@ int main(){
     q.pop();
     q.pop();
     q.pop();
+    cout<<q.empty()<<endl;
     
 }
