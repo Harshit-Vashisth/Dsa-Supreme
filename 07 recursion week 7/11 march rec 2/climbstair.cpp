@@ -11,3 +11,4 @@ int main(){
     cin>>n;
     cout<<climb(n);
 }
+//rev 1
