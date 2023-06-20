@@ -1,44 +1,49 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int> solve(vector<int> &arr,int k,int n){
-    vector<int> ans;
-    deque<int> dq;
-    int max=0;
-    for(int i=0;i<k;i++)
-    {
-        while(!dq.empty()&&arr[i]>=arr[dq.back()])
-            dq.pop_back();
-        dq.push_back(i);
+vector<int> solve(vector<int>& nums, int k) {
+        deque<int> dq;
+        vector<int> ans;
+        
+        for(int i =0;i<k;i++){
+            while(!dq.empty()& nums[i]>=nums[dq.back()])
+                dq.pop_back();
+            dq.push_back(i);
+        }
+        cout<<"HI";
+        ans.push_back(nums[dq.front()]);
+        for(int i=k;i<nums.size();i++){
+            if(i-dq.front()>=k)
+                dq.pop_front();
+             while(!dq.empty()&& nums[i]>=nums[dq.back()])
+                dq.pop_back();
+            dq.push_back(i);
+            ans.push_back(nums[dq.front()]);
+            
+        }
+        return ans;
     }
-    ans.push_back(arr[dq.front()]);
-    for(int i=k;i<n;i++){
-        if(i-dq.front()>=k)
-            dq.pop_front();
-        while(!dq.empty()&&arr[i]>=arr[dq.back()])
-            dq.pop_back();
-        dq.push_back(i);
-    }
-    ans.push_back(arr[dq.front()]);
-    return ans;
-}
 int main(){
-    vector<int> arr;
+    vector<int> nums;
   
-    arr.push_back(1);
-    arr.push_back(2);
-    arr.push_back(3);
-    arr.push_back(2);
-    arr.push_back(6);
-    arr.push_back(2);
-    arr.push_back(1);
-    arr.push_back(5);
-    arr.push_back(1);
-
-    int k=2,n=8;
-    vector<int> ans=solve(arr,n,k);
+    nums.push_back(1);
+    nums.push_back(2);
+    nums.push_back(3);
+    nums.push_back(2);
+    nums.push_back(6);
+    nums.push_back(2);
+    nums.push_back(1);
+    nums.push_back(5);
+    nums.push_back(1);
+for(auto i: nums){
+        cout<<i;
+    }
+    cout<<endl;
+    int k=4,n=8;
+    vector<int> ans=solve(nums,k);
     int sum=0;
-    cout<<"DSNHD";
-    for(auto i: ans)
-        sum+=i;
+    
+    for(auto i: ans){
+        cout<<i;
+    }
     cout<<sum;
 }
