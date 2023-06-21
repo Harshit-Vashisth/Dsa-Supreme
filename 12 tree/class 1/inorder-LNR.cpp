@@ -17,12 +17,14 @@ Node* buildtree(){
     if(data==-1)
         return NULL;
     Node* root=new Node(data);
+    cout<<"LEFT\n";
     root->left=buildtree();
+    cout<<"Right\n";
     root->right=buildtree();
 }
 void inorder(Node* root){
-    queue<Node*> q;
-    q.push(root);
+   if(root==NULL)
+    return;
     inorder(root->left);
     cout<<root->data<<" ";
     inorder(root->right);
