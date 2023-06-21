@@ -36,7 +36,7 @@ void printlevelwise(Node* root){
                 q.push(NULL);
         }
         else{
-            cout<<temp->data;
+            cout<<temp->data<<"  ";
             if(temp->left)
                 q.push(temp->left);
             if(temp->right)
