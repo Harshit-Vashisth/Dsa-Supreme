@@ -18,9 +18,12 @@ Node* buildtree(){
    return NULL;
    
    Node* root=new Node(data);
+   cout<<"Enter the left value"<<endl;
    root->left=buildtree();
+   cout<<"Enter the right value"<<endl;
    root->right=buildtree();
 }
+
 int main(){
     Node* root=NULL;
     root=buildtree();
