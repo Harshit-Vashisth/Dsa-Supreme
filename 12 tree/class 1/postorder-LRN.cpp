@@ -25,9 +25,9 @@ Node* buildtree(){
 void inorder(Node* root){
    if(root==NULL)
     return;
-    cout<<root->data<<" ";
     inorder(root->left);
     inorder(root->right);
+    cout<<root->data<<" ";
 }
 int main(){
     Node* root=NULL;
