@@ -40,5 +40,5 @@ int main(){
     Node* root=NULL;
     root=buildtree();
     inorder(root);
-    cout<<height(root);
+    cout<<endl<<height(root);
 }
