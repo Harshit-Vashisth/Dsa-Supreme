@@ -36,7 +36,6 @@ void inorder(Node* root){
         int r=height(root->right);
        return max(l,r)+1;
     }
-
     int diameterOfBinaryTree(Node* root) {
         if(root==NULL)
             return 0;
