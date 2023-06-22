@@ -29,5 +29,12 @@ bool isSameTree(Node* p, Node* q) {
             return false;
         if(q!=NULL &&p==NULL)
             return false;
-        return ((q->data==p->val)&&isSameTree(p->left,q->left)&&isSameTree(p->right,q->right));
+        return ((q->data==p->data)&&isSameTree(p->left,q->left)&&isSameTree(p->right,q->right));
     }
+    
+int main(){
+    Node* root=NULL;
+    root=buildtree();
+    cout<<"Prev order start"<<endl;
+    cout<<isSameTree(root);
+}
