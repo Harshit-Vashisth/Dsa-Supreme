@@ -4,7 +4,7 @@ bool check(vector<int>& arr,int n ,int i){
     if(i==n-1)
     return true;
     if(arr[i+1]<arr[i])
-    return false;
+        return false;
     return check(arr,n,i+1);
 }
 int main(){
