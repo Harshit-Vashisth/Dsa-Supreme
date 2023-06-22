@@ -23,19 +23,24 @@ Node* buildtree(){
     root->right=buildtree();
 }
 void preorder(Node* root){
-    deque<Node*> dq;
-    dq.push_back(root);
-    while(!dq.empty()){
-        if(root->left)
-            dq.push_back(root->left);
-        cout<<dq.front()<<" ";
-        dq.pop_front();
-        if(root->right)
-            dq.push_back(root->right);
+    stack<Node*> st;
+    //st.push(root);
+    Node* curr=root;
+    while(!st.empty()|| curr!=NULL){
+        while(curr!=NULL){
+            st.push(curr);
+            curr=curr->left;
+        }
+        curr=st.top();
+        st.pop();
+        cout<<curr->data;
+        
+            curr=curr->right;
     }
 }
 int main(){
     Node* root=NULL;
     root=buildtree();
+    cout<<"Prev order start"<<endl;
     preorder(root);
 }
