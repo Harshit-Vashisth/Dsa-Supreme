@@ -42,5 +42,5 @@ int main(){
     Node* root=NULL;
     root=buildtree();
     cout<<"Prev order start"<<endl;
-    preorder(root);
+    inorder(root);
 }
