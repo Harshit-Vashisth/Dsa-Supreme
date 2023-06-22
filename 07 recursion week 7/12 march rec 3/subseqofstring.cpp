@@ -1,18 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 void printseq(string& str,vector<string>& ans,string out,int i){
-//     if(i>=str.length())
-//     {
-//         ans.push_back(out);
-//         return;
-//     }
-
-//     //exclude 
-//     printseq(str,ans,out,i+1);
-// //include
-//     out.push_back(str[i]);
-//     printseq(str,ans,out,i+1);
+    if(i>=str.length()){
+        ans.push_back(out);
+        return;
+    }
+    //exclude 
+    printseq(str,ans,out,i+1);
+    //include
+    out.push_back(str[i]);
+    printseq(str,ans,out,i+1);
     
+
+    // if(i>=str.length()){
+    //     cout<<out<<endl;
+    //     return;
+    // }
+    // //exclude 
+    // printseq(str,ans,out,i+1);
+    // //include
+    // out.push_back(str[i]);
+    // printseq(str,ans,out,i+1);
 }
 int main(){
     cout<<"Enter the string for subseq"<<endl; 
