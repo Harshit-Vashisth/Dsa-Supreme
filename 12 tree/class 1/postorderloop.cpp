@@ -24,7 +24,6 @@ Node* buildtree(){
 }
 void preorder(Node* root){
     stack<Node*> st;
-    //st.push(root);
     Node* curr=root;
     while(!st.empty()|| curr!=NULL){
         while(curr!=NULL){
@@ -33,9 +32,10 @@ void preorder(Node* root){
         }
         curr=st.top();
         st.pop();
-        cout<<curr->data;
+        int temp=curr->data;
         
             curr=curr->right;
+            cout<<temp;
     }
 }
 int main(){
