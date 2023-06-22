@@ -36,5 +36,5 @@ int main(){
     Node* root=NULL;
     root=buildtree();
     cout<<"Prev order start"<<endl;
-    cout<<isSameTree(root);
+    cout<<isSameTree(root,root);
 }
