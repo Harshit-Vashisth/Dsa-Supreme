@@ -5,7 +5,8 @@ int solve(vector<int>& arr,int tar){
     return 0;
     if(tar<0)
     return INT_MAX;
-    int mini=INT_MAX;
+    int ans=INT_MAX;
+    int mini=ans;
     for(int i=0;i<arr.size();i++){
         int ans=solve(arr,tar-arr[i]);
         if(ans!=INT_MAX)
