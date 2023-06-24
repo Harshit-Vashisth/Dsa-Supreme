@@ -34,7 +34,6 @@ void levelordertraversal(Node* root){
             q.push(temp->left);
         if(temp->right)
             q.push(temp->right);
-        
     }
 }
 int main(){
