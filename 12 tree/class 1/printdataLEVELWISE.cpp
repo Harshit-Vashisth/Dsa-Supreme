@@ -25,6 +25,23 @@ Node* buildtree(){
 }
 void printlevelwise(Node* root){
      queue<Node*> q;
+     q.push(root);
+     q.push(NULL);
+     while(!q.empty()){
+        Node* temp=root;
+        q.pop();
+        if(temp==NULL)
+        {
+            cout<<endl;
+            if(!q.empty())
+                q.push(NULL);
+        }
+        cout<<temp->data<<endl;
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right)
+     }
 
 }
 int main(){
