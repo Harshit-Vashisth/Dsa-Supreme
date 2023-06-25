@@ -14,7 +14,6 @@ public:
         int r=maxDepth(root->right);
        return max(l,r)+1;
     }
-   
     bool isBalanced(TreeNode* root) {
         if(root==NULL)
             return true;
