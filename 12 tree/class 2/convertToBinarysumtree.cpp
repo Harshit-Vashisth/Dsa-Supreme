@@ -22,3 +22,35 @@ Node* buildtree(){
     cout<<"Right\n";
     root->right=buildtree();
 }
+void levelordertraversal(Node* root){
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty()){
+        Node* temp=q.front();
+        q.pop();
+        cout<<temp->data<<" ";
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+}
+
+int sumtree(Node* root){
+    if(root==NULL){
+        return 0;
+    }
+    int leftans=sumtree(root->left);
+    int rightans=sumtree(root->right);
+
+    root->data=root->data+leftans+rightans;
+    return root->data;
+}
+int main(){
+    Node* root;
+    root=buildtree();
+    levelordertraversal(root);
+    sumtree(root);
+    cout<<endl;
+    levelordertraversal(root);
+}
