@@ -1,4 +1,10 @@
 #include<bits/stdc++.h>
+using namespace std;
+class TreeNode{
+public:
+    TreeNode* left;
+    TreeNode* right;
+};
 class Solution {
 public:
       int maxDepth(TreeNode* root) {
