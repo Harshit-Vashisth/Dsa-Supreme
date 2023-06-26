@@ -57,4 +57,8 @@ int main(){
     Node* root;
     root=buildtree();
     levelordertraversal(root);
+    Node* q =new Node(50);
+    int k=2;
+    cout<<endl;
+    kAncestor(root,q,k);
 }
