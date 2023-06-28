@@ -5,6 +5,9 @@ public:
     TreeNode* left;
     TreeNode* right;
     int val;
+    TreeNode(int data){
+        
+    }
 };
 class Solution {
     private:
