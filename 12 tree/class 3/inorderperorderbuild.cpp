@@ -5,7 +5,7 @@ public:
     TreeNode* left;
     TreeNode* right;
     int val;
-    TreeNode(int data){
+    TreeNode(int data){  
         
     }
 };
