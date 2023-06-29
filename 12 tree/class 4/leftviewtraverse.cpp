@@ -35,23 +35,6 @@ void levelordertraversal(Node* root){
             q.push(temp->right);
     }
 }
-bool kAncestor(Node* &root,Node* &q,int &k){
-    if(root==NULL)
-        return false;
-    if(root->data==q->data)
-        return true;
-    
-    bool leftans=kAncestor(root->left,q,k);
-    bool rightans=kAncestor(root->right,q,k);
-
-    if(leftans||rightans)
-        k--;
-    if(k==0){
-        cout<<root->data<<endl;
-        k=-1;
-    }
-    return (left||right);
-}
 vector<int> bottomView(Node *root)
     {
           vector<int> ans;

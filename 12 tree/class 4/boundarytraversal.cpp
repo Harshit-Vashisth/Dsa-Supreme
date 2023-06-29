@@ -35,8 +35,6 @@ void levelordertraversal(Node* root){
             q.push(temp->right);
     }
 }
-class Solution {
-public:
     void leftbound(Node* &root,vector<int> &ans){
         if(root==NULL)
             return;
@@ -85,7 +83,7 @@ public:
         rightbound(root->right,ans);
         return ans;
     }
-};
+
 int main(){
     Node* root;
     root=buildtree();
