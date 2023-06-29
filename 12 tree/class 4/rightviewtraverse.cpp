@@ -98,5 +98,5 @@ int main(){
     Node* q =new Node(50);
     int k=2;
     cout<<endl;
-    leftView(root);
+    rightView(root);
 }
