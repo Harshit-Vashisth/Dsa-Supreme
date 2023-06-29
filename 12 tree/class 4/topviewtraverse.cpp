@@ -52,7 +52,29 @@ bool kAncestor(Node* &root,Node* &q,int &k){
     }
     return (left||right);
 }
-
+vector<int> topView(Node *root)
+    {
+          vector<int> ans;
+        if(root==NULL)
+            return ans;
+        map<int,int> mp;
+        queue<pair<Node*,int>> q;
+        q.push(make_pair(root,0));
+        while(!q.empty()){
+            pair<Node*,int> temp=q.front();
+            q.pop();
+            Node* frontnode=temp.first;
+            int hd=temp.second;
+            if(mp.find(hd)==mp.end())
+                mp[hd]=frontnode->data;
+            if(frontnode->left)
+                q.push(make_pair(frontnode->left,hd-1));  
+            if(frontnode->right)
+                q.push(make_pair(frontnode->right,hd+1));
+        }
+        for(auto i: mp)
+            ans.push_back(i.second);
+    }
 int main(){
     Node* root;
     root=buildtree();
@@ -60,5 +82,5 @@ int main(){
     Node* q =new Node(50);
     int k=2;
     cout<<endl;
-    kAncestor(root,q,k);
+    topView(root);
 }
