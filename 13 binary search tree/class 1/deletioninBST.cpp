@@ -56,6 +56,14 @@ void traversal(Node* root){
     }
 }
 
+int maximum(Node* root){
+    if(root==NULL)
+    return -1;
+    while(root->right)
+        root=root->right;
+    return root->data;
+}
+
 Node* deleteNode(Node* root,int data){
     if(root==NULL)
         return root;
@@ -75,13 +83,16 @@ Node* deleteNode(Node* root,int data){
                 return child;
         }
         else{
-
+            root->data=maximum(root->left);
+            deleteNode(root->left,root->data);
+            return root;
         }
     }
     if(root->data>data)
-        return deleteNode(root->left,data);
+        root->left= deleteNode(root->left,data);
     else
-        return deleteNode(root->right,data);
+        root->right=deleteNode(root->right,data);
+    return root;
 }
 
 
@@ -90,6 +101,7 @@ int main(){
     takeInput(root);
     cout<<"Printing the root";
     traversal(root);
+    deleteNode(root,10);
     cout<<"Node after deletion" <<endl;
     traversal(root);
 }
