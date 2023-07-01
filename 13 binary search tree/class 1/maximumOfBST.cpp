@@ -68,5 +68,5 @@ int main(){
     takeInput(root);
     cout<<"Printing the root";
     traversal(root);
-    cout<<endl<<"The minimum value is "<<maximum(root);
+    cout<<endl<<"The maximum value is "<<maximum(root);
 }
