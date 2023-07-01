@@ -56,11 +56,30 @@ void traversal(Node* root){
     }
 }
 
+Node* deleteNode(Node* root,int data){
+    if(root==NULL)
+        return root;
+    if(root->data==data){
+        if(root->left==NULL&&root->right==NULL){
+            delete root;
+            return NULL;
+        }
+        else if(root->left==NULL&&root->right==NULL){
+            
+        }
+    }
+    if(root->data>data)
+        return deleteNode(root->left,data);
+    else
+        return deleteNode(root->right,data);
+}
+
 
 int main(){
     Node* root=NULL;
     takeInput(root);
     cout<<"Printing the root";
     traversal(root);
-    cout<<endl<<"The maximum value is "<<maximum(root);
+    cout<<"Node after deletion" <<endl;
+    traversal(root);
 }
