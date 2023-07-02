@@ -20,7 +20,32 @@ Node* buildtree(int arr[],int s,int e){
     root->left=buildtree(arr,s,mid-1);
     root->right=buildtree(arr,mid+1,e);
 }
+void traversal(Node* root){
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+    while(!q.empty()){
+        Node* temp=q.front();
+        q.pop();
+        
+        if(temp==NULL)
+        {
+            cout<<endl;
+            if(!q.empty())
+                q.push(NULL);
+        }
+        else{
+            cout<<temp->data<<" ";
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+        }
+    }
+}
 int main(){
     int arr[]={10,20,30,40,50,60,70,80,90};
     Node* root=buildtree(arr,0,8);
+    cout<<"Printing the tree"<<endl;
+    traversal(root);
 }
