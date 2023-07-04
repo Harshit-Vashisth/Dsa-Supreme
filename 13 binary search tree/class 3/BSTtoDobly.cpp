@@ -55,9 +55,23 @@ void traversal(Node* root){
         }
     }
 }
+ void convertBSTtoLL(Node* root,Node* &head){
+        if(root==NULL)
+        return;
+        convertBSTtoLL(root->right,head);
+        root->right=head;
+        if(head!=NULL)
+            head->left=root;
+        head=root;
+        convertBSTtoLL(root->left,head);
+    }
 int main(){
     Node* root=NULL;
     takeInput(root);
-    cout<<"Printing the root";
+    cout<<"Printing the root \n";
     traversal(root);
+    Node* head=NULL;
+    convertBSTtoLL(root,head);
+    cout<<"After converting"<<endl;
+    traversal(head);
 }
