@@ -103,16 +103,17 @@ Node* DoublyToLL(Node* &head,int n){
 }
 Nodedata * LargestBst(Node* root,int &ans){
     if(root== NULL){
-        Nodedata* temp=new Nodedata(0,INT_MAX,INT_MIN,true);
+        Nodedata* temp=new Nodedata(0,INT_MIN,INT_MAX,true);
         return temp;
     }
     Nodedata* leftnode=LargestBst(root->left,ans);
     Nodedata* rightnode=LargestBst(root->right,ans);
-    Nodedata* currNode;
+    Nodedata* currNode=new Nodedata();
     currNode->size=leftnode->size+rightnode->size+1;
     currNode->minval=min(root->data,leftnode->minval);
+    currNode->maxval=max(root->data,rightnode->maxval);
     
-    if(leftnode->valid&&rightnode->valid&&  root->data>leftnode->maxval &&   root->data<rightnode->minval){
+    if(leftnode->valid&&rightnode->valid&& (root->data>leftnode->maxval )&& root->data<rightnode->minval){
         currNode->valid=true;
     }
     else
@@ -127,6 +128,6 @@ int main(){
     cout<<"Printing the root \n";
     traversal(root);
   int ans=0;
-  Nodedata* temp=LargestBst(root,ans);
+  LargestBst(root,ans);
   cout<<"\n The ans is "<<ans;
 }
