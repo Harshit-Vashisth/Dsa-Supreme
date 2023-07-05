@@ -85,6 +85,7 @@ Node* DoublyToLL(Node* &head,int n){
     head=head->right;
     root->left=lefttree;
     root->right=DoublyToLL(head,(n/2-1));
+    return root;
 }
 int main(){
     Node* root=NULL;
@@ -95,7 +96,7 @@ int main(){
     convertBSTtoLL(root,head);
     cout<<"After converting"<<endl;
     printLinkedList(head);
-    DoublyToLL(head,10);
+    Node* root1=DoublyToLL(head,10);
     cout<<"After Reconvert \n";
-    traversal(root);
+    traversal(root1);
 }
