@@ -118,7 +118,7 @@ Nodedata * LargestBst(Node* root,int &ans){
     else
     currNode->valid=false;
     if(currNode->valid)
-    ans=max(ans,currNode->maxval);
+    ans=max(ans,currNode->size);
     return currNode;
 }
 int main(){
