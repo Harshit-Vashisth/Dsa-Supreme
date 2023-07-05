@@ -66,6 +66,16 @@ void traversal(Node* root){
         head=root;
         convertBSTtoLL(root->left,head);
     }
+
+void printLinkedList(Node* head) {
+	Node* temp = head;
+    cout << endl;
+	while(temp != NULL ) {
+		cout << temp -> data << " ";
+		temp = temp -> right;
+	}
+	cout << endl;
+}
 int main(){
     Node* root=NULL;
     takeInput(root);
@@ -74,5 +84,5 @@ int main(){
     Node* head=NULL;
     convertBSTtoLL(root,head);
     cout<<"After converting"<<endl;
-    traversal(head);
+    printLinkedList(head);
 }
