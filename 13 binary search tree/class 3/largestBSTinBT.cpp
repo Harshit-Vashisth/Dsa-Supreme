@@ -20,8 +20,8 @@ class Nodedata{
     }
     Nodedata(int size,int min,int max,bool valid){
         this->size=size;
-        this->minval=min;
-        this->maxval=max;
+        minval=min;
+        maxval=max;
         this->valid=valid;
     }
 };
@@ -103,7 +103,7 @@ Node* DoublyToLL(Node* &head,int n){
 }
 Nodedata * LargestBst(Node* root,int &ans){
     if(root== NULL){
-        Nodedata* temp=new Nodedata(0,INT_MIN,INT_MAX,true);
+        Nodedata* temp=new Nodedata(0,INT_MAX,INT_MIN,true);
         return temp;
     }
     Nodedata* leftnode=LargestBst(root->left,ans);
@@ -123,11 +123,35 @@ Nodedata * LargestBst(Node* root,int &ans){
     return currNode;
 }
 int main(){
-    Node* root=NULL;
-    takeInput(root);
-    cout<<"Printing the root \n";
-    traversal(root);
-  int ans=0;
-  LargestBst(root,ans);
-  cout<<"\n The ans is "<<ans;
+   Node* root = new Node(50);
+		Node* first = new Node(30);
+		Node* second = new Node(60);
+		Node* third = new Node(5);
+		Node* fourth = new Node(20);
+		Node* fifth = new Node(45);
+		Node* sixth = new Node(70);
+		Node* seventh = new Node(65);
+		Node* eight = new Node(80);
+
+		root->left = first;
+		root->right = second;
+		first->left = third;
+		first -> right = fourth;
+		second->left = fifth;
+		second->right = sixth;
+		sixth->left = seventh;
+		sixth->right= eight;
+
+
+
+	
+	  cout << "Printing the tree" << endl;
+	  traversal(root);
+
+
+	  int ans = 0;
+	  LargestBst(root,ans);
+	  cout << "Largest BST ka Size:  "<< ans << endl;
+		  
+
 }
