@@ -22,6 +22,7 @@ Node* insertBST(Node* root,int data){
         root->right=insertBST(root->right,data);
     return root;
 }
+
 void takeInput(Node* &root){
     int data;
     cout<<"Enter the elements"<<endl;
@@ -65,13 +66,24 @@ void traversal(Node* root){
         head=root;
         convertBSTtoLL(root->left,head);
     }
+
+void printLinkedList(Node* head) {
+	Node* temp = head;
+    cout << endl;
+	while(temp != NULL ) {
+		cout << temp -> data << " ";
+		temp = temp -> right;
+	}
+	cout << endl;
+}
+
 int main(){
     Node* root=NULL;
     takeInput(root);
     cout<<"Printing the root \n";
     traversal(root);
     Node* head=NULL;
-    //convertBSTtoLL(root,head);
+    convertBSTtoLL(root,head);
     cout<<"After converting"<<endl;
-    traversal(head);
+    printLinkedList(head);
 }
