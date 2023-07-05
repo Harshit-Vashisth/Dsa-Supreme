@@ -22,6 +22,7 @@ Node* insertBST(Node* root,int data){
         root->right=insertBST(root->right,data);
     return root;
 }
+
 void takeInput(Node* &root){
     int data;
     cout<<"Enter the elements"<<endl;
