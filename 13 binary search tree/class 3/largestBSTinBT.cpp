@@ -126,5 +126,7 @@ int main(){
     takeInput(root);
     cout<<"Printing the root \n";
     traversal(root);
-  
+  int ans=0;
+  Nodedata* temp=LargestBst(root,ans);
+  cout<<"\n The ans is "<<ans;
 }
