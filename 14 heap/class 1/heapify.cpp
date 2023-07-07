@@ -48,14 +48,15 @@ class Heap{
         int left=2*i;
         int largest=index;
         int right=left+1;
-        if(left<n&&arr[largest]<arr[left])
+        if(left<=n&&arr[largest]<arr[left])
             largest=left;
-        if(right<n&&arr[largest]<arr[right])
+        if(right<=n&&arr[largest]<arr[right])
             largest=right;
-        if(index!=largest)
+        if(index!=largest){
             swap(arr[index],arr[largest]);
             index=largest;
             heapify(arr,n,index);
+    }
     }
 };
 int main(){
@@ -78,9 +79,11 @@ int main(){
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
     h.arr[1]=12;
+    cout<<"\n Lets doo heapify \n";
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
     h.heapify(h.arr,h.size,1);
+    cout<<" printing " <<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
 
