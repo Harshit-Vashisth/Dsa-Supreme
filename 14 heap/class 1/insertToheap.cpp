@@ -31,6 +31,6 @@ int main(){
     h.arr[5]=45;
     h.size=5;
     cout<<"printing the array"<<endl;
-    for(int i=0;i<h.size;i++)
+    for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
 }
