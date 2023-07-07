@@ -20,6 +20,29 @@ class Heap{
             else break;
         }
     }
+    int deletion(){
+        arr[1]=arr[size];
+        int ans=arr[1];
+        size--;
+        int index=1;
+        while(index<size){
+            int left=2*index;
+            int right=2*index+1;
+            int largest=index;
+            if(left<=size&&arr[largest]<arr[left])
+                largest=left;
+            if(right<=size&&arr[largest]<arr[right])
+                largest=right;
+            if(largest==index){
+                break;
+            }
+                else {
+                    swap(arr[index],arr[largest]);
+                index=largest;
+                }
+        }
+        return ans;
+    }
 };
 int main(){
     Heap h;
@@ -37,5 +60,7 @@ int main(){
     cout<<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
-
+    h.deletion();
+    for(int i=0;i<=h.size;i++)
+        cout<<h.arr[i]<<" ";
 }
