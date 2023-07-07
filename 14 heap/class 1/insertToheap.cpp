@@ -33,4 +33,8 @@ int main(){
     cout<<"printing the array"<<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
+    h.insert(110);
+    for(int i=0;i<=h.size;i++)
+        cout<<h.arr[i]<<" ";
+
 }
