@@ -58,6 +58,13 @@ class Heap{
             heapify(arr,n,index);
     }
     }
+    void heapSort(int arr[],int n){
+        while(n!=1){
+            swap(arr[1],arr[n]);
+            n--;
+            heapify(arr,n,1);
+        }
+    }
 };
 int main(){
     Heap h;
@@ -71,18 +78,7 @@ int main(){
     cout<<"printing the array"<<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
-    h.insert(110);
-    cout<<endl;
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.deletion();
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.arr[1]=12;
-    cout<<"\n Lets doo heapify \n";
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.heapify(h.arr,h.size,1);
+   h.heapSort(h.arr,h.size);
     cout<<" printing " <<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
