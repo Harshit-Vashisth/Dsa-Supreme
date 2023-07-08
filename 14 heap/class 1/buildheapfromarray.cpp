@@ -65,12 +65,17 @@ class Heap{
 };
 int main(){
     Heap h;
-   int arr[]={10,20,30,40,50,60};
-   int size=6;
+   h.arr[0]=-1;
+    h.arr[1]=10;
+    h.arr[2]=5;
+    h.arr[3]=60;
+    h.arr[4]=40;
+    h.arr[5]=45;
+    h.size=5;
     cout<<"printing the array"<<endl;
-    for(int i=0;i<=size;i++)
-        cout<<arr[i]<<" ";
-    h.buildheap(arr,size);
+    for(int i=0;i<=h.size;i++)
+        cout<<h.arr[i]<<" ";
+    h.buildheap(h.arr,h.size);
     cout<<" printing " <<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
