@@ -56,33 +56,21 @@ class Heap{
             swap(arr[index],arr[largest]);
             index=largest;
             heapify(arr,n,index);
+        }
     }
+    void buildheap(int arr[],int n){
+        for(int i=n/2;i>0;i--)
+            heapify(arr,n,i);
     }
 };
 int main(){
     Heap h;
-    h.arr[0]=-1;
-    h.arr[1]=100;
-    h.arr[2]=50;
-    h.arr[3]=60;
-    h.arr[4]=40;
-    h.arr[5]=45;
-    h.size=5;
+   int arr[]={10,20,30,40,50,60};
+   int size=6;
     cout<<"printing the array"<<endl;
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.insert(110);
-    cout<<endl;
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.deletion();
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.arr[1]=12;
-    cout<<"\n Lets doo heapify \n";
-    for(int i=0;i<=h.size;i++)
-        cout<<h.arr[i]<<" ";
-    h.heapify(h.arr,h.size,1);
+    for(int i=0;i<=size;i++)
+        cout<<arr[i]<<" ";
+    h.buildheap(arr,size);
     cout<<" printing " <<endl;
     for(int i=0;i<=h.size;i++)
         cout<<h.arr[i]<<" ";
