@@ -49,27 +49,7 @@ void takeInput(Node* &root){
         link(root->right,arr,i);
         root->data=arr[i++];
     }
-void printlevelwise(Node* root){
-     queue<Node*> q;
-     q.push(root);
-     q.push(NULL);
-     while(!q.empty()){
-        Node* temp=root;
-        q.pop();
-        if(temp==NULL)
-        {
-            cout<<endl;
-            if(!q.empty())
-                q.push(NULL);
-        }
-        cout<<temp->data<<endl;
-        if(temp->left)
-            q.push(temp->left);
-        if(temp->right)
-            q.push(temp->right);
-     }
 
-}
 void levelordertraversal(Node* root){
     queue<Node*> q;
     q.push(root);
@@ -86,11 +66,13 @@ void levelordertraversal(Node* root){
 int main(){
     Node* root=NULL;
     takeInput(root);
-    printlevelwise(root);
+    levelordertraversal(root);
     vector<int> arr;
+
     solve(root,arr);
     int i=0;
     link(root,arr,i);
-    levelordertraversal(root);
     
+    cout<<endl;
+    levelordertraversal(root);
     }
