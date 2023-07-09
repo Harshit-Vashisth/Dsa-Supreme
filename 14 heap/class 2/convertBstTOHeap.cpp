@@ -24,32 +24,41 @@ Node* buildtree(){
    root->right=buildtree();
 }
 
-    pair<bool,int> solve(Node* root){
+    void solve(Node* root,vector<int> &arr){
         if(root==NULL){
-            pair<bool,int> p=make_pair(true,INT_MIN);
-            return p;
+           return;
         }
-        if(root->left==NULL&&root->right==NULL){
-            pair<bool,int> p=make_pair(true,root->data);
-            return p;
-        }
-         pair<bool,int> leftpair=solve(root->left);
-         pair<bool,int> rightpair=solve(root->right);
-         if(leftpair.first==true &&
-                rightpair.first==true
-                && root->data>leftpair.second
-                && root->data>rightpair.second){
-            pair<bool,int> p=make_pair(true,root->data);
-            return p;
-         }
-         else{
-             pair<bool,int> p=make_pair(false,-1);
-            return p;
-         }
+        solve(root->left,arr);
+        arr.push_back(root->data);
+        solve(root->right,arr);
     }
-
+    void link(Node* root,vector<int> &arr,int i){
+        if(root==NULL){
+           return;
+        }
+        solve(root->left,arr);
+        solve(root->right,arr);
+        root->data=arr[i];
+    }
+    void levelordertraversal(Node* root){
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty()){
+        Node* temp=q.front();
+        q.pop();
+        cout<<temp->data<<" ";
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+}
 int main(){
     Node* root=NULL;
     root=buildtree();
-    cout<<"Answer is "<<solve(root).first;
+    vector<int> arr;
+    solve(root,arr);
+    link(root,arr,0);
+    levelordertraversal(root);
+    
     }
