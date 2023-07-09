@@ -10,6 +10,6 @@ pq.push(7);
 pq.push(2);
 while(!pq.empty()){
     cout<<pq.top();
-    pq.pop();g
+    pq.pop();
 }
 }
