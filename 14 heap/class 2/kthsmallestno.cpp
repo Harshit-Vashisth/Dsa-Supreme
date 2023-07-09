@@ -6,15 +6,16 @@ int getkthsmallest(int arr[],int n,int k){
         pq.push(arr[i]);
 
     for(int i=k;i<n;i++){
-        if(arr[i]<pq.top())
+        if(arr[i]<pq.top()){
             pq.pop();
+        pq.push(arr[i]);}
     }
     return pq.top();
 }
 int main (){
     int arr[]={10,5,20,4,150};
     int n=5;
-    int k=3;
+    int k=2;
     int ans=getkthsmallest(arr,n,k);
     cout<<ans;
 }
