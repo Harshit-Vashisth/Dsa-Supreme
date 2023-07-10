@@ -35,3 +35,10 @@ vector<int> MergeSort(int arr[][4],int k,int n){
     }
     return ans;
 }
+int main(){
+    int arr[][4]={{1,4,5},{2,6,8},{3,7,9,10}};
+    int k=3,n=3;
+    vector<int> ans=MergeSort(arr,k,n);
+    for(auto i: ans)
+        cout<<i<<" ";
+}
