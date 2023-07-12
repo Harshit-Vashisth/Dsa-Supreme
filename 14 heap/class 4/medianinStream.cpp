@@ -19,28 +19,41 @@ void callmedian(double &median,priority_queue<int> &maxheap,priority_queue<int,v
                 maxheap.push(element);
                 median=maxheap.top();
             }
+            break;
         case 1:
-            if(element>maxheap.top()){
-                minheap.push(maxheap.top());
-                maxheap.pop();
-                maxheap.push(element);
+            if(element>median){
+                maxheap.push(minheap.top());
+                minheap.pop();
+                minheap.push(element);
                 median=(maxheap.top()+minheap.top())/2.0;
             }
             else{
                 maxheap.push(element);
                 median=(maxheap.top()+minheap.top())/2.0;
             }
+            break;
         case -1:
+        if(element>median){
+                minheap.push(element);
+                median=(maxheap.top()+minheap.top())/2.0;
+            }
+            else{
+                minheap.push(maxheap.top());
+                maxheap.pop();
+                maxheap.push(element);
+                median=(maxheap.top()+minheap.top())/2.0;
+            }
+            break;
     }}
 int main(){
     int arr[10]={2,4,5,10,1,40,4,6,3,9};
-    int n=12;
+    int n=10;
     double median=0;
     priority_queue<int> maxheap;
     priority_queue<int,vector<int> , greater<int>> minheap;
     for(int i=0;i<n;i++){
         int ele=arr[i];
          callmedian(median,maxheap,minheap,ele);
-         cout<<median;
+         cout<<median<<endl;
     }
 }
