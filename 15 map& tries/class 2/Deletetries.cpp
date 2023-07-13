@@ -51,4 +51,5 @@ int main(){
     insert(root,s);
     cout<<"Inserted";
     deletetries(root,s);
+    cout<<"Done";
 }
