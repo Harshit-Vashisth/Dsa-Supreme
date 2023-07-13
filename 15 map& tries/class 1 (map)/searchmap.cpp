@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
+    void search(unordered_map<string,string> mp,string find){
 
+    }
 int main(){
     unordered_map<string,string> mp;
     mp["A"]="head";
