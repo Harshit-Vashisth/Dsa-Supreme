@@ -10,4 +10,8 @@ int main(){
     mp[4]="Working";
     for(auto it:mp)
         cout<<it.first<<"  "<<it.second;
+    cout<<endl;
+    cout<<mp.size()<<endl;
+    cout<<mp[10];
+    cout<<mp.size()<<endl;
 }
