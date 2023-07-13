@@ -38,12 +38,14 @@ bool search(TreeNode* root,string s){
     if(root->children[index]!=NULL)
         child=root->children[index];
     else{
-        w
+        return false;
     }
+    return search(child,s.substr(1));
 }
 int main(){
     TreeNode* root=new TreeNode('-');
     string s="coding";
     insert(root,s);
     cout<<"Inserted";
+    cout<<search(root,s);
 }
