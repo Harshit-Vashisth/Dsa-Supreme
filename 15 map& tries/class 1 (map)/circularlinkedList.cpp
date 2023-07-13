@@ -13,9 +13,16 @@ class Node{
     void search(Node* &root){
        unordered_map<Node*,int> mp;
        Node* temp=root;
-        while(mp[temp]!=0){
-
+        while(temp){
+            if(mp[temp]==1){
+                cout<<"Found"<<endl;
+                break;
+            }
+            mp[temp]=1;
+            temp=temp->next;
         }
+        if(temp==NULL)
+        cout<<"Not found";
     }
 int main(){
     Node* root=new Node(10);
