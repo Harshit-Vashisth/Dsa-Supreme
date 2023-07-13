@@ -15,6 +15,7 @@ class TreeNode{
 void insert(TreeNode* root,string str){
     if(str.length()==0){
         root->isterminal=true;
+        return ;
     }
     TreeNode* child;
     char c=str[0];
