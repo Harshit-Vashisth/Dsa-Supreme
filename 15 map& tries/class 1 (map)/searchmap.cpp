@@ -3,7 +3,7 @@ using namespace std;
 
     void search(unordered_map<string,string> mp,string s){
         //method 1
-        cout<<mp.count("B");
+        cout<<mp.count("B")<<endl;
 
         //method 2
         if(mp.find(s)!=mp.end())
@@ -14,8 +14,6 @@ using namespace std;
         for(auto i:mp){
             if(i.first==s)
             cout<<"Found"<<endl;
-            else
-                cout<<"Not Found"<<endl;
             }
     }
 int main(){
