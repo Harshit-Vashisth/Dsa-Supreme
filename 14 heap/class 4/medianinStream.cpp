@@ -44,8 +44,10 @@ void callmedian(double &median,priority_queue<int> &maxheap,priority_queue<int,v
                 median=(maxheap.top()+minheap.top())/2.0;
             }
             break;
-    }}
-int main(){
+    }
+}
+int main()
+{
     int arr[10]={2,4,5,10,1,40,4,6,3,9};
     int n=10;
     double median=0;
