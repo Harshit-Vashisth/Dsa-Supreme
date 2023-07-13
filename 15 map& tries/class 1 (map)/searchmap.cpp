@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
     void search(unordered_map<string,string> mp,string find){
-
+        cout<<mp.count("B");
     }
 int main(){
     unordered_map<string,string> mp;
