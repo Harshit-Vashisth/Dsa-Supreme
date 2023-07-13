@@ -28,6 +28,19 @@ void insert(TreeNode* root,string str){
     }
     insert(child,str.substr(1));
 }
+
+bool search(TreeNode* root,string s){
+    if(s.length()==0)
+        return root->isterminal;
+    char ch= s[0];
+    int index=ch-'a';
+    TreeNode* child;
+    if(root->children[index]!=NULL)
+        child=root->children[index];
+    else{
+        w
+    }
+}
 int main(){
     TreeNode* root=new TreeNode('-');
     string s="coding";
