@@ -1,40 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
-class TreeNode{
+class TrieNode{
     public:
     char data;
-    TreeNode* children[26];
+    TrieNode* children[26];
     bool isterminal;
-    TreeNode(char c){
+    TrieNode(char c){
         data=c;
         for(int i=0;i<26;i++)
             children[i]=NULL;
         isterminal=false;
     }
 };
-void insert(TreeNode* root,string str){
+void insert(TrieNode* root,string str){
     if(str.length()==0){
         root->isterminal=true;
         return ;
     }
-    TreeNode* child;
+    TrieNode* child;
     char c=str[0];
     int index=c-'a';
     if(root->children[index]!=NULL)
         child=root->children[index];
     else{
-        child=new TreeNode(c);
+        child=new TrieNode(c);
         root->children[index]=child;
     }
     insert(child,str.substr(1));
 }
 
-bool search(TreeNode* root,string s){
+bool search(TrieNode* root,string s){
     if(s.length()==0)
         return root->isterminal;
     char ch= s[0];
     int index=ch-'a';
-    TreeNode* child;
+    TrieNode* child;
     if(root->children[index]!=NULL)
         child=root->children[index];
     else{
@@ -43,7 +43,7 @@ bool search(TreeNode* root,string s){
     return search(child,s.substr(1));
 }
 int main(){
-    TreeNode* root=new TreeNode('-');
+    TrieNode* root=new TrieNode('-');
     string s="coding";
     insert(root,s);
     cout<<"Inserted";
