@@ -17,10 +17,20 @@ int topDown(int n,int k,vector<int> &dp){
     dp[n]= (topDown(n-2,k,dp)+topDown(n-1,k,dp))*(k-1);
     return dp[n];
 }
+int bottomDown(int n,int k){
+    vector<int> dp(n+1,0);
+    dp[1]=k;
+    dp[2]=k+k*(k-1);
+    for(int i =3;i<=n;i++){
+        dp[i]= (dp[i-2]+dp[i-1])*(k-1);
+    }
+    return dp[n];
+}
 int getpainted(int n ,int k){
     // return recursion(n,k);
     vector<int> dp(n+1,-1);
-    return topDown(n,k,dp);
+    // return topDown(n,k,dp);
+    return bottomDown(n,k);
 }
 int main(){
     int n =3;
