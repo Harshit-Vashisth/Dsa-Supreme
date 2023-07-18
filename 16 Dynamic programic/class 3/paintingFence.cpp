@@ -27,11 +27,14 @@ int bottomDown(int n,int k){
     return dp[n];
 }
 int spaceoptimise(int n,int k){
-   vector<int> dp(n+1,0);
+   
     int prev2=k;
     int prev1=k+k*(k-1);
     for(int i =3;i<=n;i++){
         int curr= (prev1+prev2)*(k-1);
+        //yaha pr glti karogeeee***************
+        prev2=prev1;
+        prev1=curr;
     }
     return prev1;
 }
