@@ -14,7 +14,7 @@ int topDown(int n,int k,vector<int> &dp){
         return k+k*(k-1);
     if(dp[n]!=-1)
         return dp[n];
-    dp[n]= (dp[n-2]+dp[n-1])*(k-1);
+    dp[n]= (topDown(n-2,k,dp)+topDown(n-1,k,dp))*(k-1);
     return dp[n];
 }
 int getpainted(int n ,int k){
