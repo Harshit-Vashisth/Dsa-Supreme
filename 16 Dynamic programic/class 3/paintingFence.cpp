@@ -26,6 +26,15 @@ int bottomDown(int n,int k){
     }
     return dp[n];
 }
+int spaceoptimise(int n,int k){
+   vector<int> dp(n+1,0);
+    dp[1]=k;
+    dp[2]=k+k*(k-1);
+    for(int i =3;i<=n;i++){
+        dp[i]= (dp[i-2]+dp[i-1])*(k-1);
+    }
+    return dp[n];
+}
 int getpainted(int n ,int k){
     // return recursion(n,k);
     vector<int> dp(n+1,-1);
