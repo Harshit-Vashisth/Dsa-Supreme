@@ -28,18 +28,19 @@ int bottomDown(int n,int k){
 }
 int spaceoptimise(int n,int k){
    vector<int> dp(n+1,0);
-    dp[1]=k;
-    dp[2]=k+k*(k-1);
+    int prev2=k;
+    int prev1=k+k*(k-1);
     for(int i =3;i<=n;i++){
-        dp[i]= (dp[i-2]+dp[i-1])*(k-1);
+        int curr= (prev1+prev2)*(k-1);
     }
-    return dp[n];
+    return prev1;
 }
 int getpainted(int n ,int k){
     // return recursion(n,k);
     vector<int> dp(n+1,-1);
     // return topDown(n,k,dp);
-    return bottomDown(n,k);
+    // return bottomDown(n,k);
+    return spaceoptimise(n,k);
 }
 int main(){
     int n =3;
