@@ -27,7 +27,7 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
             return dp[index][capacity];
          int include=0;
         if(weight[index]<=capacity)
-            include=value[index]+Topdown(weight,value,index-1,capacity-weight[index]),dp;
+            include=value[index]+Topdown(weight,value,index-1,capacity-weight[index],dp);
         
         int exclude=Topdown(weight,value,index-1,capacity,dp);
         dp[index][capacity]=max(include,exclude);
