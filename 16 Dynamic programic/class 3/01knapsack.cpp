@@ -54,12 +54,56 @@ int bottomup(int weight[],int value[],int n,int capacity){
      return dp[n][capacity];
 }
 int spaceoptimise(int weight[],int value[],int n,int capacity){
-    f
+    // Time complexitity O(M)+O(M);
+    vector<int> prev(capacity+1,0);
+    vector<int> curr(capacity+1,0);
+     for(int w=0;w<=capacity;w++){
+        if(weight[0]<=capacity)
+            prev[0]=value[0];
+        else
+            prev[0]=0;
+     }
+     for(int index=0;index<n;index++){
+        for(int wt=0;wt<=capacity;wt++){
+             int include=0;
+        if(weight[index]<=capacity)
+            include=value[index]+prev[capacity-weight[index]];
+        
+        int exclude=prev[ capacity];
+        curr[capacity]=max(include,exclude);
+        //galti ++
+        prev=curr;
+        }
+     }
+     return curr[capacity];
+}
+int spaceoptimise2(int weight[],int value[],int n,int capacity){
+    // Time complexitity O(M)+O(M);
+    vector<int> prev(capacity+1,0);
+    vector<int> curr(capacity+1,0);
+     for(int w=0;w<=capacity;w++){
+        if(weight[0]<=capacity)
+            prev[0]=value[0];
+        else
+            prev[0]=0;
+     }
+     for(int index=0;index<n;index++){
+        for(int wt=0;wt<=capacity;wt++){
+             int include=0;
+        if(weight[index]<=capacity)
+            include=value[index]+prev[capacity-weight[index]];
+        
+        int exclude=prev[ capacity];
+        curr[capacity]=max(include,exclude);
+        }
+     }
+     return curr[capacity];
 }
 int getMaxval(int weight[],int value[],int index,int capacity){
-    // return usingrecursion(weight,value,index-1,capacity);
-    vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
-    return Topdown(weight,value,index-1,capacity,dp);
+    // // return usingrecursion(weight,value,index-1,capacity);
+    // vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
+    // return Topdown(weight,value,index-1,capacity,dp);
+    return bottomup(weight,value,index,capacity);
 }
 int main(){
     int weight[]={4,5,1};
