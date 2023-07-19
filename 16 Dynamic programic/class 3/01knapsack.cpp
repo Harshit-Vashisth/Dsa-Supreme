@@ -56,6 +56,7 @@ int bottomup(int weight[],int value[],int n,int capacity){
 }
 int spaceoptimise(int weight[],int value[],int n,int capacity){
     // Time complexitity O(M)+O(M);
+    //check zaruri h 0 hoga?
     vector<int> prev(capacity+1,0);
     vector<int> curr(capacity+1,0);
      for(int w=weight[0];w<=capacity;w++){
@@ -81,22 +82,22 @@ int spaceoptimise(int weight[],int value[],int n,int capacity){
 }
 int spaceoptimise2(int weight[],int value[],int n,int capacity){
     // Time complexitity O(M)+O(M)=? O(m)
-    vector<int> prev(capacity+1,0);
     vector<int> curr(capacity+1,0);
-     for(int w=0;w<=capacity;w++){
+     for(int w=weight[0];w<=capacity;w++){
         if(weight[0]<=capacity)
-            prev[0]=value[0];
+            curr[w]=value[0];
         else
-            prev[0]=0;
+            curr[w]=0;
      }
      for(int index=1;index<n;index++){
-        for(int wt=0;wt<=capacity;wt++){
+        for(int wt=capacity;wt>=0;wt--){
              int include=0;
-        if(weight[index]<=capacity)
-            include=value[index]+prev[capacity-weight[index]];
+        if(weight[index]<=wt)
+            include=value[index]+curr[wt-weight[index]];
         
-        int exclude=prev[ capacity];
-        curr[capacity]=max(include,exclude);
+        int exclude=curr[wt];
+        curr[wt]=max(include,exclude);
+       
         }
      }
      return curr[capacity];
