@@ -35,19 +35,20 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
 }
 int bottomup(int weight[],int value[],int n,int capacity){
     vector<vector<int>> dp(n+1,(vector<int>(capacity+1,0)));
-     for(int w=0;w<=capacity;w++){
+    // galti++
+     for(int w=weight[0];w<=capacity;w++){
         if(weight[0]<=capacity)
             dp[0][w]=value[0];
         else
             dp[0][w]=0;
      }
-     for(int index=0;index<n;index++){
+     for(int index=1;index<n;index++){
         for(int wt=0;wt<=capacity;wt++){
              int include=0;
-        if(weight[index]<=capacity)
-            include=value[index]+dp[index-1][capacity-weight[index]];
+        if(weight[index]<=wt)
+            include=value[index]+dp[index-1][wt-weight[index]];
         
-        int exclude=dp[index-1][ capacity];
+        int exclude=dp[index-1][ wt];
         dp[index][capacity]=max(include,exclude);
         }
      }
