@@ -11,7 +11,7 @@ int usingrecursion(int weight[],int value[],int index,int capacity){
         int include=0;
         if(weight[index]<=capacity)
             include=value[index]+usingrecursion(weight,value,index-1,capacity-weight[index]);
-        
+        ///glti ++
         int exclude=usingrecursion(weight,value,index-1,capacity);
         int ans=max(include,exclude);
         return ans;
@@ -34,6 +34,7 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
         return dp[index][capacity];
 }
 int bottomup(int weight[],int value[],int n,int capacity){
+    //galtiii++++
     vector<vector<int>> dp(n+1,(vector<int>(capacity+1,0)));
     // galti++
      for(int w=weight[0];w<=capacity;w++){
@@ -51,8 +52,9 @@ int bottomup(int weight[],int value[],int n,int capacity){
         int exclude=dp[index-1][ wt];
         dp[index][wt]=max(include,exclude);
         }
-     }
+     }// replace ni kara wagera me 
      return dp[n-1][capacity];
+     //n -1 kyu kara n kyu ni 
 }
 int spaceoptimise(int weight[],int value[],int n,int capacity){
     // Time complexitity O(M)+O(M);
@@ -90,7 +92,7 @@ int spaceoptimise2(int weight[],int value[],int n,int capacity){
             curr[w]=0;
      }
      for(int index=1;index<n;index++){
-        for(int wt=capacity;wt>=0;wt--){
+        for(int wt=capacity;wt>=0;wt--){  //galti++   //kisi ka bhi ans nikalne ke liye right wale box ki koi need ni hoti h toh fir hum usko right to left karnge thats the only reason ki loop ulta h 
              int include=0;
         if(weight[index]<=wt)
             include=value[index]+curr[wt-weight[index]];
@@ -105,6 +107,7 @@ int spaceoptimise2(int weight[],int value[],int n,int capacity){
 int getMaxval(int weight[],int value[],int index,int capacity){
     // // return usingrecursion(weight,value,index-1,capacity);
     // vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
+    // glti +++
     // return Topdown(weight,value,index-1, capacity,dp);
     // return bottomup(weight,value,index,capacity);
     // return spaceoptimise(weight,value,index,capacity);
