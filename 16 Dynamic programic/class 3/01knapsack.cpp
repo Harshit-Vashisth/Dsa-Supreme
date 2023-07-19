@@ -33,9 +33,27 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
         dp[index][capacity]=max(include,exclude);
         return dp[index][capacity];
 }
-int bottomup(int weight[],int value[],int index,int capacity){
-d
+int bottomup(int weight[],int value[],int n,int capacity){
+    vector<vector<int>> dp(n+1,(vector<int>(capacity+1,0)));
+     for(int w=0;w<=capacity;w++){
+        if(weight[0]<=capacity)
+            dp[0][w]=value[0];
+        else
+            dp[0][w]=0;
+     }
+     for(int index=0;index<n;index++){
+        for(int wt=0;wt<=capacity;wt++){
+             int include=0;
+        if(weight[index]<=capacity)
+            include=value[index]+dp[index-1][capacity-weight[index]];
+        
+        int exclude=dp[index-1][ capacity];
+        dp[index][capacity]=max(include,exclude);
+        }
+     }
+     return dp[n][capacity];
 }
+int spaceoptimise()
 int getMaxval(int weight[],int value[],int index,int capacity){
     // return usingrecursion(weight,value,index-1,capacity);
     vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
