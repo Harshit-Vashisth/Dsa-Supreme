@@ -33,7 +33,9 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
         dp[index][capacity]=max(include,exclude);
         return dp[index][capacity];
 }
-
+int bottomup(int weight[],int value[],int index,int capacity){
+d
+}
 int getMaxval(int weight[],int value[],int index,int capacity){
     // return usingrecursion(weight,value,index-1,capacity);
     vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
