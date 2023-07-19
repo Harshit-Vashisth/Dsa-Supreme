@@ -32,12 +32,12 @@ int Topdown(int weight[],int value[],int index,int capacity,vector<vector<int>> 
         int exclude=Topdown(weight,value,index-1,capacity,dp);
         dp[index][capacity]=max(include,exclude);
         return dp[index][capacity];
-   
 }
+
 int getMaxval(int weight[],int value[],int index,int capacity){
     // return usingrecursion(weight,value,index-1,capacity);
     vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
-    return Topdown(weight,value,index,capacity,dp);
+    return Topdown(weight,value,index-1,capacity,dp);
 }
 int main(){
     int weight[]={4,5,1};
