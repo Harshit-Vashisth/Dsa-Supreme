@@ -49,10 +49,10 @@ int bottomup(int weight[],int value[],int n,int capacity){
             include=value[index]+dp[index-1][wt-weight[index]];
         
         int exclude=dp[index-1][ wt];
-        dp[index][capacity]=max(include,exclude);
+        dp[index][wt]=max(include,exclude);
         }
      }
-     return dp[n][capacity];
+     return dp[n-1][capacity];
 }
 int spaceoptimise(int weight[],int value[],int n,int capacity){
     // Time complexitity O(M)+O(M);
