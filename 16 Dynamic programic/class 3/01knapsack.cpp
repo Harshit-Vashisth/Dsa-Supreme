@@ -104,7 +104,8 @@ int getMaxval(int weight[],int value[],int index,int capacity){
     // // return usingrecursion(weight,value,index-1,capacity);
     // vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
     // return Topdown(weight,value,index-1,capacity,dp);
-    return bottomup(weight,value,index,capacity);
+    // return bottomup(weight,value,index,capacity);
+    // return spaceoptimise(weight,value,index,capacity);
 }
 int main(){
     int weight[]={4,5,1};
