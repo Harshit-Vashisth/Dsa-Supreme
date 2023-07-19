@@ -58,28 +58,29 @@ int spaceoptimise(int weight[],int value[],int n,int capacity){
     // Time complexitity O(M)+O(M);
     vector<int> prev(capacity+1,0);
     vector<int> curr(capacity+1,0);
-     for(int w=0;w<=capacity;w++){
+     for(int w=weight[0];w<=capacity;w++){
         if(weight[0]<=capacity)
-            prev[0]=value[0];
+            prev[w]=value[0];
         else
-            prev[0]=0;
+            prev[w]=0;
      }
-     for(int index=0;index<n;index++){
+     for(int index=1;index<n;index++){
         for(int wt=0;wt<=capacity;wt++){
              int include=0;
-        if(weight[index]<=capacity)
-            include=value[index]+prev[capacity-weight[index]];
+        if(weight[index]<=wt)
+            include=value[index]+prev[wt-weight[index]];
         
-        int exclude=prev[ capacity];
-        curr[capacity]=max(include,exclude);
-        //galti ++
-        prev=curr;
+        int exclude=prev[wt];
+        curr[wt]=max(include,exclude);
+       
         }
+         //galti ++
+        prev=curr;
      }
      return curr[capacity];
 }
 int spaceoptimise2(int weight[],int value[],int n,int capacity){
-    // Time complexitity O(M)+O(M);
+    // Time complexitity O(M)+O(M)=? O(m)
     vector<int> prev(capacity+1,0);
     vector<int> curr(capacity+1,0);
      for(int w=0;w<=capacity;w++){
@@ -88,7 +89,7 @@ int spaceoptimise2(int weight[],int value[],int n,int capacity){
         else
             prev[0]=0;
      }
-     for(int index=0;index<n;index++){
+     for(int index=1;index<n;index++){
         for(int wt=0;wt<=capacity;wt++){
              int include=0;
         if(weight[index]<=capacity)
@@ -103,9 +104,10 @@ int spaceoptimise2(int weight[],int value[],int n,int capacity){
 int getMaxval(int weight[],int value[],int index,int capacity){
     // // return usingrecursion(weight,value,index-1,capacity);
     // vector<vector<int>> dp(index+1,(vector<int>(capacity+1,-1)));
-    // return Topdown(weight,value,index-1,capacity,dp);
+    // return Topdown(weight,value,index-1, capacity,dp);
     // return bottomup(weight,value,index,capacity);
     // return spaceoptimise(weight,value,index,capacity);
+    return spaceoptimise2(weight,value,index,capacity);
 }
 int main(){
     int weight[]={4,5,1};
