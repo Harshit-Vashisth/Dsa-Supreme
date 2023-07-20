@@ -1,4 +1,5 @@
-#include<bits/stdc
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     bool solveRecursive(int index,int target,vector<int>& nums){ //this recursive function will return in exponential time complexity 
