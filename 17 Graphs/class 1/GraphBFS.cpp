@@ -30,10 +30,10 @@ void bfs(T src){
         T front=q.front();
         q.pop();
         cout<<front;
-        for(auto i:adj){
+        for(auto i:adj[front]){
             if(!visted[i]){
-                queue.push(i);
-                visited[i]=true;
+                q.push(i);
+                visted[i]=true;
             }
         }
     }
@@ -48,5 +48,5 @@ int main(){
     g.addedge(3,4,1);
     g.addedge(4,3,1);
     g.printadj();
-    g.bfs(1);
+    g.bfs(0);
 }
