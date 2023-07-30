@@ -3,7 +3,7 @@ using namespace std;
 template<typename T>
 class Graph{
     public:
-   
+   unordered_map<T, bool> adj;
 void addedge(T u,T v,bool direction){
     //direction 0 undirected
     //direction 1 directed
@@ -24,16 +24,16 @@ void bfs(T src,unordered_map<T, bool> visited){
     queue<T> q;
     
     q.push(src);
-    visted[src]=true;
+    visited[src]=true;
     while(!q.empty())
     {
         T front=q.front();
         q.pop();
         cout<<front<<" -> ";
         for(auto i:adj[front]){
-            if(!visted[i]){
+            if(!visited[i]){
                 q.push(i);
-                visted[i]=true;
+                visited[i]=true;
             }
         }
     }
