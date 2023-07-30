@@ -20,7 +20,12 @@ void printadj(){
         cout<<endl;
     }
 }
-void bfs()
+void bfs(T src){
+    queue<T> q;
+    unordered_map<T,bool> visted;
+    q.push(src);
+    visted[src]=true;
+}
 };
 int main(){
     Graph<int> g;
