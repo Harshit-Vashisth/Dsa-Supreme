@@ -22,7 +22,6 @@ void printadj(){
 }
 };
 int main(){
-    
     Graph<int> g;
     g.addedge(0,1,1);
     g.addedge(1,2,1);
