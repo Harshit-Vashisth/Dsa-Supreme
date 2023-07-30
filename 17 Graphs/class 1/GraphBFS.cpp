@@ -25,6 +25,18 @@ void bfs(T src){
     unordered_map<T,bool> visted;
     q.push(src);
     visted[src]=true;
+    while(!q.empty())
+    {
+        T front=q.front();
+        q.pop();
+        cout<<front;
+        for(auto i:adj){
+            if(!visted[i]){
+                queue.push(i);
+                visited[i]=true;
+            }
+        }
+    }
 }
 };
 int main(){
@@ -36,4 +48,5 @@ int main(){
     g.addedge(3,4,1);
     g.addedge(4,3,1);
     g.printadj();
+    g.bfs(1);
 }
