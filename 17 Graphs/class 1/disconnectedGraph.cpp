@@ -3,7 +3,7 @@ using namespace std;
 template<typename T>
 class Graph{
     public:
-   vector<vector<T>> adj;
+   unordered_map<T, list<T>> adj;
 void addedge(T u,T v,bool direction){
     //direction 0 undirected
     //direction 1 directed
