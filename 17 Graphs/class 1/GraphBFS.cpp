@@ -29,7 +29,7 @@ void bfs(T src){
     {
         T front=q.front();
         q.pop();
-        cout<<front;
+        cout<<front<<" -> ";
         for(auto i:adj[front]){
             if(!visted[i]){
                 q.push(i);
@@ -41,12 +41,12 @@ void bfs(T src){
 };
 int main(){
     Graph<int> g;
-    g.addedge(0,1,1);
-    g.addedge(1,2,1);
-    g.addedge(2,1,1);
-    g.addedge(3,1,1);
-    g.addedge(3,4,1);
-    g.addedge(4,3,1);
+    g.addedge(0,1,0);
+    g.addedge(1,2,0);
+    g.addedge(2,1,0);
+    g.addedge(3,1,0);
+    g.addedge(3,4,0);
+    g.addedge(4,3,0);
     g.printadj();
     g.bfs(0);
 }
