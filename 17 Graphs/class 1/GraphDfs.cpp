@@ -20,7 +20,7 @@ void printadj(){
         cout<<endl;
     }
 }
-void dfs(T src,unordered_map<T, bool> visited){
+void dfs(T src,unordered_map<T, bool>& visited){
     cout<<src<<" ";
     visited[src]=true;
         for(auto i:adj[src]){
