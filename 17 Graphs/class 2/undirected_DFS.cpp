@@ -37,9 +37,9 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,int parent){
         bool check=checkcyclic(nbr,visted,src);
         if(check==true)
             return true;
+    }
         if(visted[nbr]&& nbr!=parent)
             return true;
-    }
     }
     return false;
 }
@@ -51,7 +51,7 @@ int main(){
     g.addedge(1,2,0);
     g.addedge(2,3,0);
     g.addedge(3,4,0);
-    g.addedge(4,3,1);
+    g.addedge(4,0,1);
     g.printadj();
     bool ans=false;
     unordered_map<int, bool> visited;
