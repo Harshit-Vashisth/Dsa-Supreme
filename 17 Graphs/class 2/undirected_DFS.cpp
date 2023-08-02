@@ -50,7 +50,7 @@ int main(){
     g.addedge(0,1,0);
     g.addedge(1,2,0);
     g.addedge(2,3,0);
-    g.addedge(3,4,0);
+    g.addedge(3,4,1);
     g.addedge(4,3,1);
     g.printadj();
     bool ans=false;
