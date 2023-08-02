@@ -28,26 +28,18 @@ void dfs(int src,unordered_map<int, bool>& visited){
             }
         }
     }
-bool checkcyclic(int src,unordered_map<int,bool>& visted){
-    queue<int> q;
-    q.push(src);
-    unordered_map<int,int> parent;
-    parent[src]=-1;
-    while(!q.empty()){
-        int frontNode=q.front();
-        q.pop();
-        for(auto nbr: adj[frontNode])
-        {
-            if(!visted[nbr]){
-                q.push(nbr);
-                visted[nbr]=true;
-                parent[nbr]=frontNode;
-            }
-            else{
-                if(nbr!=parent[frontNode])
-                return true;
-            }
-        }
+bool checkcyclic(int src,unordered_map<int,bool>& visted,int parent){
+      visted[src]=true;
+
+    for(auto nbr: adj[src])
+    {
+    if(!visted[nbr]){
+        bool check=checkcyclic(nbr,visted,src);
+        if(check==true)
+            return true;
+        if(visted[nbr]&& nbr!=parent)
+            return true;
+    }
     }
     return false;
 }
@@ -65,7 +57,7 @@ int main(){
     unordered_map<int, bool> visited;
     for(int i=0;i<n;i++){
         if(!visited[i])
-            ans=g.checkcyclic(i,visited);
+            ans=g.checkcyclic(i,visited,-1);
         if(ans==true)
             break;
     }
