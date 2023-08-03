@@ -36,9 +36,9 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,unordered_map<int,bool>
     if(!visted[nbr]){
         bool check=checkcyclic(nbr,visted,dfsvisted);
         if(check==true)
-            break;
+        return true;
     }
-        if(visted[nbr]&& dfsvisted[nbr]!=true)
+        if(visted[nbr]==true && dfsvisted[nbr]==true)
             return true;
     }
     dfsvisted[src]=false;
@@ -48,11 +48,11 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,unordered_map<int,bool>
 int main(){
     Graph g;
     int n=5;
-    g.addedge(0,1,0);
-    g.addedge(1,2,0);
-    g.addedge(2,3,0);
-    g.addedge(3,4,0);
-    g.addedge(4,0,0);
+    g.addedge(0,1,1);
+    g.addedge(1,2,1);
+    g.addedge(2,3,1);
+    g.addedge(3,4,1);
+    g.addedge(4,0,1);
     g.printadj();
     bool ans=false;
     unordered_map<int, bool> visited;
