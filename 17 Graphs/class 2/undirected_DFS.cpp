@@ -38,7 +38,7 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,int parent){
         if(check==true)
             return true;
     }
-        if(visted[nbr]&& nbr== parent)
+        if( nbr!= parent)
             return true;
     }
     return false;
