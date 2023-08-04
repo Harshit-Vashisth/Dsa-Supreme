@@ -61,23 +61,25 @@ void topoSortBFS(int n,vector<int>& ans){
         int fnode=q.front();
         q.pop();
         ans.push_back(fnode);
-        for(auto i : adj[fnode]){
-            if(indegree[i]!=0)
-                indegree[i]--;
-                else
-                q.push(i);
+        for(auto nbr : adj[fnode]){
+            indegree[nbr]--;
+				//check for zero again
+				if(indegree[nbr] == 0) {
+					q.push(nbr);
+				}
         }
     }
 }
 };
 int main(){
     Graph g;
-    int n=5;
+    int n=8;
     g.addedge(0,1,1);
-    g.addedge(1,2,1);
-    g.addedge(2,3,1);
-    g.addedge(3,4,1);
-    g.addedge(4,0,1);
+	g.addedge(1,2,1);
+	g.addedge(2,3,1);
+	g.addedge(3,7,1);
+	g.addedge(6,7,1);
+
     g.printadj();
     vector<int> ans;
     g.topoSortBFS(n,ans);
