@@ -52,9 +52,9 @@ void topoSortBFS(int n,vector<int>& ans){
             indegree[nbr]++;
     }
     
-    for(auto i:indegree){
-        if(i.second==0)
-            q.push(i.first);
+    for(int i=0;i<n;i++){
+        if(indegree[i]==0)
+            q.push(i);
     }
 
     while(!q.empty()){
@@ -62,10 +62,10 @@ void topoSortBFS(int n,vector<int>& ans){
         q.pop();
         ans.push_back(fnode);
         for(auto i : adj[fnode]){
-            if(indegree[i]>0)
+            if(indegree[i]!=0)
                 indegree[i]--;
                 else
-                ans.push_back(i);
+                q.push(i);
         }
     }
 }
@@ -80,7 +80,7 @@ int main(){
     g.addedge(4,0,1);
     g.printadj();
     vector<int> ans;
-     g.topoSortBFS(n,ans);
+    g.topoSortBFS(n,ans);
     for(auto i : ans)
         cout<<i<<" , ";
 }
