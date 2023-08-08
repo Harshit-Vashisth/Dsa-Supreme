@@ -33,12 +33,12 @@ class Graph{
         }
     }
     void dfs(int src,unordered_map<int,bool>& visited){
-        cout<<"src"<<", ";
+        cout<<src<<", ";
         visited[src]=true;
         for(auto nbr:adj[src])
         {
             if(!visited[nbr])
-                dfs(src,visited);
+                dfs(nbr,visited);
         }
     }
 };
@@ -51,9 +51,12 @@ int main(){
     g.addadj(4,5,1);
     g.addadj(5,6,1);
     g.printadj();
-    g.traversebfs(0);
+    // g.traversebfs(0);
     unordered_map<int,bool> visited;
-    g.dfs(0,visited);
+    for(int i=0;i<=5;i++){
+        if(!visited[i])
+            g.dfs(i,visited);
+    }
     // int n,e;
     // cout<<"Enter the number of nodes and edges "<<endl;
     // cin>>n>>e;
