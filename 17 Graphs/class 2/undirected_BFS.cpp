@@ -21,10 +21,10 @@ class Graph{
 int main(){
     Graph g;
     int n=5;
-    g.addedge(0,1,1);
-    g.addedge(1,2,1);
-    g.addedge(2,3,1);
-    g.addedge(3,4,1);
-    g.addedge(4,0,1);
+    g.addedge(0,1,0);
+    g.addedge(1,2,0);
+    g.addedge(2,3,0);
+    g.addedge(3,4,0);
+    g.addedge(4,0,0);
     g.print();
 }
