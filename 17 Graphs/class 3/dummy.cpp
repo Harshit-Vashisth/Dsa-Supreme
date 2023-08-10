@@ -27,12 +27,14 @@ class Graph{
 };
 int main(){
     Graph g;
-    int n=5;
+    int n=6;
     g.addedge(0,1,1);
     g.addedge(1,2,1);
     g.addedge(2,3,1);
     g.addedge(3,4,1);
-    g.addedge(4,5,1);
+    g.addedge(3,5,1);
+    g.addedge(4,6,1);
+    g.addedge(5,6,1);
     g.print();
     unordered_map<int,bool> visited;
     stack<int> ans;
@@ -41,7 +43,7 @@ int main(){
         g.toposort(i,visited,ans);
     }
     while(!ans.empty()){
-        cout<<ans.top();
+        cout<<ans.top()<<" ";
         ans.pop();
     }
 }
