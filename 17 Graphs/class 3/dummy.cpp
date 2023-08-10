@@ -16,13 +16,40 @@ class Graph{
             cout<<endl;
         }
     }
-    void toposort(int src,unordered_map<int,bool> & visited,stack<int>& ans){
+    void toposortDFS(int src,unordered_map<int,bool> & visited,stack<int>& ans){
         visited[src]=true;
         for(auto nbr:adj[src]){
             if(!visited[nbr])
-                toposort(nbr,visited,ans);
+                toposortDFS(nbr,visited,ans);
         }
         ans.push(src);
+    }
+    void topsortBFS(vector<int>& ans,int n){
+        queue<int> q;
+        unordered_map<int,bool> visited;
+        unordered_map<int,int> indegree;
+        
+        for(auto i:adj){
+            for(auto nbr:i.second){
+               indegree[nbr]++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(indegree[i]==0)
+                q.push(i);
+        }
+        while(!q.empty()){
+            int fnode=q.front();
+            q.pop();
+            ans.push_back(fnode);
+            for(auto nbr:adj[fnode]){
+                 indegree[nbr]--;
+				//check for zero again
+				if(indegree[nbr] == 0) {
+					q.push(nbr);
+				}
+            }
+        }
     }
 };
 int main(){
@@ -32,18 +59,18 @@ int main(){
     g.addedge(1,2,1);
     g.addedge(2,3,1);
     g.addedge(3,4,1);
-    g.addedge(3,5,1);
+    g.addedge(3,6,1);
     g.addedge(4,6,1);
     g.addedge(5,6,1);
     g.print();
-    unordered_map<int,bool> visited;
-    stack<int> ans;
-    for(int i=0;i<n;i++){
-        if(!visited[i])
-        g.toposort(i,visited,ans);
-    }
-    while(!ans.empty()){
-        cout<<ans.top()<<" ";
-        ans.pop();
-    }
+    // unordered_map<int,bool> visited;
+    // stack<int> ans;
+    // for(int i=0;i<n;i++){
+    //     if(!visited[i])
+    //     g.toposortDFS(i,visited,ans);
+    // }
+    vector<int> ans;
+    g.topsortBFS(ans,n);
+    for(auto i : ans)
+        cout<<i<<" ";
 }
