@@ -58,8 +58,8 @@ int main(){
     g.addedge(0,1,1);
     g.addedge(1,2,1);
     g.addedge(2,3,1);
+    g.addedge(3,5,1);
     g.addedge(3,4,1);
-    g.addedge(3,6,1);
     g.addedge(4,6,1);
     g.addedge(5,6,1);
     g.print();
@@ -71,6 +71,10 @@ int main(){
     // }
     vector<int> ans;
     g.topsortBFS(ans,n);
-    for(auto i : ans)
-        cout<<i<<" ";
+    // for(auto i : ans)
+    //     cout<<i<<" ";
+    if(ans.size()==n)
+    cout<<"Cycle is not persent";
+    else 
+    cout<<"Cycle present";
 }
