@@ -8,4 +8,15 @@ class Graph{
         if(direct==0)
             adj[v].push_back(u);
     }
+    void print(){
+        for(auto i:adj){
+            cout<<i.first;
+            for(auto nbr:i.second)
+                cout<<nbr;
+        }
+    }
 };
+int main(){
+    Graph g;
+    
+}
