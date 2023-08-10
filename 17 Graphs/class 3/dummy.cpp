@@ -10,13 +10,19 @@ class Graph{
     }
     void print(){
         for(auto i:adj){
-            cout<<i.first;
+            cout<<i.first<<"-> ";
             for(auto nbr:i.second)
                 cout<<nbr;
+            cout<<endl;
         }
     }
 };
 int main(){
     Graph g;
-    
+    g.addedge(0,1,1);
+    g.addedge(1,2,1);
+    g.addedge(2,3,1);
+    g.addedge(3,4,1);
+    g.addedge(4,5,1);
+    g.print();
 }
