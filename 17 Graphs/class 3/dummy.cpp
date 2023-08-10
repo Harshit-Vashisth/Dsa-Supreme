@@ -26,7 +26,6 @@ class Graph{
     }
     void topsortBFS(vector<int>& ans,int n){
         queue<int> q;
-        unordered_map<int,bool> visited;
         unordered_map<int,int> indegree;
         
         for(auto i:adj){
@@ -54,14 +53,12 @@ class Graph{
 };
 int main(){
     Graph g;
-    int n=6;
+    int n=5;
     g.addedge(0,1,1);
     g.addedge(1,2,1);
     g.addedge(2,3,1);
-    g.addedge(3,5,1);
-    g.addedge(3,4,1);
-    g.addedge(4,6,1);
-    g.addedge(5,6,1);
+    g.addedge(3,0,1);
+   
     g.print();
     // unordered_map<int,bool> visited;
     // stack<int> ans;
