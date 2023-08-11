@@ -58,5 +58,5 @@ int main(){
     g.addedge(3,5,1);
     g.addedge(5,6,1);
     g.printadj();
-    g.shortestPathBFS(0,5);
+    g.shortestPathBFS(0,4);
 }
