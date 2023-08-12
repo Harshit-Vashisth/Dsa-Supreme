@@ -143,7 +143,7 @@ class graph {
         }
         cout<<"printing";
         for(int i=0;i<n;i++)
-        cout<<dis[i]<<" ";
+        cout<<dis[i]<<"   ";
     }
 	
 };
@@ -151,19 +151,21 @@ class graph {
 int main() {
 	graph g;
 
-	g.addEdge(6,4,3,1);
+	g.addEdge(6,3,2,1);
 	g.addEdge(6,1,14,1);
 	g.addEdge(3,1,9,1);
 	g.addEdge(3,2,10,1);
 	g.addEdge(1,2,7,1);
 	g.addEdge(2,4,15,1);
-    g.addEdge(4,3,11,1);
+	g.addEdge(4,3,11,1);
+
 	g.addEdge(6,5,9,1);
-    g.addEdge(4,5,6,1);
+	g.addEdge(4,5,6,1);
+ 
 	g.printAdjList();
     stack<int> topo;
     unordered_map<int,bool> visited;
     g.topoSortDfs(0,visited,topo);
-    g.shortestDijkastra(6,4);g
+    g.shortestDijkastra(6,7);
 	return 0;
 }
