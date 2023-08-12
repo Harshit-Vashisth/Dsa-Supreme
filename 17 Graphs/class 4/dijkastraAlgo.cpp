@@ -13,6 +13,7 @@ class graph {
 	public:
 	unordered_map<int, list<pair<int,int> > > adjList;
 
+	
 	void addEdge(int u, int v, int wt, bool direction) {
 		//direction = 1 -> undirected graph
 		//direction => 0 -> directed graph;
@@ -113,24 +114,56 @@ class graph {
             cout<<dist[i]<<"  ";
         }
 	}
+    void shortestDijkastra(int src,int n){
+        vector<int> dis(n,INT_MAX);
+        set<pair<int,int>> st;
+        dis[src]=0;
+        st.insert(make_pair(0,src));
+        while(!st.empty()){
+            auto top=*(st.begin());//iterator of  starting value then we derefrence it to get the actual vlaue
+            int nodedis=top.first;
+            int node=top.second;
+            st.erase(st.begin());
 
+            //neighbour traversal
+            for(auto nbr: adjList[node]){
+                if(nodedis+nbr.second<dis[nbr.first]){
+                    //update dis in set and dis array       GALTI++++
+                    // find dis of set on old 
+                    // search dis[nbr.first in set]
+                    auto result=st.find(make_pair(dis[nbr.first],nbr.first));
+                    if(result !=st.end()) {
+                        st.erase(result);
+                    } //found
+                    dis[nbr.first]=nodedis+nbr.second;
+                    st.insert(make_pair(dis[nbr.first],nbr.first));
+
+                }
+            }
+        }
+        cout<<"printing";
+        for(int i=0;i<n;i++)
+        cout<<dis[i]<<" ";
+    }
 	
 };
 
 int main() {
 	graph g;
 
-	g.addEdge(0,1,5,1);
-	g.addEdge(0,2,3,1);
-	g.addEdge(2,1,2,1);
-	g.addEdge(1,3,3,1);
-	g.addEdge(2,4,6,1);
-	g.addEdge(4,3,1,1);
-	
+	g.addEdge(6,4,3,1);
+	g.addEdge(6,1,14,1);
+	g.addEdge(3,1,9,1);
+	g.addEdge(3,2,10,1);
+	g.addEdge(1,2,7,1);
+	g.addEdge(2,4,15,1);
+    g.addEdge(4,3,11,1);
+	g.addEdge(6,5,9,1);
+    g.addEdge(4,5,6,1);
+	g.printAdjList();
     stack<int> topo;
     unordered_map<int,bool> visited;
     g.topoSortDfs(0,visited,topo);
-    g.shortestpathDfs(topo,3,5);
-
+    g.shortestDijkastra(6,4);g
 	return 0;
 }
