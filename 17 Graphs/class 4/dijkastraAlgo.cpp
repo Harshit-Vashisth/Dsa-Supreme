@@ -90,30 +90,6 @@ class graph {
 		topo.push(src);
 	}
 
- 	void shortestpathDfs(stack<int> topo, int dest,int n) {
-		vector<int> dist(n, INT_MAX);
-
-		int src = topo.top();
-		topo.pop();
-		dist[src] = 0;
-        for(auto nbr: adjList[0]){
-            if(dist[0]+nbr.second<dist[nbr.first])
-                dist[nbr.first]=dist[0]+nbr.second;
-        }
-        while(!topo.empty()){
-            int topele=topo.top();
-            topo.pop();
-            if(dist[topele]!=INT_MAX){
-            for(auto nbr:adjList[topele]){
-                if(dist[topele]+nbr.second<dist[nbr.first])
-                    dist[nbr.first]=dist[topele]+nbr.second;
-                }
-            }
-        }
-        for(int i=0;i<n;i++){
-            cout<<dist[i]<<"  ";
-        }
-	}
     void shortestDijkastra(int src,int n){
         vector<int> dis(n,INT_MAX);
         set<pair<int,int>> st;
