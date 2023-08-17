@@ -91,20 +91,21 @@ public:
 		return false;
 	}
 
-	bool checkCyclicUsingDfs(int src, unordered_map<int,bool>& visited, int parent) {
+	bool checkCyclicUsingDfs(int src, unordered_map<int,bool>& visited, int parent,unordered_map<int,bool>& dfsvisited) {
 		visited[src] = true;
-
+        dfsvisited[src]=true;
 		for(auto nbr: adjList[src]) {
 			if(!visited[nbr]) {
-				bool checkAageKaAns = checkCyclicUsingDfs(nbr, visited, src);
+				bool checkAageKaAns = checkCyclicUsingDfs(nbr, visited, src,dfsvisited);
 				if(checkAageKaAns == true)
 					return true;
 			}
-			else if( nbr != parent) {
+			else if( visited[nbr]==true&&dfsvisited[nbr]==true) {
 				//cycle present
 				return true;
 			}
 		}
+        dfsvisited[src]=false;
 		return false;
 	}
 
@@ -173,7 +174,7 @@ int main() {
 	g.addEdge(1,2,1);
 	g.addEdge(2,3,1);
 	g.addEdge(3,4,1);
-	g.addEdge(4,0,1);
+	// g.addEdge(4,0,1);
 
 	g.printAdjacencyList();
 	cout << endl;
@@ -212,9 +213,10 @@ int main() {
 
 	bool ansDfs = false;
 	unordered_map<int, bool> visitedDfs;
+    unordered_map<int, bool> dfsvisited;
 	for(int i=0; i<n; i++) {
 		if(!visitedDfs[i]) {
-			 ansDfs = g.checkCyclicUsingDfs(i,visitedDfs, -1);
+			 ansDfs = g.checkCyclicUsingDfs(i,visitedDfs, -1,dfsvisited);
 			if(ansDfs == true)
 				break;
 		}
