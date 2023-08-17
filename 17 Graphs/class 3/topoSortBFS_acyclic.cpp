@@ -47,11 +47,12 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,unordered_map<int,bool>
 void topoSortBFS(int n,vector<int>& ans){
     unordered_map<int,int> indegree;
     queue<int> q;
+    //calculating indegree
     for(auto i:adj){
         for(auto nbr:i.second)
             indegree[nbr]++;
     }
-    
+    //put all node inside q with in degree 0 
     for(int i=0;i<n;i++){
         if(indegree[i]==0)
             q.push(i);

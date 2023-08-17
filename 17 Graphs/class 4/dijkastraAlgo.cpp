@@ -141,7 +141,7 @@ int main() {
 	g.printAdjList();
     stack<int> topo;
     unordered_map<int,bool> visited;
-    g.topoSortDfs(0,visited,topo);
+    g.topoSortDfs(1,visited,topo);
     g.shortestDijkastra(6,7);
 	return 0;
 }
