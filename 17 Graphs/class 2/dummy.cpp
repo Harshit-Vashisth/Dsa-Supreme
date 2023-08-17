@@ -39,6 +39,21 @@ class Graph{
         }
         return false;
     }
+    bool dfs(int src,unordered_map<int,bool>& visited, int parent){
+        visited[src]=true;
+
+    for(auto nbr: adj[src])
+    {
+    if(!visited[nbr]){
+        bool check=dfs(nbr,visited,src);
+        if(check==true)
+            return true;
+    }
+        if( nbr!= parent)
+            return true;
+    }
+    return false;
+    }
 };
 int main(){
     Graph g;
@@ -47,19 +62,19 @@ int main(){
     g.addedge(1,2,0);
     g.addedge(2,3,0);
     g.addedge(3,4,0);
-    g.addedge(4,2,0);
+    // g.addedge(4,0,0);
     g.print();
     bool ans=false;
     unordered_map<int,bool> visited;
-    for(int i=0;i<n;i++){
-        if(!visited[i]){
-            ans=g.cycledetect(i,visited);
+    for(int i=0;i<5;i++){
+        if(!visited[i])
+            ans=g.dfs(i,visited,-1);
             if(ans==true)
                 break;
-        }
+        
     }
     if(ans==true)
         cout<<"Cycle is prsent"<<endl;
     else
-        cout<<"Cycle is absent"<<endl;
+        cout<<"Cycle is not present"<<endl;
 }
