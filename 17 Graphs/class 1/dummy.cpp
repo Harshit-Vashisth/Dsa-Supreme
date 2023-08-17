@@ -17,6 +17,17 @@ class Graph{
             cout<<endl;
         }
     }
+    void taraversalDFS(int src, unordered_map<int,bool>& visited){
+        visited[src]=true;
+        queue<int> q;
+        for(auto nbr:adj[src]){
+            cout<<src<<", ";
+            if(!visited[src]){
+                visited[nbr]=true;
+                taraversalDFS(nbr,visited);
+            }
+        }
+    }
     void taraversalbfs(int src){
         queue<int> q;
         unordered_map<int,bool> visited;
@@ -44,4 +55,11 @@ int main(){
     g.addedge(4,3,0);
     g.printedge();
     g.taraversalbfs(0);
+    unordered_map<int,bool> visited;
+    cout<<endl;
+    for(int i =0;i<5;i++){
+        if(!visited[i])
+            g.taraversalDFS(i,visited);
+    }
+    
 }
