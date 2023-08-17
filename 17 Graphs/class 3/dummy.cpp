@@ -2,76 +2,65 @@
 using namespace std;
 class Graph{
     public:
-    unordered_map<int, list<int>> adj;
-    void addedge(int u, int v , int direct){
+    unordered_map<int,list<int>> adj;
+    void addedge(int u, int v ,int direct){
         adj[u].push_back(v);
         if(direct==0)
-            adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     void print(){
-        for(auto i:adj){
+        for(auto i: adj){
             cout<<i.first<<"-> ";
-            for(auto nbr:i.second)
-                cout<<nbr;
+            for( auto nbr: i.second){
+                cout<<nbr<<", ";
+            }
             cout<<endl;
         }
     }
-    void toposortDFS(int src,unordered_map<int,bool> & visited,stack<int>& ans){
-        visited[src]=true;
-        for(auto nbr:adj[src]){
-            if(!visited[nbr])
-                toposortDFS(nbr,visited,ans);
-        }
-        ans.push(src);
-    }
-    void topsortBFS(vector<int>& ans,int n){
+    bool cycledetect(int src,unordered_map<int,bool>& visited){
         queue<int> q;
-        unordered_map<int,int> indegree;
         
-        for(auto i:adj){
-            for(auto nbr:i.second){
-               indegree[nbr]++;
-            }
-        }
-        for(int i=0;i<n;i++){
-            if(indegree[i]==0)
-                q.push(i);
-        }
+        unordered_map<int,int> parent;
+        q.push(src);
+        visited[src]=true;
+        parent[src]=-1;
         while(!q.empty()){
-            int fnode=q.front();
+            int fNode=q.front();
             q.pop();
-            ans.push_back(fnode);
-            for(auto nbr:adj[fnode]){
-                 indegree[nbr]--;
-				//check for zero again
-				if(indegree[nbr] == 0) {
-					q.push(nbr);
-				}
+            for(auto nbr: adj[fNode]){
+                if(!visited[nbr]){
+                    visited[nbr]=true;
+                    parent[nbr]=fNode;
+                    q.push(nbr);
+                }
+                else if(nbr!=parent[fNode]){
+                    return true;
+                }
             }
         }
+        return false;
     }
 };
 int main(){
     Graph g;
     int n=5;
-    g.addedge(0,1,1);
-    g.addedge(1,2,1);
-    g.addedge(2,3,1);
-    g.addedge(3,0,1);
-   
+    g.addedge(0,1,0);
+    g.addedge(1,2,0);
+    g.addedge(2,3,0);
+    g.addedge(3,4,0);
+    g.addedge(4,2,0);
     g.print();
-    // unordered_map<int,bool> visited;
-    // stack<int> ans;
-    // for(int i=0;i<n;i++){
-    //     if(!visited[i])
-    //     g.toposortDFS(i,visited,ans);
-    // }
-    vector<int> ans;
-    g.topsortBFS(ans,n);
-    // for(auto i : ans)
-    //     cout<<i<<" ";
-    if(ans.size()==n)
-    cout<<"Cycle is not persent";
-    else 
-    cout<<"Cycle present";
+    bool ans=false;
+    unordered_map<int,bool> visited;
+    for(int i=0;i<n;i++){
+        if(!visited[i]){
+            ans=g.cycledetect(i,visited);
+            if(ans==true)
+                break;
+        }
+    }
+    if(ans==true)
+        cout<<"Cycle is prsent"<<endl;
+    else
+        cout<<"Cycle is absent"<<endl;
 }
