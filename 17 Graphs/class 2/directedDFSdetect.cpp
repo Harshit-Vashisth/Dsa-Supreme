@@ -38,7 +38,7 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,unordered_map<int,bool>
         if(check==true)
         return true;
     }
-        if(visted[nbr]==true && dfsvisted[nbr]==true)
+    else if(visted[nbr]==true && dfsvisted[nbr]==true)
             return true;
     }
     dfsvisted[src]=false;

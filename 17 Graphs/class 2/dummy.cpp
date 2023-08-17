@@ -120,7 +120,7 @@ unordered_map<int,bool> dfsVisited) {
 				if(aageKaAnswer == true)
 					return true;
 			}
-			if(visited[nbr] == true && dfsVisited[nbr] == true) {
+			else if( dfsVisited[nbr] == true) {
 				return true;
 			}
 		}
