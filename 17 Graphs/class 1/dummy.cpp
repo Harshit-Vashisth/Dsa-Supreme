@@ -20,10 +20,9 @@ class Graph{
     void taraversalDFS(int src, unordered_map<int,bool>& visited){
         visited[src]=true;
         queue<int> q;
+        cout<<src<<", ";
         for(auto nbr:adj[src]){
-            cout<<src<<", ";
-            if(!visited[src]){
-                visited[nbr]=true;
+            if(!visited[nbr]){
                 taraversalDFS(nbr,visited);
             }
         }
