@@ -1,19 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int n;
-    cout<<"Enter the no of nodes"<<endl;
-    cin>>n;
-    vector<vector<int>> adj(n,vector<int>(n,0));
-    for(int i=0;i<n;i++){
-        int u,v;
-        cin>>u>>v;
-        adj[u][v]=1;
+class Graph{
+    public:
+    unordered_map<int,list<int>> adj;
+    void addedge(int u,int v,int direction){
+        adj[u].push_back(v);
+        if(direction==0)
+            adj[v].push_back(u);
     }
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout<<adj[i][j];
+    void printedge(){
+        for(auto i:adj){
+            cout<<i.first<<"-> ";
+            for(auto nbr: i.second){
+                cout<<nbr;
+            }
+            cout<<endl;
         }
-        cout<<endl;
     }
+};
+int main(){
+    Graph g;
+    g.addedge(0,1,1);
+    g.addedge(1,3,1);
+    g.addedge(2,1,1);
+    g.addedge(3,2,1);
+    g.addedge(4,3,1);
+    g.addedge(4,1,1);
+    g.addedge(3,1,1);
+    g.printedge();
 }
