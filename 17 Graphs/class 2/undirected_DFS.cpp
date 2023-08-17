@@ -38,8 +38,8 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,int parent){
         if(check==true)
             return true;
     }
-        if( nbr!= parent)
-            return true;
+    else if( nbr!= parent)
+        return true;
     }
     return false;
 }
