@@ -43,14 +43,16 @@ bool checkcyclic(int src,unordered_map<int,bool>& visted,int parent){
     }
     return false;
 }
-void topoSort(int src,unordered_map<int,bool>& visited,stack<int>& ans){
+void topoSort(int src,unordered_map<int,bool>& visited,stack<int>& st){
     visited[src]=true;
     for(auto nbr:adj[src]){
         if(!visited[nbr])
-            topoSort(src,visited,ans);
+            topoSort(nbr,visited,st);
     }
-    ans.push(src);
+    st.push(src);
 }
+    
+
 };
 int main(){
     Graph g;
@@ -66,14 +68,14 @@ int main(){
     // g.addedge(4,0,1);
     g.printadj();
     unordered_map<int, bool> visited;
-    stack<int> ans;
+    stack<int> st;
     for(int i=0;i<8;i++){ 
         if(!visited[i])
-            g.topoSort(i,visited,ans);
+            g.topoSort(i,visited,st);
     }
     cout<<endl;
-    while(!ans.empty()){
-        cout<<ans.top()<<", ";
-        ans.pop();
+    while(!st.empty()){
+        cout<<st.top()<<", ";
+        st.pop();
     }
 }
