@@ -4,11 +4,14 @@ using namespace std;
 class Graph{
     public : 
     unordered_map<int,list<pair<int,int>>> adj;
-    void addEdge(int u, int v,int wt,int direct){
-        adj[u].push_back({v,wt});
-        if(direct==0)
-           adj[v].push_back({u,wt}); 
-    }
+    void addEdge(int u, int v, int wt, bool direction) {
+		//direction = 1 -> undirected graph
+		//direction => 0 -> directed graph;
+		adj[u].push_back({v,wt});
+		if(direction == 1) {
+			adj[v].push_back({u,wt});
+		}
+	}
     void print() {
 		for(auto i: adj) {
 			cout << i.first <<"-> ";
