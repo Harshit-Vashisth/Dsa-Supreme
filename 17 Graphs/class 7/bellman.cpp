@@ -3,9 +3,10 @@ using namespace std;
 class Graph{
     public:
     unordered_map<int,list<pair<int,int>>> adj;
-    void addEdges(int u ,int v,int wt,direct){
+    void addEdges(int u ,int v,int wt,int direct){
         // 1 ->undirected 
         // 0->directed
+
     }
 };
 int main(){
