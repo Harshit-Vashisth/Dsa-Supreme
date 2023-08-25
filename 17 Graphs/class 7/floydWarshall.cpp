@@ -20,57 +20,46 @@ class Graph{
             cout<<endl;
         }
     }
-    void bellmanFordAlgo(int n,int src){
-        vector<int> dist(n,INT_MAX);
-        dist[src]=0;
-        for(int i=0;i<n-1;i++){
-            //n-1 relaxation step
-            for(auto t:adj)
-            {
-                for(auto nbr:t.second){
-                    int u=t.first;
-                    int v=nbr.first;
-                    int wt=nbr.second;
-                    if(dist[u]!=INT_MAX && dist[u]+wt<dist[v]){
-                        dist[v]=dist[u]+wt;
-                        }
+    void floyd(int n){
+        vector<vector<int>> dist(n,vector<int>(n,10000));
+        //diagnoal par 0
+        for(int i=0;i<n;i++){
+            dist[i][i]=0;
+        }
+        //yaha humne graph ke ac dist insert karidya h 
+        for(auto t: adj){
+            for(auto nbr:t.second){
+                int u=t.first;
+                int v=nbr.first;
+                int wt=nbr.second;
+                dist[u][v]=wt;
+            }
+        }
+        for(int helper=0;helper<n;helper++){
+            for(int src=0;src<n;src++){
+                for(int dest=0;dest<n;dest++){
+                    dist[src][dest]=min(dist[src][dest]  ,   dist[src][helper]+dist[helper][dest]);
+                    // we can also termed it as dp as we are using old state 
                 }
             }
         }
-        bool negativecycle=false;
-        for(auto t:adj)
-            {
-                for(auto nbr:t.second){
-                    int u=t.first;
-                    int v=nbr.first;
-                    int wt=nbr.second;
-                    if(dist[u]!=INT_MAX && dist[u]+wt<dist[v]){
-                        negativecycle=true;
-                        break;
-                        }
-                }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                cout<<dist[i][j]<<" ";
             }
-        if(negativecycle)
-            cout<<"negative cycle is present";
-        else{
-            cout<<"negative cycle is absent";
+            cout<<endl;
         }
-        cout<<"Printing the answer";
-        for(auto i :dist)
-            cout<<i<<" ";
     }
 };
 int main(){
     Graph g; 
-    g.addEdges(0,1,-1,0);
-    g.addEdges(0,2,4,0);
-    g.addEdges(1,2,3,0);
+    g.addEdges(0,1,3,0);
+    g.addEdges(0,3,5,0);
+    g.addEdges(1,0,2,0);
     
-    g.addEdges(1,3,2,0);
-    g.addEdges(1,4,2,0);
-    g.addEdges(3,1,1,0);
+    g.addEdges(1,3,4,0);
+    g.addEdges(2,1,1,0);
+    g.addEdges(3,2,2,0);
 
-    g.addEdges(3,2,5,0);
-    g.addEdges(4,3,-3,0);
-    g.bellmanFordAlgo(5,0);
+    g.floyd(4);
 }
