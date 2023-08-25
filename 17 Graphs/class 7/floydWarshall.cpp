@@ -21,7 +21,7 @@ class Graph{
         }
     }
     void floyd(int n){
-        vector<vector<int>> dist(n,vector<int>(n,10000));
+        vector<vector<int>> dist(n,vector<int>(n,1000000));
         //diagnoal par 0
         for(int i=0;i<n;i++){
             dist[i][i]=0;
