@@ -22,6 +22,16 @@ class Graph{
     }
 };
 int main(){
-    Graph g;
+    Graph g; 
+    g.addEdges(0,1,-1,0);
+    g.addEdges(0,2,-1,0);
+    g.addEdges(1,2,-1,0);
+    
+    g.addEdges(1,3,2,0);
+    g.addEdges(1,4,2,0);
+    g.addEdges(3,1,1,0);
 
+    g.addEdges(3,2,5,0);
+    g.addEdges(4,3,-3,0);
+    
 }
