@@ -20,18 +20,37 @@ void print(Node* head){
         temp=temp->next;
     }
 }
+void insertAthead(Node* &head,Node* &tail,int data){
+    //i want to insert a node at the head of ll
+    //by ref we dont want to return or we want to change in orignal
+    Node* newnode=new Node(data);
+    if(head==NULL)
+    {
+        head=newnode;
+        tail=newnode;
+    }
+    
+    newnode->next=head;
+    head=newnode;
+}
+void insertAttail(Node* &head,Node* &tail,int data){
+    Node* newnode=new Node(data);
+    if(head==NULL)
+    {
+        head=newnode;
+        tail=newnode;
+    }
+    tail->next=newnode;
+    tail=newnode;
+}
 int main(){
-    Node* head=new Node(10);
-    Node* a=new Node(20);
-    Node* b=new Node(30);
-    Node* c=new Node(40);
-    Node* d=new Node(50);
-    Node* e=new Node(60);
-    head->next=a;
-    a->next=b;
-    b->next=c;
-    c->next=d;
-    d->next=e;
+    Node* head=NULL;
+    Node* tail=NULL;
+    insertAthead(head,tail,20); 
+    insertAthead(head,tail,30);
+    insertAthead(head,tail,50);
+    insertAthead(head,tail,40);
+    insertAttail(head,tail,60);
     print(head);
     
 }
