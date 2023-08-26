@@ -43,6 +43,14 @@ void insertAttail(Node* &head,Node* &tail,int data){
     tail->next=newnode;
     tail=newnode;
 }
+int findlen(Node* head){
+    int i=0;
+    while(head!=NULL){
+        head=head->next;
+        i++;
+    }
+    return i;
+}
 void insertAtpos(Node* &head,Node* &tail,int data,int pos){
     Node* newnode=new Node(data);
     if(head==NULL)
@@ -50,8 +58,14 @@ void insertAtpos(Node* &head,Node* &tail,int data,int pos){
         head=newnode;
         tail=newnode;
     }
-    if(pos==1)
+    if(pos==1){
         insertAthead(head,tail,data);
+        return ;
+    }
+    int len=findlen(head);
+    if(pos==len){
+        insertAttail(head,tail,data);
+    }
     Node* temp=head;
     while(pos>1){
         temp=temp->next;
@@ -73,4 +87,6 @@ int main(){
     insertAtpos(head,tail,100,3);
     insertAtpos(head,tail,90,4);
     print(head);
+    cout<<endl;
+    cout<<findlen(head)<<endl;
 }
