@@ -74,6 +74,48 @@ void insertAtpos(Node* &head,Node* &tail,int data,int pos){
     newnode->next=temp->next;
     temp->next=newnode;
 }
+void deletion(int pos,Node* &head,Node* &tail){
+    if(head==NULL){
+        cout<<"can't delete "<<endl;
+        return;
+    }
+    if(pos==1){ 
+        // write a destructor to delte a node 
+        Node* temp=head;
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+        return;
+    }
+    int len=findlen(head);
+    if(pos==len){
+        // step1 find prev 
+        int i=1;
+        Node* prev=head;
+        while(i<pos-1){
+            prev=prev->next;
+            i++;
+        }
+        // step3
+        prev->next=NULL;
+        Node* temp=tail;
+        tail=prev;
+        delete temp;
+        return;
+    }
+    int i=1;
+        Node* prev=head;
+        
+        while(i<pos-1){
+            prev=prev->next;
+            i++;
+        }
+        // step3
+        Node* temp=prev->next;
+        prev->next=prev->next->next;
+        temp->next=NULL;
+        delete temp;
+}
 int main(){
     Node* head=NULL;
     Node* tail=NULL;
@@ -89,4 +131,6 @@ int main(){
     print(head);
     cout<<endl;
     cout<<findlen(head)<<endl;
+    deletion(7,head,tail);
+    print(head);
 }
