@@ -39,14 +39,15 @@ Node* sort(Node* head){
 
    Node* curr=head;
    while(curr!=NULL){
-    if(curr->data==0)
-    {
+    if(curr->data==0){
         Node* temp=curr;
         curr=curr->next;
         temp->next=NULL;
         zerotail->next=temp;
         zerotail=temp;
     }
+    
+    
     else if(curr->data==1)
     {
         Node* temp=curr;
