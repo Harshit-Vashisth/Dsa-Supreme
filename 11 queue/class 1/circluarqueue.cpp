@@ -10,7 +10,7 @@ class Circularqueue{
         rear=-1;
     }
     void push(int data){
-        if((front==-0&&rear==size-1)||(rear==front-1)){
+        if((front==0&&rear==size-1)||(rear==front-1)){
             cout<<"Overflow queue"<<endl;
             return ;
         }
