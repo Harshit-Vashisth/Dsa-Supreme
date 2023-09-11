@@ -43,5 +43,8 @@ class Queue{
             return true;
         else
             return false;
+    } 
+    int getSize(){
+        return rear-front;
     }
 };
