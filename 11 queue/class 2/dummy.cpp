@@ -36,6 +36,23 @@ void reversek(queue<int>& q, int k){
         count++;
     }
 }
+void interleave(queue<int>& q){
+    queue<int> q2;
+    int n=q.size();
+    int count=0;
+    while(count<n/2){
+        q2.push(q.front());
+        q.pop();
+        count++;
+    }
+    while(count<n){
+        q.push(q2.front());
+        q.push(q.front());
+        q2.pop();
+        q.pop();
+        count++;
+    }
+}
 int main(){
     queue<int> q;
     q.push(3);
@@ -43,12 +60,14 @@ int main(){
     q.push(4);
     q.push(2);
     q.push(8);
+    q.push(9);
     print(q);
     // reverse(q);
     // cout<<endl;
     // print(q);
     int k=3;
-    reversek(q,k);
+    interleave(q);
     cout<<endl;
     print(q);
+
 }
