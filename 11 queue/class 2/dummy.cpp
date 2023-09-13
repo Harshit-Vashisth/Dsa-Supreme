@@ -22,5 +22,7 @@ int main(){
     q.push(2);
     q.push(8);
     print(q);
-
+    reverse(q);
+    cout<<endl;
+    print(q);
 }
