@@ -1,0 +1,117 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+#wrapper{
+    height:100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* yaha hum 3d wali game khelenge toh 4d wali game ko on karne ke liye  */
+    /* we have to define persepctive  */
+    /* ye z=0 plane and humari eye ke bich wla distance hota h  */
+    perspective: 10px;
+    /* value se frk ni padhta h  */
+}
+    .container{
+
+        /* use flex  */
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height:100%;
+
+         /* transform style;  */
+        transform-style: preserve-3d;
+
+
+        z-index:-1;
+        /* z index is used for obver lapping  */
+    }
+
+.background{
+    transform:translateZ(-40px) scale(5.1);
+    /* isse image choti dikhegi but choti ni hui dur chali gyi h  */
+}
+.foreground{
+    transform:translateZ(-20px) scale(3);
+}
+
+.background,.foreground{
+    position:absolute;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    object-fit: cover; 
+    /* fit image in container ,,, container by kara kyuki i want to create flex and for flex i want to create  a parent box soo  */
+}
+.foreground{
+    width: 250px;
+    height: 300px;
+    position:absolute;
+    z-index: -1;
+    margin-top: 85%;
+    box-shadow: 4px 4px 20px rgb(4, 4, 68);
+}
+h1{
+    position: absolute;
+    font-size:5rem;
+    color: white;
+    text-shadow: 0px 0px 5px rgb(100, 100, 255),0px 0px 15px rgb(100, 100, 255),0px 0px 35px rgb(100, 100, 255);
+    top:6rem;
+    left:50%;
+    text-align: center;
+    /* text-shadow: 0 0 10px rgba(0,0,0,0.3); */
+    transform: translateX(-50%);
+    letter-spacing: 4px;
+}
+section{
+    background-color: rgb(45,45,45);
+    padding:5rem 0;
+    color:white;
+}
+.bg1{
+    background-image: url(page2/p1.JPG);
+}
+.bg2{
+    background-image: url(page2/p2.JPG);
+}
+.bg3{
+    background-image: url(page2/p3.jpg);
+}
+.bg{
+    position: relative;
+    width:100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+.desc{
+    position: absolute;
+    background-color: white;
+    padding:0.5rem 2.5rem;
+    top:50%;
+    left:50%;
+    color: black;
+    transform: translateX(-50%) translateX(-50%);
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.secHeading{
+    font-size: 5rem;
+    padding:0 10rem;
+}
+.text{
+    font-size: 1.5rem;
+    padding:0 10rem;
+    margin:5rem 0;
+}
+.clickme{
+    font-size: 40px;
+    text-align: center;
+    text-decoration: wavy;
+    text-shadow: 0px 0px 20px white;
+}
