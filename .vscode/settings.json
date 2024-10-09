@@ -11,6 +11,7 @@
         "random": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
-        "dummy.C": "cpp"
+        "dummy.C": "cpp",
+        "cmath": "cpp"
     }
 }
